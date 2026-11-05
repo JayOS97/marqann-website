@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Plaza Marqann</title>
+<meta name="description" content="Oficinas, locales y almacenes en alquiler en el Km 4 de la carretera Sosúa–Cabarete, Puerto Plata. Energía solar con baterías y generador de respaldo.">
+<meta property="og:title" content="Plaza Marqann · Sosúa">
+<meta property="og:description" content="Espacios comerciales en el Km 4 de la carretera Sosúa–Cabarete.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"LocalBusiness","name":"Plaza Marqann","legalName":"MARQANN, S.R.L.","address":{"@type":"PostalAddress","streetAddress":"Km 4, Carretera Sosúa–Cabarete, El Batey","addressLocality":"Sosúa","addressRegion":"Puerto Plata","addressCountry":"DO"},"telephone":"+1-809-853-9232","email":"support@marqann.com"}
+</script>
+<style>
+/* Plaza Marqann — one brand world (single theme by choice).
+   Layout idea: full-bleed architectural photography alternating with calm ivory text bands; brass rules mark facts, never decoration. */
+:root{
+  --ivory:#F6F2EA;
+  --paper:#FBF9F4;
+  --forest:#1F3A2E;
+  --forest-deep:#142820;
+  --charcoal:#24262A;
+  --stone:#6B6A64;
+  --brass:#A8834A;
+  --brass-soft:#D9C49C;
+  --line:#E2DACB;
+  --display:"Fraunces", "Iowan Old Style", Georgia, serif;
+  --body:"Manrope", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --wrap:1200px;
+  --gut:clamp(16px,4vw,40px);
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{margin:0;background:var(--paper);color:var(--charcoal);font-family:var(--body);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1.1;margin:0;text-wrap:balance;letter-spacing:-.01em}
+h2{font-size:clamp(32px,4.4vw,52px)}
+h3{font-size:24px}
+p{margin:0}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--gut)}
+.eyebrow{font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--brass)}
+.lede{font-size:19px;color:var(--stone);max-width:62ch}
+:focus-visible{outline:2px solid var(--brass);outline-offset:3px;border-radius:2px}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 24px;border-radius:2px;font:600 15px/1 var(--body);letter-spacing:.02em;text-decoration:none;cursor:pointer;border:1px solid transparent;transition:background .2s,color .2s,border-color .2s}
+.btn-brass{background:var(--brass);color:#fff}
+.btn-brass:hover{background:#8F6E3A}
+.btn-ghost{border-color:rgba(255,255,255,.6);color:#fff;background:rgba(20,40,32,.25)}
+.btn-ghost:hover{background:rgba(255,255,255,.12)}
+.btn-forest{background:var(--forest);color:#fff}
+.btn-forest:hover{background:var(--forest-deep)}
+.btn-line{border-color:var(--forest);color:var(--forest);background:transparent}
+.btn-line:hover{background:var(--forest);color:#fff}
+
+/* header */
+.top{position:sticky;top:0;z-index:40;background:rgba(251,249,244,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;height:72px}
+.brand{display:flex;flex-direction:column;text-decoration:none;line-height:1}
+/* TEMPORARY wordmark — replace with the approved Marqann logo file */
+.brand b{font-family:var(--display);font-weight:500;font-size:24px;letter-spacing:.22em;color:var(--forest)}
+.brand small{font-size:10px;letter-spacing:.32em;text-transform:uppercase;color:var(--brass);margin-top:5px}
+.nav{display:flex;align-items:center;gap:28px}
+.nav a{font-size:14px;font-weight:600;text-decoration:none;color:var(--charcoal)}
+.nav a:hover{color:var(--brass)}
+.nav a.btn{color:#fff}.nav a.btn:hover{color:#fff}
+@media (max-width:480px){.top .brand small{letter-spacing:.18em;font-size:9px}.top .brand b{font-size:21px}}
+.lang{display:flex;border:1px solid var(--line);border-radius:2px;overflow:hidden}
+.lang button{min-width:44px;min-height:36px;border:0;background:transparent;font:700 12px var(--body);letter-spacing:.1em;cursor:pointer;color:var(--stone)}
+.lang button[aria-pressed="true"]{background:var(--forest);color:#fff}
+.menu-btn{display:none;min-width:44px;min-height:44px;border:1px solid var(--line);background:transparent;border-radius:2px;cursor:pointer}
+@media (max-width:900px){
+  .nav{position:fixed;inset:72px 0 auto 0;flex-direction:column;align-items:stretch;gap:0;background:var(--paper);border-bottom:1px solid var(--line);padding:8px var(--gut) 20px;display:none}
+  .nav.open{display:flex}
+  .nav a{padding:14px 0;border-bottom:1px solid var(--line);font-size:16px}
+  .nav .btn{margin-top:16px}
+  .menu-btn{display:inline-flex;align-items:center;justify-content:center}
+}
+
+/* hero */
+.hero{position:relative;color:#fff;min-height:min(86vh,760px);display:flex;align-items:flex-end;overflow:hidden;background:var(--forest-deep)}
+.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 40%;animation:settle 1.6s ease-out both}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,40,32,.15) 0%,rgba(20,40,32,.35) 45%,rgba(16,30,24,.88) 100%)}
+@keyframes settle{from{transform:scale(1.04)}to{transform:scale(1)}}
+.hero .wrap{position:relative;z-index:1;width:100%;padding-top:120px;padding-bottom:48px}
+.hero .eyebrow{color:var(--brass-soft)}
+.hero h1{font-size:clamp(42px,7vw,88px);font-weight:300;max-width:13ch;margin:16px 0 20px}
+.hero p.sub{font-size:clamp(17px,2vw,20px);max-width:52ch;color:rgba(255,255,255,.88)}
+.hero .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.facts{position:relative;z-index:1;display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:48px;border-top:1px solid rgba(217,196,156,.45)}
+.facts div{padding:18px 20px 0 0}
+.facts dt{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--brass-soft);font-weight:700}
+.facts dd{margin:6px 0 0;font-size:15px;color:#fff}
+@media (max-width:760px){.facts{grid-template-columns:1fr 1fr;row-gap:8px}}
+
+/* sections */
+section{padding:clamp(72px,10vw,128px) 0}
+.intro{display:grid;grid-template-columns:5fr 6fr;gap:clamp(32px,6vw,96px);align-items:center}
+.intro .stack{display:grid;gap:22px}
+.intro figure{margin:0;position:relative}
+.intro figure img{aspect-ratio:4/3;object-fit:cover;width:100%}
+.intro figcaption,.cap{font-size:13px;color:var(--stone);margin-top:10px}
+.zones{display:grid;gap:0;border-top:1px solid var(--line);margin-top:8px}
+.zones div{display:grid;grid-template-columns:150px 1fr;gap:16px;padding:14px 0;border-bottom:1px solid var(--line)}
+.zones b{font-family:var(--display);font-weight:500;font-size:18px;color:var(--forest)}
+.zones span{color:var(--stone);font-size:15px}
+@media (max-width:860px){.intro{grid-template-columns:1fr}.zones div{grid-template-columns:1fr;gap:2px}}
+
+/* benefits */
+.benefits{background:var(--ivory)}
+.head{display:flex;justify-content:space-between;align-items:end;gap:32px;flex-wrap:wrap;margin-bottom:48px}
+.head .stack{display:grid;gap:14px;max-width:640px}
+.ben-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.ben{background:var(--ivory);padding:32px 28px 36px;display:grid;gap:12px;align-content:start}
+.ben svg{width:32px;height:32px;stroke:var(--brass);fill:none;stroke-width:1.5}
+.ben h3{font-size:22px;color:var(--forest)}
+.ben p{color:var(--stone);font-size:15.5px}
+@media (max-width:900px){.ben-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.ben-grid{grid-template-columns:1fr}}
+
+/* spaces */
+.spaces-list{display:grid;gap:clamp(40px,6vw,72px)}
+.space{display:grid;grid-template-columns:7fr 5fr;gap:clamp(24px,4vw,56px);align-items:center}
+.space:nth-child(even) .space-media{order:2}
+.space-media{position:relative;margin:0}
+.space-media img{width:100%;aspect-ratio:3/2;object-fit:cover}
+.badge{position:absolute;top:16px;left:16px;background:var(--forest);color:#fff;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:8px 12px}
+.space-body{display:grid;gap:18px}
+.unit-id{font-family:var(--display);font-size:15px;color:var(--brass);letter-spacing:.08em}
+.space h3{font-size:clamp(28px,3vw,36px);color:var(--forest)}
+.specs{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line)}
+.specs div{padding:12px 0;border-bottom:1px solid var(--line)}
+.specs dt{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--stone);font-weight:700}
+.specs dd{margin:4px 0 0;font-weight:600;font-variant-numeric:tabular-nums}
+.price{font-family:var(--display);font-size:34px;color:var(--charcoal)}
+.price small{font-family:var(--body);font-size:14px;color:var(--stone);margin-left:6px}
+.space .actions{display:flex;gap:12px;flex-wrap:wrap}
+@media (max-width:860px){.space{grid-template-columns:1fr}.space:nth-child(even) .space-media{order:0}}
+.more{margin-top:56px;padding:28px 32px;border:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;background:var(--ivory)}
+.more p{max-width:60ch;color:var(--stone)}
+
+/* energy */
+.energy{background:var(--forest);color:#F1EDE3}
+.energy h2{color:#fff}
+.energy .lede{color:rgba(241,237,227,.78)}
+.energy .eyebrow{color:var(--brass-soft)}
+.flow{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:56px;counter-reset:step}
+.flow li{list-style:none;padding:28px 24px 0 0;border-top:1px solid rgba(217,196,156,.4);position:relative;display:grid;gap:10px;align-content:start}
+.flow li::before{content:"";position:absolute;top:-5px;left:0;width:9px;height:9px;border-radius:50%;background:var(--brass-soft)}
+.flow b{font-family:var(--display);font-weight:400;font-size:24px;color:#fff}
+.flow small{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--brass-soft);font-weight:700}
+.flow p{font-size:15px;color:rgba(241,237,227,.78)}
+.flow{padding:0;margin-bottom:0}
+.meter{margin-top:56px;display:grid;grid-template-columns:auto 1fr;gap:20px 28px;align-items:start;padding-top:32px;border-top:1px solid rgba(255,255,255,.12)}
+.meter svg{width:40px;height:40px;stroke:var(--brass-soft);fill:none;stroke-width:1.5}
+.meter p{max-width:70ch;color:rgba(241,237,227,.85)}
+.note{font-size:13px;color:rgba(241,237,227,.6);margin-top:24px;max-width:80ch}
+@media (max-width:860px){.flow{grid-template-columns:1fr 1fr;row-gap:32px}}
+@media (max-width:480px){.flow{grid-template-columns:1fr}}
+
+/* gallery */
+.gal{display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:clamp(140px,16vw,220px);gap:10px}
+.gal button{padding:0;border:0;background:var(--ivory);cursor:zoom-in;overflow:hidden;position:relative}
+.gal img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.gal button:hover img{transform:scale(1.03)}
+.gal .a{grid-column:span 4;grid-row:span 2}.gal .b{grid-column:span 2;grid-row:span 2}
+.gal .c{grid-column:span 2}.gal .d{grid-column:span 2}.gal .e{grid-column:span 2}
+@media (max-width:760px){.gal{grid-template-columns:1fr 1fr;grid-auto-rows:150px}.gal .a{grid-column:span 2}.gal .b{grid-column:span 1;grid-row:span 2}.gal .c,.gal .d,.gal .e{grid-column:span 1}}
+
+/* location */
+.loc{display:grid;grid-template-columns:5fr 6fr;gap:clamp(32px,6vw,80px);align-items:center}
+.loc .stack{display:grid;gap:20px}
+.addr{font-family:var(--display);font-size:24px;line-height:1.35;color:var(--forest)}
+.map{background:var(--ivory);border:1px solid var(--line);padding:24px}
+.map svg{width:100%;height:auto}
+.map iframe{display:block;width:100%;height:100%;min-height:360px;border:0}
+.map.live{padding:0;aspect-ratio:4/3}
+@media (max-width:860px){.loc{grid-template-columns:1fr}}
+
+/* contact */
+.contact{background:var(--ivory)}
+.contact-grid{display:grid;grid-template-columns:4fr 7fr;gap:clamp(32px,6vw,80px)}
+.contact .stack{display:grid;gap:20px;align-content:start}
+.direct{display:grid;gap:0;border-top:1px solid var(--line)}
+.direct a,.direct div{display:flex;justify-content:space-between;gap:12px;padding:14px 0;border-bottom:1px solid var(--line);text-decoration:none;font-weight:600}
+.direct span{color:var(--stone);font-weight:500}
+form{display:grid;grid-template-columns:1fr 1fr;gap:18px 20px;background:var(--paper);padding:clamp(24px,4vw,40px);border:1px solid var(--line)}
+.f{display:grid;gap:6px}
+.f.full{grid-column:1/-1}
+label,.lbl{font-size:13px;font-weight:700;color:var(--charcoal)}
+.opt{font-weight:500;color:var(--stone)}
+input,select,textarea{font:inherit;font-size:16px;padding:12px 14px;border:1px solid #CFC6B5;border-radius:2px;background:#fff;color:var(--charcoal);min-height:48px;width:100%}
+textarea{min-height:120px;resize:vertical}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--brass);outline-offset:0;border-color:var(--brass)}
+.radios{display:flex;gap:8px;flex-wrap:wrap}
+.radios label{display:flex;align-items:center;gap:8px;border:1px solid #CFC6B5;padding:0 14px;min-height:44px;font-weight:600;cursor:pointer;background:#fff}
+.radios input{width:auto;min-height:auto}
+.hint{font-size:12.5px;color:var(--stone)}
+.err{font-size:13px;color:#A3361F;display:none}
+.f.invalid .err{display:block}
+.f.invalid input,.f.invalid select,.f.invalid textarea{border-color:#A3361F}
+.form-foot{grid-column:1/-1;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+.form-foot p{font-size:13px;color:var(--stone);max-width:46ch}
+.done{display:none;background:var(--paper);border:1px solid var(--line);padding:clamp(24px,4vw,40px);gap:18px}
+.done.show{display:grid}
+.done h3{color:var(--forest)}
+.done pre{white-space:pre-wrap;font:14px/1.5 var(--body);background:var(--ivory);padding:16px;margin:0;border:1px solid var(--line)}
+@media (max-width:860px){.contact-grid{grid-template-columns:1fr}form{grid-template-columns:1fr}}
+
+/* footer */
+footer{background:var(--forest-deep);color:rgba(241,237,227,.8);padding:64px 0 32px;font-size:14.5px}
+.foot{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:32px}
+footer .brand b{color:#fff}
+footer h4{margin:0 0 12px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--brass-soft)}
+footer ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+footer a{text-decoration:none}footer a:hover{color:#fff}
+.legal{margin-top:48px;padding-top:24px;border-top:1px solid rgba(255,255,255,.12);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:13px;color:rgba(241,237,227,.6)}
+.admin{color:rgba(241,237,227,.6);text-decoration:underline;text-underline-offset:3px;background:none;border:0;font:inherit;cursor:pointer;padding:6px 0}
+.admin:hover{color:#fff}
+@media (max-width:860px){.foot{grid-template-columns:1fr 1fr}}
+
+/* dialogs */
+dialog{border:0;padding:0;max-width:min(980px,94vw);width:100%;background:var(--paper);color:var(--charcoal)}
+dialog::backdrop{background:rgba(16,30,24,.75)}
+.dlg-head{display:flex;justify-content:space-between;align-items:center;padding:16px 20px;border-bottom:1px solid var(--line);gap:12px}
+.x{min-width:44px;min-height:44px;border:1px solid var(--line);background:transparent;cursor:pointer;font-size:20px}
+.dlg-body{padding:20px;display:grid;gap:20px}
+.dlg-body img{width:100%;max-height:68vh;object-fit:contain;background:#111}
+.thumbs{display:flex;gap:8px;flex-wrap:wrap}
+.thumbs button{width:96px;height:64px;padding:0;border:2px solid transparent;cursor:pointer;background:none}
+.thumbs button[aria-current="true"]{border-color:var(--brass)}
+.thumbs img{width:100%;height:100%;object-fit:cover;max-height:none}
+.dlg-small{max-width:480px}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#inicio" aria-label="Plaza Marqann">
+      <b>MARQANN</b><small data-i18n="brandSub">Plaza Comercial · Sosúa</small>
+    </a>
+    <nav class="nav" id="nav" aria-label="Principal">
+      <a href="#espacios" data-i18n="navSpaces">Espacios disponibles</a>
+      <a href="#ventajas" data-i18n="navBenefits">La plaza</a>
+      <a href="#energia" data-i18n="navEnergy">Energía</a>
+      <a href="#ubicacion" data-i18n="navLocation">Ubicación</a>
+      <a class="btn btn-forest" href="#contacto" data-i18n="navContact">Contacto</a>
+    </nav>
+    <div style="display:flex;gap:10px;align-items:center">
+      <div class="lang" role="group" aria-label="Idioma / Language">
+        <button type="button" data-lang="es" aria-pressed="true">ES</button>
+        <button type="button" data-lang="en" aria-pressed="false">EN</button>
+      </div>
+      <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="nav" aria-label="Menú">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="inicio">
+<section class="hero" style="padding:0">
+  <img src="img/hero-courtyard-1600.webp" srcset="img/hero-courtyard-800.webp 800w, img/hero-courtyard-1600.webp 1600w" sizes="100vw" alt="Patio central y edificio principal de Plaza Marqann" data-i18n-alt="heroAlt" fetchpriority="high">
+  <div class="wrap">
+    <p class="eyebrow" data-i18n="heroEyebrow">Km 4 · Carretera Sosúa–Cabarete</p>
+    <h1 data-i18n="heroTitle">El espacio para tu próximo gran paso.</h1>
+    <p class="sub" data-i18n="heroSub">Oficinas, locales, una nave y un lote comercial en la vía principal entre Sosúa y Cabarete, con energía solar propia y respaldo de baterías y generador.</p>
+    <div class="ctas">
+      <a class="btn btn-brass" href="#espacios" data-i18n="ctaSpaces">Ver espacios disponibles</a>
+      <a class="btn btn-ghost" href="#contacto" data-i18n="ctaVisit">Agendar una visita</a>
+    </div>
+    <dl class="facts">
+      <div><dt data-i18n="f1t">Ubicación</dt><dd data-i18n="f1d">Frente a la carretera principal</dd></div>
+      <div><dt data-i18n="f2t">Comunidad</dt><dd data-i18n="f2d">Más de 20 negocios activos</dd></div>
+      <div><dt data-i18n="f3t">Energía</dt><dd data-i18n="f3d">Solar, baterías y generador</dd></div>
+      <div><dt data-i18n="f4t">Electricidad</dt><dd data-i18n="f4d">Medidor individual por local</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section>
+  <div class="wrap intro">
+    <div class="stack">
+      <p class="eyebrow" data-i18n="introEyebrow">La plaza</p>
+      <h2 data-i18n="introTitle">Un lugar serio para hacer crecer tu negocio.</h2>
+      <p class="lede" data-i18n="introP1">Plaza Marqann es una plaza comercial de propiedad familiar en El Batey, Sosúa. Reúne oficinas, showrooms, talleres y servicios en un mismo lugar, con acceso directo desde la carretera Sosúa–Cabarete.</p>
+      <p data-i18n="introP2">Aquí trabajan una clínica veterinaria, una oficina de abogados, una inmobiliaria, un estudio de diseño, un distribuidor de vinos, un centro de llamadas y muchos más. Los propietarios están en la plaza y atienden a cada inquilino directamente.</p>
+      <div class="zones">
+        <div><b data-i18n="z1t">Edificio principal</b><span data-i18n="z1d">Dos plantas con oficinas, locales y showrooms alrededor del patio.</span></div>
+        <div><b data-i18n="z2t">Plaza Dos</b><span data-i18n="z2d">Naves y talleres de gran formato junto a la carretera.</span></div>
+        <div><b data-i18n="z3t">Lote exterior</b><span data-i18n="z3d">Terreno con oficina propia y visibilidad desde la vía.</span></div>
+      </div>
+    </div>
+    <figure>
+      <img src="img/front-street-1600.webp" srcset="img/front-street-800.webp 800w, img/front-street-1600.webp 1600w" sizes="(max-width:860px) 100vw, 55vw" alt="Fachada de Plaza Marqann desde la carretera" data-i18n-alt="frontAlt" loading="lazy">
+      <figcaption data-i18n="frontCap">Entrada principal desde la carretera Sosúa–Cabarete.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="benefits" id="ventajas">
+  <div class="wrap">
+    <div class="head">
+      <div class="stack">
+        <p class="eyebrow" data-i18n="benEyebrow">Por qué Marqann</p>
+        <h2 data-i18n="benTitle">Lo esencial, resuelto.</h2>
+      </div>
+      <p class="lede" style="max-width:44ch" data-i18n="benLede">Todo lo que un negocio necesita para abrir sus puertas y concentrarse en sus clientes.</p>
+    </div>
+    <div class="ben-grid">
+      <div class="ben">
+        <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 29s9-8.5 9-15a9 9 0 0 0-18 0c0 6.5 9 15 9 15z"/><circle cx="16" cy="14" r="3.2"/></svg>
+        <h3 data-i18n="b1t">Ubicación visible</h3>
+        <p data-i18n="b1d">En el Km 4 de la carretera que une Sosúa y Cabarete, a la vista del tráfico diario.</p>
+      </div>
+      <div class="ben">
+        <svg viewBox="0 0 32 32" aria-hidden="true"><rect x="5" y="9" width="22" height="14" rx="2"/><path d="M9 23v3M23 23v3M5 15h22"/><circle cx="10" cy="19" r="1"/><circle cx="22" cy="19" r="1"/></svg>
+        <h3 data-i18n="b2t">Estacionamiento</h3>
+        <p data-i18n="b2d">Patio de estacionamiento dentro de la plaza para clientes y equipos.</p>
+      </div>
+      <div class="ben">
+        <svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="5"/><path d="M16 3v4M16 25v4M3 16h4M25 16h4M6.8 6.8l2.8 2.8M22.4 22.4l2.8 2.8M6.8 25.2l2.8-2.8M22.4 9.6l2.8-2.8"/></svg>
+        <h3 data-i18n="b3t">Energía propia</h3>
+        <p data-i18n="b3d">Paneles solares de día, baterías y generador como respaldo, y la red eléctrica cuando hace falta.</p>
+      </div>
+      <div class="ben">
+        <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M6 27V9l10-5 10 5v18"/><path d="M11 27v-7h10v7M11 13h2M19 13h2"/></svg>
+        <h3 data-i18n="b4t">Espacios para cada etapa</h3>
+        <p data-i18n="b4d">Desde una oficina en planta alta hasta una nave de 185 m² o un lote con oficina propia.</p>
+      </div>
+      <div class="ben">
+        <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M5 26V12l11-7 11 7v14"/><path d="M5 26h22M13 26v-6h6v6"/></svg>
+        <h3 data-i18n="b5t">Comunidad de negocios</h3>
+        <p data-i18n="b5d">Más de veinte empresas y profesionales que atraen clientes a la plaza todos los días.</p>
+      </div>
+      <div class="ben">
+        <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M8 27c0-4.4 3.6-8 8-8s8 3.6 8 8"/><circle cx="16" cy="11" r="5"/></svg>
+        <h3 data-i18n="b6t">Trato directo</h3>
+        <p data-i18n="b6d">Los propietarios administran la plaza en persona. Respuestas claras, sin intermediarios.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="espacios">
+  <div class="wrap">
+    <div class="head">
+      <div class="stack">
+        <p class="eyebrow" data-i18n="spEyebrow">Disponibles ahora</p>
+        <h2 data-i18n="spTitle">Espacios disponibles</h2>
+      </div>
+      <p class="lede" style="max-width:46ch" data-i18n="spLede">Precios mensuales en dólares. Puedes pagar en dólares o en pesos. La electricidad se mide y factura aparte.</p>
+    </div>
+    <div class="spaces-list" id="spaces"></div>
+    <div class="more">
+      <p data-i18n="moreP">¿Buscas una oficina o un local más pequeño? Algunos espacios se liberan sin anunciarse. Cuéntanos qué necesitas y te avisamos.</p>
+      <a class="btn btn-line" href="#contacto" data-i18n="moreBtn">Contarnos qué necesitas</a>
+    </div>
+  </div>
+</section>
+
+<section class="energy" id="energia">
+  <div class="wrap">
+    <div class="head" style="margin-bottom:0">
+      <div class="stack">
+        <p class="eyebrow" data-i18n="enEyebrow">Infraestructura eléctrica</p>
+        <h2 data-i18n="enTitle">Cómo funciona la energía en la plaza</h2>
+      </div>
+      <p class="lede" style="max-width:46ch" data-i18n="enLede">La plaza produce gran parte de su propia electricidad y tiene varias capas de respaldo cuando falla la red.</p>
+    </div>
+    <ol class="flow">
+      <li><small data-i18n="e1s">De día</small><b data-i18n="e1t">Paneles solares</b><p data-i18n="e1d">Generan electricidad para la plaza mientras hay sol.</p></li>
+      <li><small data-i18n="e2s">Almacenamiento</small><b data-i18n="e2t">Baterías</b><p data-i18n="e2d">Guardan energía solar para usarla más tarde o durante un corte.</p></li>
+      <li><small data-i18n="e3s">Respaldo</small><b data-i18n="e3t">Generador</b><p data-i18n="e3d">Entra como respaldo adicional cuando las baterías no alcanzan.</p></li>
+      <li><small data-i18n="e4s">Red</small><b data-i18n="e4t">EDENORTE</b><p data-i18n="e4d">La plaza también está conectada a la red eléctrica pública.</p></li>
+    </ol>
+    <div class="meter">
+      <svg viewBox="0 0 40 40" aria-hidden="true"><rect x="7" y="5" width="26" height="30" rx="2"/><rect x="12" y="10" width="16" height="8"/><path d="M14 25h12M14 29h8"/></svg>
+      <p data-i18n="meterP">Cada local tiene su propio medidor. Leemos los medidores cada mes y pagas solo los kWh que consume tu negocio, con el detalle de la lectura inicial y final en tu factura.</p>
+    </div>
+    <p class="note" data-i18n="enNote">El respaldo reduce el impacto de los apagones, pero no podemos garantizar un servicio sin interrupciones en todo momento. Si tu negocio tiene equipos de alto consumo, consúltanos antes de firmar.</p>
+  </div>
+</section>
+
+<section id="galeria">
+  <div class="wrap">
+    <div class="head">
+      <div class="stack">
+        <p class="eyebrow" data-i18n="galEyebrow">Galería</p>
+        <h2 data-i18n="galTitle">La plaza, tal como es</h2>
+      </div>
+      <p class="lede" style="max-width:40ch" data-i18n="galLede">Fotos reales de la propiedad. Toca una imagen para ampliarla.</p>
+    </div>
+    <div class="gal" id="gal"></div>
+  </div>
+</section>
+
+<section class="benefits" id="ubicacion">
+  <div class="wrap loc">
+    <div class="stack">
+      <p class="eyebrow" data-i18n="locEyebrow">Ubicación</p>
+      <h2 data-i18n="locTitle">Entre Sosúa y Cabarete, en la vía principal.</h2>
+      <p class="addr">Km 4, Carretera Sosúa–Cabarete<br>El Batey, Sosúa<br>Puerto Plata, República Dominicana</p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap">
+        <a class="btn btn-forest" href="https://www.google.com/maps/search/?api=1&amp;query=Marqann+Plaza+Comercial+Sos%C3%BAa" target="_blank" rel="noopener" data-i18n="locBtn">Abrir en Google Maps</a>
+        <a class="btn btn-line" href="#contacto" data-i18n="ctaVisit">Agendar una visita</a>
+      </div>
+    </div>
+    <div class="map" id="map" role="img" aria-label="Esquema: Plaza Marqann en el kilómetro 4 de la carretera entre Sosúa y Cabarete" data-i18n-aria="mapAria">
+      <svg viewBox="0 0 560 300" aria-hidden="true">
+        <defs><pattern id="dots" width="14" height="14" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1" fill="#D8CFBE"/></pattern></defs>
+        <rect width="560" height="300" fill="url(#dots)"/>
+        <path d="M0 70 Q140 40 280 80 T560 60" fill="none" stroke="#9CB7C4" stroke-width="22" opacity=".45"/>
+        <text x="20" y="40" font-family="Manrope, sans-serif" font-size="12" letter-spacing="2" fill="#6B8A99">OCÉANO ATLÁNTICO</text>
+        <path d="M40 190 C170 175 300 205 520 170" fill="none" stroke="#24262A" stroke-width="5" stroke-linecap="round"/>
+        <circle cx="40" cy="190" r="8" fill="#1F3A2E"/><circle cx="520" cy="170" r="8" fill="#1F3A2E"/>
+        <text x="40" y="225" text-anchor="middle" font-family="Fraunces, serif" font-size="20" fill="#1F3A2E">Sosúa</text>
+        <text x="520" y="205" text-anchor="middle" font-family="Fraunces, serif" font-size="20" fill="#1F3A2E">Cabarete</text>
+        <g transform="translate(205 186)">
+          <circle r="22" fill="#A8834A" opacity=".18"/><circle r="11" fill="#A8834A"/><circle r="4" fill="#fff"/>
+        </g>
+        <text x="205" y="150" text-anchor="middle" font-family="Manrope, sans-serif" font-weight="700" font-size="13" letter-spacing="1.5" fill="#24262A">PLAZA MARQANN · KM 4</text>
+        <text x="290" y="262" text-anchor="middle" font-family="Manrope, sans-serif" font-size="12" fill="#6B6A64">Carretera Sosúa–Cabarete · esquema, no a escala</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contacto" style="background:var(--paper)">
+  <div class="wrap contact-grid">
+    <div class="stack">
+      <p class="eyebrow" data-i18n="ctEyebrow">Contacto</p>
+      <h2 data-i18n="ctTitle">Hablemos de tu espacio.</h2>
+      <p class="lede" data-i18n="ctLede">Cuéntanos qué tipo de negocio tienes y qué necesitas. Te respondemos por el medio que prefieras.</p>
+      <div class="direct">
+        <a href="tel:+18098539232"><span data-i18n="phone">Teléfono</span>(809) 853-9232</a>
+        <a href="tel:+18298868628"><span data-i18n="phone">Teléfono</span>(829) 886-8628</a>
+        <a href="https://wa.me/18098539232" target="_blank" rel="noopener"><span>WhatsApp</span>(809) 853-9232</a>
+        <a href="mailto:support@marqann.com"><span data-i18n="emailLbl">Correo</span>support@marqann.com</a>
+      </div>
+    </div>
+    <div>
+      <form id="enq" novalidate>
+        <div class="f"><label for="name" data-i18n="fName">Nombre completo</label><input id="name" name="name" autocomplete="name" required><span class="err" data-i18n="errReq">Este campo es obligatorio.</span></div>
+        <div class="f"><label for="biz" data-i18n="fBiz">Negocio o tipo de actividad</label><input id="biz" name="biz" autocomplete="organization" required><span class="err" data-i18n="errReq">Este campo es obligatorio.</span></div>
+        <div class="f"><label for="email" data-i18n="fEmail">Correo electrónico</label><input id="email" name="email" type="email" autocomplete="email" required><span class="err" data-i18n="errEmail">Escribe un correo válido.</span></div>
+        <div class="f"><label for="phone" data-i18n="fPhone">Teléfono / WhatsApp</label><input id="phone" name="phone" type="tel" autocomplete="tel" required><span class="err" data-i18n="errReq">Este campo es obligatorio.</span></div>
+        <div class="f"><label for="space" data-i18n="fSpace">Espacio de interés</label>
+          <select id="space" name="space">
+            <option value="19" data-i18n="optU19">Unidad 19 · Nave 185 m²</option>
+            <option value="25" data-i18n="optU25">Unidad 25 · Lote 180 m² con oficina</option>
+            <option value="office" data-i18n="optOffice">Oficina o local (avisarme)</option>
+            <option value="other" data-i18n="optOther">Otro / no estoy seguro</option>
+          </select>
+        </div>
+        <div class="f"><label for="size" data-i18n="fSize">Tamaño o requisitos <span class="opt" data-i18n="optional">(opcional)</span></label><input id="size" name="size" placeholder="Ej.: 60 m², baño, carga y descarga" data-i18n-ph="phSize"></div>
+        <div class="f full"><span class="lbl" id="chLbl" data-i18n="fChannel">¿Cómo prefieres que te contactemos?</span>
+          <div class="radios" role="radiogroup" aria-labelledby="chLbl">
+            <label><input type="radio" name="channel" value="WhatsApp" checked> WhatsApp</label>
+            <label><input type="radio" name="channel" value="Llamada"> <span data-i18n="chCall">Llamada</span></label>
+            <label><input type="radio" name="channel" value="Email"> Email</label>
+          </div>
+        </div>
+        <div class="f"><label for="visit" data-i18n="fVisit">Fecha preferida para visitar <span class="opt" data-i18n="optional">(opcional)</span></label><input id="visit" name="visit" type="date"><span class="hint" data-i18n="visitHint">Es solo una preferencia. Te confirmaremos la cita.</span></div>
+        <div class="f full"><label for="msg" data-i18n="fMsg">Mensaje <span class="opt" data-i18n="optional">(opcional)</span></label><textarea id="msg" name="msg"></textarea></div>
+        <div class="form-foot">
+          <p data-i18n="privacyShort">Usamos tus datos solo para responder a tu solicitud. No los compartimos con terceros.</p>
+          <button class="btn btn-brass" type="submit" data-i18n="send">Preparar solicitud</button>
+        </div>
+      </form>
+      <div class="done" id="done" role="status" aria-live="polite" tabindex="-1">
+        <h3 data-i18n="doneTitle">Tu solicitud está lista</h3>
+        <p data-i18n="doneP">Envíala por WhatsApp con un toque para que llegue directamente a nosotros. Si prefieres, cópiala y mándala por otro medio.</p>
+        <pre id="summary"></pre>
+        <div style="display:flex;gap:12px;flex-wrap:wrap">
+          <a class="btn btn-forest" id="waLink" href="https://wa.me/18098539232" target="_blank" rel="noopener" data-i18n="sendWa">Enviar por WhatsApp</a>
+          <a class="btn btn-line" id="mailLink" href="mailto:support@marqann.com" data-i18n="sendMail">Enviar por correo</a>
+          <button class="btn btn-line" type="button" id="copyBtn" data-i18n="copy">Copiar texto</button>
+          <button class="btn btn-line" type="button" id="editBtn" data-i18n="edit">Editar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div style="display:grid;gap:16px;align-content:start">
+        <span class="brand"><b>MARQANN</b><small data-i18n="brandSub">Plaza Comercial · Sosúa</small></span>
+        <p style="max-width:36ch" data-i18n="footAbout">Espacios comerciales en el Km 4 de la carretera Sosúa–Cabarete.</p>
+      </div>
+      <div><h4 data-i18n="footVisit">Visítanos</h4><p>Km 4, Carretera Sosúa–Cabarete<br>El Batey, Sosúa, Puerto Plata</p></div>
+      <div><h4 data-i18n="footContact">Contacto</h4><ul><li><a href="tel:+18098539232">(809) 853-9232</a></li><li><a href="tel:+18298868628">(829) 886-8628</a></li><li><a href="mailto:support@marqann.com">support@marqann.com</a></li></ul></div>
+      <div><h4 data-i18n="footPlaza">La plaza</h4><ul><li><a href="#espacios" data-i18n="navSpaces">Espacios disponibles</a></li><li><a href="#energia" data-i18n="navEnergy">Energía</a></li><li><a href="#galeria" data-i18n="galEyebrow">Galería</a></li><li><button class="admin" type="button" id="privBtn" style="text-decoration:none" data-i18n="privacy">Privacidad</button></li></ul></div>
+    </div>
+    <div class="legal">
+      <span>© <span id="yr">2026</span> MARQANN, S.R.L. · RNC 1-33-77643-1</span>
+      <button class="admin" type="button" id="adminBtn">Acceso administrativo / Admin Login</button>
+    </div>
+  </div>
+</footer>
+
+<dialog id="viewer" aria-labelledby="vTitle">
+  <div class="dlg-head"><strong id="vTitle"></strong><button class="x" type="button" data-close aria-label="Cerrar">×</button></div>
+  <div class="dlg-body"><img id="vImg" alt=""><p class="cap" id="vCap"></p><div class="thumbs" id="vThumbs"></div><div id="vAct"></div></div>
+</dialog>
+
+<dialog id="adminDlg" class="dlg-small" aria-labelledby="aTitle">
+  <div class="dlg-head"><strong id="aTitle" data-i18n="adminTitle">Panel administrativo</strong><button class="x" type="button" data-close aria-label="Cerrar">×</button></div>
+  <div class="dlg-body"><p data-i18n="adminP">El panel privado para los propietarios (facturas, contratos, pagos, energía y gastos) está en construcción. Este enlace abrirá el inicio de sesión seguro cuando esté listo.</p></div>
+</dialog>
+
+<dialog id="privDlg" class="dlg-small" aria-labelledby="pTitle">
+  <div class="dlg-head"><strong id="pTitle" data-i18n="privacy">Privacidad</strong><button class="x" type="button" data-close aria-label="Cerrar">×</button></div>
+  <div class="dlg-body"><p data-i18n="privLong">MARQANN, S.R.L. usa los datos que nos envías (nombre, negocio, correo, teléfono y mensaje) únicamente para responder a tu solicitud sobre espacios en Plaza Marqann. No vendemos ni compartimos tus datos con terceros. Para pedir que los borremos, escríbenos por cualquiera de nuestros medios de contacto.</p></div>
+</dialog>
+
+<script>
+(function(){
+const WA = "18098539232"; // confirm the WhatsApp number before going live
+
+const SPACES = [
+  { id:"19", status:"available", priceUSD:4000, area:185,
+    img:[["unit19","u19a"]],
+    es:{ name:"Nave comercial frente a la carretera", zone:"Plaza Dos", type:"Nave / almacén",
+         desc:"Una nave amplia de 185 m² con frente directo a la carretera Sosúa–Cabarete. Se entrega tal como está, sin divisiones, para que la adaptes a tu negocio: taller, showroom, distribución o almacén.",
+         specs:[["Área","185 m²"],["Tipo","Nave / almacén"],["Entrega","Tal como está"],["Electricidad","Medidor propio, aparte"]] },
+    en:{ name:"Roadside commercial warehouse", zone:"Plaza Two", type:"Warehouse",
+         desc:"A spacious 185 m² warehouse fronting the Sosúa–Cabarete road. Delivered as is, with no partitions, so you can fit it out for your business: workshop, showroom, distribution or storage.",
+         specs:[["Area","185 m²"],["Type","Warehouse"],["Delivered","As is"],["Electricity","Own meter, billed separately"]] } },
+  { id:"25", status:"available", priceUSD:2000, area:180,
+    img:[["unit25","u25a"]],
+    es:{ name:"Lote comercial con oficina y baño", zone:"Lote exterior", type:"Lote con oficina",
+         desc:"Un lote de 180 m² en la vía principal con una oficina de 28 m² y baño privado. Ideal para exhibición de vehículos, un concepto de comida, ventas o un patio de servicios.",
+         specs:[["Lote","180 m²"],["Oficina","28 m²"],["Baño","Privado"],["Electricidad","Medida y facturada aparte"]] },
+    en:{ name:"Commercial lot with office and bathroom", zone:"Outdoor lot", type:"Lot with office",
+         desc:"A 180 m² lot on the main road with a 28 m² office and private bathroom. Well suited to vehicle display, a food concept, a sales office or a service yard.",
+         specs:[["Lot","180 m²"],["Office","28 m²"],["Bathroom","Private"],["Electricity","Metered and billed separately"]] } }
+];
+
+const GALLERY = [
+  ["hero-courtyard","a","gCourt"],["lobby-wide","b","gLobby"],["front-street","c","gFront"],
+  ["upstairs-hall","d","gHall"],["office-upstairs","e","gOffice"]
+];
+
+const T = {
+es:{brandSub:"Plaza Comercial · Sosúa",navSpaces:"Espacios disponibles",navBenefits:"La plaza",navEnergy:"Energía",navLocation:"Ubicación",navContact:"Contacto",
+heroEyebrow:"Km 4 · Carretera Sosúa–Cabarete",heroTitle:"El espacio para tu próximo gran paso.",heroSub:"Oficinas, locales, una nave y un lote comercial en la vía principal entre Sosúa y Cabarete, con energía solar propia y respaldo de baterías y generador.",heroAlt:"Patio central y edificio principal de Plaza Marqann",
+ctaSpaces:"Ver espacios disponibles",ctaVisit:"Agendar una visita",f1t:"Ubicación",f1d:"Frente a la carretera principal",f2t:"Comunidad",f2d:"Más de 20 negocios activos",f3t:"Energía",f3d:"Solar, baterías y generador",f4t:"Electricidad",f4d:"Medidor individual por local",
+introEyebrow:"La plaza",introTitle:"Un lugar serio para hacer crecer tu negocio.",introP1:"Plaza Marqann es una plaza comercial de propiedad familiar en El Batey, Sosúa. Reúne oficinas, showrooms, talleres y servicios en un mismo lugar, con acceso directo desde la carretera Sosúa–Cabarete.",introP2:"Aquí trabajan una clínica veterinaria, una oficina de abogados, una inmobiliaria, un estudio de diseño, un distribuidor de vinos, un centro de llamadas y muchos más. Los propietarios están en la plaza y atienden a cada inquilino directamente.",
+z1t:"Edificio principal",z1d:"Dos plantas con oficinas, locales y showrooms alrededor del patio.",z2t:"Plaza Dos",z2d:"Naves y talleres de gran formato junto a la carretera.",z3t:"Lote exterior",z3d:"Terreno con oficina propia y visibilidad desde la vía.",frontAlt:"Fachada de Plaza Marqann desde la carretera",frontCap:"Entrada principal desde la carretera Sosúa–Cabarete.",
+benEyebrow:"Por qué Marqann",benTitle:"Lo esencial, resuelto.",benLede:"Todo lo que un negocio necesita para abrir sus puertas y concentrarse en sus clientes.",
+b1t:"Ubicación visible",b1d:"En el Km 4 de la carretera que une Sosúa y Cabarete, a la vista del tráfico diario.",b2t:"Estacionamiento",b2d:"Patio de estacionamiento dentro de la plaza para clientes y equipos.",b3t:"Energía propia",b3d:"Paneles solares de día, baterías y generador como respaldo, y la red eléctrica cuando hace falta.",b4t:"Espacios para cada etapa",b4d:"Desde una oficina en planta alta hasta una nave de 185 m² o un lote con oficina propia.",b5t:"Comunidad de negocios",b5d:"Más de veinte empresas y profesionales que atraen clientes a la plaza todos los días.",b6t:"Trato directo",b6d:"Los propietarios administran la plaza en persona. Respuestas claras, sin intermediarios.",
+spEyebrow:"Disponibles ahora",spTitle:"Espacios disponibles",spLede:"Precios mensuales en dólares. Puedes pagar en dólares o en pesos. La electricidad se mide y factura aparte.",unit:"Unidad",perMonth:"/ mes",available:"Disponible",details:"Ver detalles y fotos",ask:"Solicitar información",
+moreP:"¿Buscas una oficina o un local más pequeño? Algunos espacios se liberan sin anunciarse. Cuéntanos qué necesitas y te avisamos.",moreBtn:"Contarnos qué necesitas",u19a:"Unidad 19 · foto actual del exterior. Fotos del interior vacío próximamente.",u25a:"Unidad 25 · lote con oficina de 28 m².",
+enEyebrow:"Infraestructura eléctrica",enTitle:"Cómo funciona la energía en la plaza",enLede:"La plaza produce gran parte de su propia electricidad y tiene varias capas de respaldo cuando falla la red.",
+e1s:"De día",e1t:"Paneles solares",e1d:"Generan electricidad para la plaza mientras hay sol.",e2s:"Almacenamiento",e2t:"Baterías",e2d:"Guardan energía solar para usarla más tarde o durante un corte.",e3s:"Respaldo",e3t:"Generador",e3d:"Entra como respaldo adicional cuando las baterías no alcanzan.",e4s:"Red",e4t:"EDENORTE",e4d:"La plaza también está conectada a la red eléctrica pública.",
+meterP:"Cada local tiene su propio medidor. Leemos los medidores cada mes y pagas solo los kWh que consume tu negocio, con el detalle de la lectura inicial y final en tu factura.",enNote:"El respaldo reduce el impacto de los apagones, pero no podemos garantizar un servicio sin interrupciones en todo momento. Si tu negocio tiene equipos de alto consumo, consúltanos antes de firmar.",
+galEyebrow:"Galería",galTitle:"La plaza, tal como es",galLede:"Fotos reales de la propiedad. Toca una imagen para ampliarla.",gCourt:"Patio central y estacionamiento",gLobby:"Vestíbulo de la planta baja",gFront:"Fachada desde la carretera",gHall:"Espacio amplio en planta alta",gOffice:"Oficina en planta alta con balcón",
+locEyebrow:"Ubicación",locTitle:"Entre Sosúa y Cabarete, en la vía principal.",locBtn:"Abrir en Google Maps",mapAria:"Esquema: Plaza Marqann en el kilómetro 4 de la carretera entre Sosúa y Cabarete",
+ctEyebrow:"Contacto",ctTitle:"Hablemos de tu espacio.",ctLede:"Cuéntanos qué tipo de negocio tienes y qué necesitas. Te respondemos por el medio que prefieras.",phone:"Teléfono",
+fName:"Nombre completo",fBiz:"Negocio o tipo de actividad",fEmail:"Correo electrónico",fPhone:"Teléfono / WhatsApp",fSpace:"Espacio de interés",fSize:"Tamaño o requisitos",optional:"(opcional)",phSize:"Ej.: 60 m², baño, carga y descarga",fChannel:"¿Cómo prefieres que te contactemos?",chCall:"Llamada",fVisit:"Fecha preferida para visitar",visitHint:"Es solo una preferencia. Te confirmaremos la cita.",fMsg:"Mensaje",
+optU19:"Unidad 19 · Nave 185 m²",optU25:"Unidad 25 · Lote 180 m² con oficina",optOffice:"Oficina o local (avisarme)",optOther:"Otro / no estoy seguro",errReq:"Este campo es obligatorio.",errEmail:"Escribe un correo válido.",
+privacyShort:"Usamos tus datos solo para responder a tu solicitud. No los compartimos con terceros.",send:"Preparar solicitud",doneTitle:"Tu solicitud está lista",doneP:"Envíala por WhatsApp o por correo para que llegue directamente a nosotros. Si prefieres, cópiala y escríbenos a support@marqann.com.",sendWa:"Enviar por WhatsApp",sendMail:"Enviar por correo",emailLbl:"Correo",copy:"Copiar texto",copied:"Copiado",edit:"Editar",
+footAbout:"Espacios comerciales en el Km 4 de la carretera Sosúa–Cabarete.",footVisit:"Visítanos",footContact:"Contacto",footPlaza:"La plaza",privacy:"Privacidad",
+adminTitle:"Panel administrativo",adminP:"El panel privado para los propietarios (facturas, contratos, pagos, energía y gastos) está en construcción. Este enlace abrirá el inicio de sesión seguro cuando esté listo.",
+privLong:"MARQANN, S.R.L. usa los datos que nos envías (nombre, negocio, correo, teléfono y mensaje) únicamente para responder a tu solicitud sobre espacios en Plaza Marqann. No vendemos ni compartimos tus datos con terceros. Para pedir que los borremos, escríbenos por cualquiera de nuestros medios de contacto.",
+sumHead:"Solicitud de espacio — Plaza Marqann",sumName:"Nombre",sumBiz:"Negocio",sumEmail:"Correo",sumPhone:"Teléfono",sumSpace:"Espacio",sumSize:"Requisitos",sumChannel:"Contacto preferido",sumVisit:"Visita preferida",sumMsg:"Mensaje"},
+en:{brandSub:"Commercial Plaza · Sosúa",navSpaces:"Available spaces",navBenefits:"The plaza",navEnergy:"Energy",navLocation:"Location",navContact:"Contact",
+heroEyebrow:"Km 4 · Sosúa–Cabarete Road",heroTitle:"The space for your next big step.",heroSub:"Offices, retail units, a warehouse and a commercial lot on the main road between Sosúa and Cabarete, with its own solar power and battery and generator backup.",heroAlt:"Central courtyard and main building of Plaza Marqann",
+ctaSpaces:"View available spaces",ctaVisit:"Schedule a visit",f1t:"Location",f1d:"Fronting the main road",f2t:"Community",f2d:"More than 20 active businesses",f3t:"Energy",f3d:"Solar, batteries and generator",f4t:"Electricity",f4d:"Individual meter per unit",
+introEyebrow:"The plaza",introTitle:"A serious place to grow your business.",introP1:"Plaza Marqann is a family-owned commercial plaza in El Batey, Sosúa. Offices, showrooms, workshops and services share one address, with direct access from the Sosúa–Cabarete road.",introP2:"Tenants include a veterinary clinic, a law office, a real estate agency, a design studio, a wine distributor, a call center and many more. The owners work on site and deal with every tenant directly.",
+z1t:"Main building",z1d:"Two floors of offices, retail units and showrooms around the courtyard.",z2t:"Plaza Two",z2d:"Large-format warehouses and workshops by the road.",z3t:"Outdoor lot",z3d:"Land with its own office and road visibility.",frontAlt:"Plaza Marqann seen from the road",frontCap:"Main entrance from the Sosúa–Cabarete road.",
+benEyebrow:"Why Marqann",benTitle:"The essentials, handled.",benLede:"Everything a business needs to open its doors and focus on its customers.",
+b1t:"Visible location",b1d:"At Km 4 of the road linking Sosúa and Cabarete, in view of daily traffic.",b2t:"Parking",b2d:"An on-site parking courtyard for customers and staff.",b3t:"Own energy",b3d:"Solar panels by day, batteries and a generator as backup, and the public grid when needed.",b4t:"Space for every stage",b4d:"From an upstairs office to a 185 m² warehouse or a lot with its own office.",b5t:"A business community",b5d:"More than twenty companies and professionals bringing customers to the plaza every day.",b6t:"Direct dealings",b6d:"The owners run the plaza in person. Clear answers, no middlemen.",
+spEyebrow:"Available now",spTitle:"Available spaces",spLede:"Monthly prices in US dollars. Pay in dollars or pesos. Electricity is metered and billed separately.",unit:"Unit",perMonth:"/ month",available:"Available",details:"See details and photos",ask:"Ask about this space",
+moreP:"Looking for a smaller office or retail unit? Some spaces open up without being advertised. Tell us what you need and we will let you know.",moreBtn:"Tell us what you need",u19a:"Unit 19 · current exterior photo. Photos of the empty interior coming soon.",u25a:"Unit 25 · lot with a 28 m² office.",
+enEyebrow:"Electrical infrastructure",enTitle:"How energy works at the plaza",enLede:"The plaza produces much of its own electricity and has several layers of backup when the grid fails.",
+e1s:"By day",e1t:"Solar panels",e1d:"Generate electricity for the plaza while the sun is up.",e2s:"Storage",e2t:"Batteries",e2d:"Store solar energy for later or for a power cut.",e3s:"Backup",e3t:"Generator",e3d:"Steps in as extra backup when the batteries are not enough.",e4s:"Grid",e4t:"EDENORTE",e4d:"The plaza is also connected to the public grid.",
+meterP:"Every unit has its own meter. We read the meters every month and you pay only for the kWh your business uses, with the opening and closing readings shown on your invoice.",enNote:"Backup reduces the impact of outages, but we cannot guarantee uninterrupted power at all times. If your business runs high-consumption equipment, please ask us before signing.",
+galEyebrow:"Gallery",galTitle:"The plaza as it is",galLede:"Real photos of the property. Tap an image to enlarge it.",gCourt:"Central courtyard and parking",gLobby:"Ground-floor lobby",gFront:"Frontage from the road",gHall:"Open upstairs space",gOffice:"Upstairs office with balcony",
+locEyebrow:"Location",locTitle:"Between Sosúa and Cabarete, on the main road.",locBtn:"Open in Google Maps",mapAria:"Sketch: Plaza Marqann at kilometre 4 of the road between Sosúa and Cabarete",
+ctEyebrow:"Contact",ctTitle:"Let's talk about your space.",ctLede:"Tell us about your business and what you need. We will reply on the channel you prefer.",phone:"Phone",
+fName:"Full name",fBiz:"Business or type of activity",fEmail:"Email",fPhone:"Phone / WhatsApp",fSpace:"Space of interest",fSize:"Size or requirements",optional:"(optional)",phSize:"E.g. 60 m², bathroom, loading access",fChannel:"How would you like us to contact you?",chCall:"Phone call",fVisit:"Preferred visit date",visitHint:"This is only a preference. We will confirm the appointment.",fMsg:"Message",
+optU19:"Unit 19 · 185 m² warehouse",optU25:"Unit 25 · 180 m² lot with office",optOffice:"Office or retail unit (let me know)",optOther:"Other / not sure",errReq:"This field is required.",errEmail:"Enter a valid email address.",
+privacyShort:"We use your details only to reply to your request. We never share them with third parties.",send:"Prepare request",doneTitle:"Your request is ready",doneP:"Send it by WhatsApp or email so it reaches us directly. Or copy it and write to us at support@marqann.com.",sendWa:"Send by WhatsApp",sendMail:"Send by email",emailLbl:"Email",copy:"Copy text",copied:"Copied",edit:"Edit",
+footAbout:"Commercial spaces at Km 4 of the Sosúa–Cabarete road.",footVisit:"Visit us",footContact:"Contact",footPlaza:"The plaza",privacy:"Privacy",
+adminTitle:"Admin panel",adminP:"The owners' private panel (invoices, contracts, payments, energy and expenses) is under construction. This link will open the secure sign-in once it is ready.",
+privLong:"MARQANN, S.R.L. uses the details you send us (name, business, email, phone and message) only to reply to your request about spaces at Plaza Marqann. We do not sell or share your data with third parties. To ask us to delete it, contact us through any of our channels.",
+sumHead:"Space enquiry — Plaza Marqann",sumName:"Name",sumBiz:"Business",sumEmail:"Email",sumPhone:"Phone",sumSpace:"Space",sumSize:"Requirements",sumChannel:"Preferred contact",sumVisit:"Preferred visit",sumMsg:"Message"}
+};
+
+let lang = "es";
+try{ const s = localStorage.getItem("marqann-lang"); if(s==="en"||s==="es") lang=s; }catch(e){}
+const $ = s => document.querySelector(s);
+const t = k => (T[lang][k] ?? T.es[k] ?? k);
+const money = n => "US$" + n.toLocaleString(lang==="es"?"es-DO":"en-US");
+
+function renderSpaces(){
+  $("#spaces").innerHTML = SPACES.map((s,i)=>{
+    const L = s[lang]; const img = s.img[0][0];
+    return `<article class="space" id="unidad-${s.id}">
+      <figure class="space-media">
+        <img src="img/${img}-1600.webp" srcset="img/${img}-800.webp 800w, img/${img}-1600.webp 1600w" sizes="(max-width:860px) 100vw, 58vw" alt="${L.name}" loading="lazy">
+        <span class="badge">${t("available")}</span>
+        <figcaption class="cap">${t(s.img[0][1])}</figcaption>
+      </figure>
+      <div class="space-body">
+        <span class="unit-id">${t("unit")} ${s.id} · ${L.zone}</span>
+        <h3>${L.name}</h3>
+        <p class="price">${money(s.priceUSD)}<small>${t("perMonth")}</small></p>
+        <p style="color:var(--stone)">${L.desc}</p>
+        <dl class="specs">${L.specs.map(([a,b])=>`<div><dt>${a}</dt><dd>${b}</dd></div>`).join("")}</dl>
+        <div class="actions">
+          <a class="btn btn-forest" href="#contacto" data-pick="${s.id}">${t("ask")}</a>
+          <button class="btn btn-line" type="button" data-view="${i}">${t("details")}</button>
+        </div>
+      </div></article>`;
+  }).join("");
+}
+function renderGallery(){
+  $("#gal").innerHTML = GALLERY.map(([f,c,k],i)=>
+    `<button type="button" class="${c}" data-gal="${i}" aria-label="${t(k)}"><img src="img/${f}-800.webp" alt="${t(k)}" loading="lazy"></button>`).join("");
+}
+function apply(){
+  document.documentElement.lang = lang;
+  document.querySelectorAll("[data-i18n]").forEach(el=>{ el.textContent = t(el.dataset.i18n); });
+  document.querySelectorAll("[data-i18n-alt]").forEach(el=>{ el.alt = t(el.dataset.i18nAlt); });
+  document.querySelectorAll("[data-i18n-ph]").forEach(el=>{ el.placeholder = t(el.dataset.i18nPh); });
+  document.querySelectorAll("[data-i18n-aria]").forEach(el=>{ el.setAttribute("aria-label", t(el.dataset.i18nAria)); });
+  document.querySelectorAll("[data-lang]").forEach(b=>b.setAttribute("aria-pressed", b.dataset.lang===lang));
+  renderSpaces(); renderGallery();
+}
+document.querySelectorAll("[data-lang]").forEach(b=>b.addEventListener("click",()=>{
+  lang=b.dataset.lang; try{localStorage.setItem("marqann-lang",lang)}catch(e){} apply(); if(lastSummary) buildSummary();
+}));
+
+// mobile menu
+const nav=$("#nav"), mb=$("#menuBtn");
+mb.addEventListener("click",()=>{ const o=nav.classList.toggle("open"); mb.setAttribute("aria-expanded",o); });
+nav.addEventListener("click",e=>{ if(e.target.closest("a")){ nav.classList.remove("open"); mb.setAttribute("aria-expanded","false"); }});
+
+// viewer
+const viewer=$("#viewer");
+function openViewer(title, items, idx, actionHTML){
+  let cur=idx;
+  const show=()=>{ const [f,cap]=items[cur]; $("#vImg").src=`img/${f}-1600.webp`; $("#vImg").alt=cap; $("#vCap").textContent=cap;
+    $("#vThumbs").querySelectorAll("button").forEach((b,i)=>b.setAttribute("aria-current", i===cur)); };
+  $("#vTitle").textContent=title;
+  $("#vThumbs").innerHTML = items.length>1 ? items.map(([f,cap],i)=>`<button type="button" aria-label="${cap}"><img src="img/${f}-800.webp" alt=""></button>`).join("") : "";
+  $("#vThumbs").querySelectorAll("button").forEach((b,i)=>b.addEventListener("click",()=>{cur=i;show();}));
+  $("#vAct").innerHTML = actionHTML||"";
+  show(); viewer.showModal();
+}
+document.addEventListener("click",e=>{
+  const v=e.target.closest("[data-view]");
+  if(v){ const s=SPACES[+v.dataset.view]; const L=s[lang];
+    openViewer(`${t("unit")} ${s.id} · ${L.name}`, s.img.map(([f,k])=>[f,t(k)]), 0,
+      `<p style="margin-bottom:16px;color:var(--stone)">${L.desc}</p><a class="btn btn-forest" href="#contacto" data-pick="${s.id}" data-closeview>${t("ask")}</a>`); }
+  const g=e.target.closest("[data-gal]");
+  if(g){ openViewer(t("galTitle"), GALLERY.map(([f,,k])=>[f,t(k)]), +g.dataset.gal); }
+  const p=e.target.closest("[data-pick]");
+  if(p){ $("#space").value=p.dataset.pick; if(e.target.closest("[data-closeview]")) viewer.close(); }
+  if(e.target.closest("[data-close]")) e.target.closest("dialog").close();
+});
+document.querySelectorAll("dialog").forEach(d=>d.addEventListener("click",e=>{ if(e.target===d) d.close(); }));
+$("#adminBtn").addEventListener("click",()=>$("#adminDlg").showModal());
+$("#privBtn").addEventListener("click",()=>$("#privDlg").showModal());
+
+// form
+const form=$("#enq"), done=$("#done"); let lastSummary=null;
+function valid(){
+  let ok=true;
+  ["name","biz","email","phone"].forEach(id=>{
+    const el=$("#"+id), f=el.closest(".f");
+    const good = id==="email" ? /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(el.value.trim()) : el.value.trim().length>1;
+    f.classList.toggle("invalid",!good); el.setAttribute("aria-invalid",!good); if(!good&&ok){ok=false;el.focus();}
+  });
+  return ok;
+}
+function buildSummary(){
+  const d=new FormData(form); const sp=$("#space");
+  const lines=[t("sumHead"),"",
+    `${t("sumName")}: ${d.get("name")}`,`${t("sumBiz")}: ${d.get("biz")}`,`${t("sumEmail")}: ${d.get("email")}`,`${t("sumPhone")}: ${d.get("phone")}`,
+    `${t("sumSpace")}: ${sp.options[sp.selectedIndex].text}`];
+  if(d.get("size")) lines.push(`${t("sumSize")}: ${d.get("size")}`);
+  lines.push(`${t("sumChannel")}: ${d.get("channel")}`);
+  if(d.get("visit")) lines.push(`${t("sumVisit")}: ${d.get("visit")}`);
+  if(d.get("msg")) lines.push(`${t("sumMsg")}: ${d.get("msg")}`);
+  lastSummary=lines.join("\n");
+  $("#summary").textContent=lastSummary;
+  $("#waLink").href=`https://wa.me/${WA}?text=${encodeURIComponent(lastSummary)}`;
+  $("#mailLink").href=`mailto:support@marqann.com?subject=${encodeURIComponent(t("sumHead"))}&body=${encodeURIComponent(lastSummary)}`;
+}
+form.addEventListener("submit",e=>{
+  e.preventDefault(); if(!valid()) return;
+  buildSummary(); form.style.display="none"; done.classList.add("show"); done.focus();
+});
+form.addEventListener("input",e=>{ const f=e.target.closest(".f"); if(f&&f.classList.contains("invalid")) f.classList.remove("invalid"); });
+$("#editBtn").addEventListener("click",()=>{ done.classList.remove("show"); form.style.display=""; $("#name").focus(); });
+$("#copyBtn").addEventListener("click",async e=>{
+  try{ await navigator.clipboard.writeText(lastSummary); e.target.textContent=t("copied"); setTimeout(()=>e.target.textContent=t("copy"),1800);}catch(err){
+    const r=document.createRange(); r.selectNodeContents($("#summary")); const s=getSelection(); s.removeAllRanges(); s.addRange(r); }
+});
+// Live Google Map: loads on the real domain; the preview host blocks embedded sites, so the sketch stays there.
+const MAP_Q = "Marqann - Plaza Comercial, Carretera Sosúa-Cabarete Km 4, Sosúa";
+if (/marqann\.com$|^localhost$|^127\.0\.0\.1$/.test(location.hostname)) {
+  const m=$("#map"); m.classList.add("live"); m.removeAttribute("role");
+  m.innerHTML=`<iframe title="Google Maps · Plaza Marqann" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen src="https://www.google.com/maps?q=${encodeURIComponent(MAP_Q)}&output=embed"></iframe>`;
+}
+$("#visit").min=new Date().toISOString().slice(0,10);
+$("#yr").textContent=new Date().getFullYear();
+apply();
+})();
+</script>
+</body>
+</html>
