@@ -15,7 +15,7 @@
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..600&family=Manrope:wght@400..800&display=swap" rel="stylesheet">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"LocalBusiness","name":"Plaza Marqann","legalName":"MARQANN, S.R.L.","address":{"@type":"PostalAddress","streetAddress":"Km 4, Carretera Sosúa–Cabarete, El Batey","addressLocality":"Sosúa","addressRegion":"Puerto Plata","addressCountry":"DO"},"telephone":"+1-809-853-9232","email":"support@marqann.com"}
 </script>
@@ -39,18 +39,18 @@
   color-scheme:light;
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:84px}
+html{scroll-behavior:smooth;scroll-padding-top:96px}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
 body{margin:0;background:var(--paper);color:var(--charcoal);font-family:var(--body);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
 img{max-width:100%;display:block}
 a{color:inherit}
-h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1.1;margin:0;text-wrap:balance;letter-spacing:-.01em}
-h2{font-size:clamp(32px,4.4vw,52px)}
-h3{font-size:24px}
+h1,h2,h3{font-family:var(--display);font-weight:500;font-variation-settings:"opsz" 144;line-height:1.04;margin:0;text-wrap:balance;letter-spacing:-.015em}
+h2{font-size:clamp(36px,4.8vw,58px)}
+h3{font-size:24px;font-variation-settings:"opsz" 72}
 p{margin:0}
 .wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--gut)}
-.eyebrow{font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--brass)}
-.lede{font-size:19px;color:var(--stone);max-width:62ch}
+.eyebrow{display:flex;align-items:center;gap:12px;font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--brass)}.eyebrow::before{content:"";width:28px;height:1px;background:currentColor;flex:none}
+.lede{font-size:clamp(17px,1.4vw,19px);line-height:1.65;color:var(--stone);max-width:58ch}
 :focus-visible{outline:2px solid var(--brass);outline-offset:3px;border-radius:2px}
 
 /* buttons */
@@ -65,26 +65,28 @@ p{margin:0}
 .btn-line:hover{background:var(--forest);color:#fff}
 
 /* header */
-.top{position:sticky;top:0;z-index:40;background:rgba(251,249,244,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
-.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;height:72px}
+.top{position:sticky;top:0;z-index:40;background:rgba(251,249,244,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);transition:box-shadow .3s}.top.scrolled{box-shadow:0 10px 30px -18px rgba(20,40,32,.35)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:32px;height:84px}
 .brand{display:flex;flex-direction:column;text-decoration:none;line-height:1}
 /* TEMPORARY wordmark — replace with the approved Marqann logo file */
 .brand b{font-family:var(--display);font-weight:500;font-size:24px;letter-spacing:.22em;color:var(--forest)}
-.brand img{display:block;height:46px;width:auto}.top .brand .mono{display:none}
+.brand img{display:block;height:50px;width:auto}.top .brand .mono{display:none}
 .foot-brand{gap:14px;align-items:flex-start}.foot-brand img:first-child{height:56px}.foot-brand img:last-child{height:40px}
 footer .brand{align-self:flex-start;justify-self:start}
 .brand small{font-size:10px;letter-spacing:.32em;text-transform:uppercase;color:var(--brass);margin-top:5px}
-.nav{display:flex;align-items:center;gap:28px}
-.nav a{font-size:14px;font-weight:600;text-decoration:none;color:var(--charcoal)}
-.nav a:hover{color:var(--brass)}
-.nav a.btn{color:#fff}.nav a.btn:hover{color:#fff}
+.nav{display:flex;align-items:center;gap:34px}
+.nav a{position:relative;font-size:15px;font-weight:600;letter-spacing:.01em;text-decoration:none;color:var(--forest);padding:6px 0}
+.nav a:not(.btn)::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1.5px;background:var(--brass);transform:scaleX(0);transform-origin:left;transition:transform .25s ease}
+.nav a:not(.btn):hover::after,.nav a:not(.btn).active::after{transform:scaleX(1)}
+.nav a.btn{color:#fff;margin-left:4px}.nav a.btn:hover{color:#fff}
 @media (max-width:480px){.top .brand .wm{display:none}.top .brand .mono{display:block;height:44px}.top .brand small{letter-spacing:.18em;font-size:9px}.top .brand b{font-size:21px}}
-.lang{display:flex;border:1px solid var(--line);border-radius:2px;overflow:hidden}
-.lang button{min-width:44px;min-height:36px;border:0;background:transparent;font:700 12px var(--body);letter-spacing:.1em;cursor:pointer;color:var(--stone)}
-.lang button[aria-pressed="true"]{background:var(--forest);color:#fff}
+.lang{display:flex;gap:2px}
+.lang button{min-width:40px;min-height:40px;border:0;background:transparent;font:700 12.5px var(--body);letter-spacing:.1em;cursor:pointer;color:var(--stone);border-bottom:1.5px solid transparent;border-radius:0}
+.lang button:hover{color:var(--forest)}
+.lang button[aria-pressed="true"]{color:var(--forest);border-bottom-color:var(--brass)}
 .menu-btn{display:none;min-width:44px;min-height:44px;border:1px solid var(--line);background:transparent;border-radius:2px;cursor:pointer}
 @media (max-width:900px){
-  .nav{position:fixed;inset:72px 0 auto 0;flex-direction:column;align-items:stretch;gap:0;background:var(--paper);border-bottom:1px solid var(--line);padding:8px var(--gut) 20px;display:none}
+  .nav{position:fixed;inset:84px 0 auto 0;flex-direction:column;align-items:stretch;gap:0;background:var(--paper);border-bottom:1px solid var(--line);padding:8px var(--gut) 20px;display:none}
   .nav.open{display:flex}
   .nav a{padding:14px 0;border-bottom:1px solid var(--line);font-size:16px}
   .nav .btn{margin-top:16px}
@@ -92,23 +94,24 @@ footer .brand{align-self:flex-start;justify-self:start}
 }
 
 /* hero */
-.hero{position:relative;color:#fff;min-height:min(86vh,760px);display:flex;align-items:flex-end;overflow:hidden;background:var(--forest-deep)}
+.hero{position:relative;color:#fff;min-height:min(92vh,820px);display:flex;align-items:flex-end;overflow:hidden;background:var(--forest-deep)}
 .hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 40%;animation:settle 1.6s ease-out both}
-.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,40,32,.15) 0%,rgba(20,40,32,.35) 45%,rgba(16,30,24,.88) 100%)}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,40,32,.10) 0%,rgba(20,40,32,.30) 40%,rgba(16,30,24,.90) 100%),linear-gradient(90deg,rgba(16,30,24,.55) 0%,rgba(16,30,24,0) 60%)}
 @keyframes settle{from{transform:scale(1.04)}to{transform:scale(1)}}
-.hero .wrap{position:relative;z-index:1;width:100%;padding-top:120px;padding-bottom:48px}
+.hero .wrap{position:relative;z-index:1;width:100%;padding-top:140px;padding-bottom:clamp(56px,8vw,96px)}
 .hero .eyebrow{color:var(--brass-soft)}
-.hero h1{font-size:clamp(42px,7vw,88px);font-weight:300;max-width:13ch;margin:16px 0 20px}
-.hero p.sub{font-size:clamp(17px,2vw,20px);max-width:52ch;color:rgba(255,255,255,.88)}
-.hero .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
-.facts{position:relative;z-index:1;display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:48px;border-top:1px solid rgba(217,196,156,.45)}
-.facts div{padding:18px 20px 0 0}
-.facts dt{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--brass-soft);font-weight:700}
-.facts dd{margin:6px 0 0;font-size:15px;color:#fff}
-@media (max-width:760px){.facts{grid-template-columns:1fr 1fr;row-gap:8px}}
+.hero h1{font-size:clamp(46px,6.6vw,96px);font-weight:500;line-height:1;letter-spacing:-.025em;max-width:13ch;margin:22px 0 26px;text-shadow:0 2px 30px rgba(0,0,0,.18)}
+.hero p.sub{font-size:clamp(17px,1.6vw,21px);line-height:1.6;max-width:46ch;color:rgba(255,255,255,.9)}
+.hero .ctas{display:flex;flex-wrap:wrap;gap:14px;margin-top:36px}
+.facts-band{background:var(--ivory);border-bottom:1px solid var(--line)}
+.facts{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin:0}
+.facts div{padding:26px 24px 26px 0;border-right:1px solid var(--line)}.facts div:last-child{border-right:0}.facts div+div{padding-left:24px}
+.facts dt{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--brass);font-weight:700}
+.facts dd{margin:8px 0 0;font-family:var(--display);font-variation-settings:"opsz" 48;font-size:19px;color:var(--forest)}
+@media (max-width:760px){.facts{grid-template-columns:1fr 1fr}.facts div{border-right:0;border-bottom:1px solid var(--line);padding:18px 0}.facts div+div{padding-left:0}.facts div:nth-child(odd){border-right:1px solid var(--line);padding-right:18px}.facts div:nth-child(even){padding-left:18px}.facts div:nth-last-child(-n+2){border-bottom:0}}
 
 /* sections */
-section{padding:clamp(72px,10vw,128px) 0}
+section{padding:clamp(80px,11vw,144px) 0}
 .intro{display:grid;grid-template-columns:5fr 6fr;gap:clamp(32px,6vw,96px);align-items:center}
 .intro .stack{display:grid;gap:22px}
 .intro figure{margin:0;position:relative}
@@ -122,12 +125,12 @@ section{padding:clamp(72px,10vw,128px) 0}
 
 /* benefits */
 .benefits{background:var(--ivory)}
-.head{display:flex;justify-content:space-between;align-items:end;gap:32px;flex-wrap:wrap;margin-bottom:48px}
+.head{display:flex;justify-content:space-between;align-items:end;gap:32px;flex-wrap:wrap;margin-bottom:56px}
 .head .stack{display:grid;gap:14px;max-width:640px}
-.ben-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
-.ben{background:var(--ivory);padding:32px 28px 36px;display:grid;gap:12px;align-content:start}
-.ben svg{width:32px;height:32px;stroke:var(--brass);fill:none;stroke-width:1.5}
-.ben h3{font-size:22px;color:var(--forest)}
+.ben-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(28px,4vw,56px) clamp(28px,4vw,48px)}
+.ben{padding:28px 0 0;border-top:1px solid var(--brass);display:grid;gap:14px;align-content:start}
+.ben svg{width:36px;height:36px;stroke:var(--brass);fill:none;stroke-width:1.4}
+.ben h3{font-size:23px;color:var(--forest)}
 .ben p{color:var(--stone);font-size:15.5px}
 @media (max-width:900px){.ben-grid{grid-template-columns:1fr 1fr}}
 @media (max-width:560px){.ben-grid{grid-template-columns:1fr}}
@@ -141,12 +144,12 @@ section{padding:clamp(72px,10vw,128px) 0}
 .badge{position:absolute;top:16px;left:16px;background:var(--forest);color:#fff;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:8px 12px}
 .space-body{display:grid;gap:18px}
 .unit-id{font-family:var(--display);font-size:15px;color:var(--brass);letter-spacing:.08em}
-.space h3{font-size:clamp(28px,3vw,36px);color:var(--forest)}
+.space h3{font-size:clamp(30px,3.4vw,42px);color:var(--forest);font-variation-settings:"opsz" 96}
 .specs{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line)}
 .specs div{padding:12px 0;border-bottom:1px solid var(--line)}
 .specs dt{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--stone);font-weight:700}
 .specs dd{margin:4px 0 0;font-weight:600;font-variant-numeric:tabular-nums}
-.price{font-family:var(--display);font-size:34px;color:var(--charcoal)}
+.price{font-family:var(--display);font-variation-settings:"opsz" 72;font-weight:500;font-size:38px;color:var(--forest)}
 .price small{font-family:var(--body);font-size:14px;color:var(--stone);margin-left:6px}
 .space .actions{display:flex;gap:12px;flex-wrap:wrap}
 @media (max-width:860px){.space{grid-template-columns:1fr}.space:nth-child(even) .space-media{order:0}}
@@ -284,14 +287,16 @@ dialog::backdrop{background:rgba(16,30,24,.75)}
       <a class="btn btn-brass" href="#espacios" data-i18n="ctaSpaces">Ver espacios disponibles</a>
       <a class="btn btn-ghost" href="#contacto" data-i18n="ctaVisit">Agendar una visita</a>
     </div>
+  </div>
+</section>
+<div class="facts-band"><div class="wrap">
     <dl class="facts">
       <div><dt data-i18n="f1t">Ubicación</dt><dd data-i18n="f1d">Frente a la carretera principal</dd></div>
       <div><dt data-i18n="f2t">Comunidad</dt><dd data-i18n="f2d">19 negocios activos</dd></div>
       <div><dt data-i18n="f3t">Energía</dt><dd data-i18n="f3d">Solar, baterías y generador</dd></div>
       <div><dt data-i18n="f4t">Electricidad</dt><dd data-i18n="f4d">Medidor individual por local</dd></div>
     </dl>
-  </div>
-</section>
+</div></div>
 
 <section>
   <div class="wrap intro">
@@ -346,7 +351,7 @@ dialog::backdrop{background:rgba(16,30,24,.75)}
       <div class="ben">
         <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M5 26V12l11-7 11 7v14"/><path d="M5 26h22M13 26v-6h6v6"/></svg>
         <h3 data-i18n="b5t">Comunidad de negocios</h3>
-        <p data-i18n="b5d">Más de veinte empresas y profesionales que atraen clientes a la plaza todos los días.</p>
+        <p data-i18n="b5d">Diecinueve empresas y profesionales que atraen clientes a la plaza todos los días.</p>
       </div>
       <div class="ben">
         <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M8 27c0-4.4 3.6-8 8-8s8 3.6 8 8"/><circle cx="16" cy="11" r="5"/></svg>
@@ -568,7 +573,7 @@ ctaSpaces:"Ver espacios disponibles",ctaVisit:"Agendar una visita",f1t:"Ubicaci�
 introEyebrow:"La plaza",introTitle:"Un lugar serio para hacer crecer tu negocio.",introP1:"Plaza Marqann es una plaza comercial de propiedad familiar en El Batey, Sosúa. Reúne oficinas, showrooms, talleres y servicios en un mismo lugar, con acceso directo desde la carretera Sosúa–Cabarete.",introP2:"Aquí trabajan una clínica veterinaria, una oficina de abogados, una inmobiliaria, un estudio de diseño, un distribuidor de vinos, un centro de llamadas y muchos más. Los propietarios están en la plaza y atienden a cada inquilino directamente.",
 z1t:"Edificio principal",z1d:"Dos plantas con oficinas, locales y showrooms alrededor del patio.",z2t:"Plaza Dos",z2d:"Naves y talleres de gran formato junto a la carretera.",z3t:"Lote exterior",z3d:"Terreno con oficina propia y visibilidad desde la vía.",frontAlt:"Fachada de Plaza Marqann desde la carretera",frontCap:"Entrada principal desde la carretera Sosúa–Cabarete.",
 benEyebrow:"Por qué Marqann",benTitle:"Lo esencial, resuelto.",benLede:"Todo lo que un negocio necesita para abrir sus puertas y concentrarse en sus clientes.",
-b1t:"Ubicación visible",b1d:"En el Km 4 de la carretera que une Sosúa y Cabarete, a la vista del tráfico diario.",b2t:"Estacionamiento",b2d:"Patio de estacionamiento dentro de la plaza para clientes y equipos.",b3t:"Energía propia",b3d:"Paneles solares de día, baterías y generador como respaldo, y la red eléctrica cuando hace falta.",b4t:"Espacios para cada etapa",b4d:"Desde una oficina en planta alta hasta una nave de 185 m² o un lote con oficina propia.",b5t:"Comunidad de negocios",b5d:"Más de veinte empresas y profesionales que atraen clientes a la plaza todos los días.",b6t:"Trato directo",b6d:"Los propietarios administran la plaza en persona. Respuestas claras, sin intermediarios.",
+b1t:"Ubicación visible",b1d:"En el Km 4 de la carretera que une Sosúa y Cabarete, a la vista del tráfico diario.",b2t:"Estacionamiento",b2d:"Patio de estacionamiento dentro de la plaza para clientes y equipos.",b3t:"Energía propia",b3d:"Paneles solares de día, baterías y generador como respaldo, y la red eléctrica cuando hace falta.",b4t:"Espacios para cada etapa",b4d:"Desde una oficina en planta alta hasta una nave de 185 m² o un lote con oficina propia.",b5t:"Comunidad de negocios",b5d:"Diecinueve empresas y profesionales que atraen clientes a la plaza todos los días.",b6t:"Trato directo",b6d:"Los propietarios administran la plaza en persona. Respuestas claras, sin intermediarios.",
 spEyebrow:"Disponibles ahora",spTitle:"Espacios disponibles",spLede:"Precios mensuales en dólares. Puedes pagar en dólares o en pesos. La electricidad se mide y factura aparte.",unit:"Unidad",perMonth:"/ mes",available:"Disponible",details:"Ver detalles y fotos",ask:"Solicitar información",
 moreP:"¿Buscas una oficina o un local más pequeño? Algunos espacios se liberan sin anunciarse. Cuéntanos qué necesitas y te avisamos.",moreBtn:"Contarnos qué necesitas",u19a:"Unidad 19 · foto actual del exterior. Fotos del interior vacío próximamente.",u25a:"Unidad 25 · lote con oficina de 28 m².",
 enEyebrow:"Infraestructura eléctrica",enTitle:"Cómo funciona la energía en la plaza",enLede:"La plaza produce gran parte de su propia electricidad y tiene varias capas de respaldo cuando falla la red.",
@@ -590,7 +595,7 @@ ctaSpaces:"View available spaces",ctaVisit:"Schedule a visit",f1t:"Location",f1d
 introEyebrow:"The plaza",introTitle:"A serious place to grow your business.",introP1:"Plaza Marqann is a family-owned commercial plaza in El Batey, Sosúa. Offices, showrooms, workshops and services share one address, with direct access from the Sosúa–Cabarete road.",introP2:"Tenants include a veterinary clinic, a law office, a real estate agency, a design studio, a wine distributor, a call center and many more. The owners work on site and deal with every tenant directly.",
 z1t:"Main building",z1d:"Two floors of offices, retail units and showrooms around the courtyard.",z2t:"Plaza Two",z2d:"Large-format warehouses and workshops by the road.",z3t:"Outdoor lot",z3d:"Land with its own office and road visibility.",frontAlt:"Plaza Marqann seen from the road",frontCap:"Main entrance from the Sosúa–Cabarete road.",
 benEyebrow:"Why Marqann",benTitle:"The essentials, handled.",benLede:"Everything a business needs to open its doors and focus on its customers.",
-b1t:"Visible location",b1d:"At Km 4 of the road linking Sosúa and Cabarete, in view of daily traffic.",b2t:"Parking",b2d:"An on-site parking courtyard for customers and staff.",b3t:"Own energy",b3d:"Solar panels by day, batteries and a generator as backup, and the public grid when needed.",b4t:"Space for every stage",b4d:"From an upstairs office to a 185 m² warehouse or a lot with its own office.",b5t:"A business community",b5d:"More than twenty companies and professionals bringing customers to the plaza every day.",b6t:"Direct dealings",b6d:"The owners run the plaza in person. Clear answers, no middlemen.",
+b1t:"Visible location",b1d:"At Km 4 of the road linking Sosúa and Cabarete, in view of daily traffic.",b2t:"Parking",b2d:"An on-site parking courtyard for customers and staff.",b3t:"Own energy",b3d:"Solar panels by day, batteries and a generator as backup, and the public grid when needed.",b4t:"Space for every stage",b4d:"From an upstairs office to a 185 m² warehouse or a lot with its own office.",b5t:"A business community",b5d:"Nineteen companies and professionals bringing customers to the plaza every day.",b6t:"Direct dealings",b6d:"The owners run the plaza in person. Clear answers, no middlemen.",
 spEyebrow:"Available now",spTitle:"Available spaces",spLede:"Monthly prices in US dollars. Pay in dollars or pesos. Electricity is metered and billed separately.",unit:"Unit",perMonth:"/ month",available:"Available",details:"See details and photos",ask:"Ask about this space",
 moreP:"Looking for a smaller office or retail unit? Some spaces open up without being advertised. Tell us what you need and we will let you know.",moreBtn:"Tell us what you need",u19a:"Unit 19 · current exterior photo. Photos of the empty interior coming soon.",u25a:"Unit 25 · lot with a 28 m² office.",
 enEyebrow:"Electrical infrastructure",enTitle:"How energy works at the plaza",enLede:"The plaza produces much of its own electricity and has several layers of backup when the grid fails.",
@@ -655,6 +660,9 @@ document.querySelectorAll("[data-lang]").forEach(b=>b.addEventListener("click",(
 
 // mobile menu
 const nav=$("#nav"), mb=$("#menuBtn");
+const topBar=document.querySelector(".top"); addEventListener("scroll",()=>topBar.classList.toggle("scrolled",scrollY>8),{passive:true});
+(()=>{ const links=[...document.querySelectorAll('.nav a:not(.btn)')], secs=links.map(a=>document.querySelector(a.getAttribute("href"))).filter(Boolean);
+  if("IntersectionObserver" in window){ const io=new IntersectionObserver(es=>{ es.forEach(e=>{ if(e.isIntersecting){ links.forEach(l=>l.classList.toggle("active", l.getAttribute("href")==="#"+e.target.id)); } }); },{rootMargin:"-40% 0px -55% 0px"}); secs.forEach(x=>io.observe(x)); } })();
 mb.addEventListener("click",()=>{ const o=nav.classList.toggle("open"); mb.setAttribute("aria-expanded",o); });
 nav.addEventListener("click",e=>{ if(e.target.closest("a")){ nav.classList.remove("open"); mb.setAttribute("aria-expanded","false"); }});
 
