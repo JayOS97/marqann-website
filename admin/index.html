@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Marqann Admin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500&family=Manrope:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--forest:#1F3A2E;--paper:#FBF9F4;--ink:#24262A;--stone:#6B6A64;--line:#E4DCCD;--brass:#A8834A;--bad:#A3361F}
+  *{box-sizing:border-box}
+  html,body{height:100%;margin:0}
+  body{background:var(--forest);color:var(--ink);font:15px/1.5 "Manrope","Segoe UI",system-ui,sans-serif;display:grid;place-items:center;padding:20px}
+  .card{background:var(--paper);border-radius:14px;padding:40px 36px;width:min(420px,100%);text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.25)}
+  .brand{font-family:"Fraunces",Georgia,serif;font-size:30px;letter-spacing:.22em;color:var(--forest);margin:0}
+  .sub{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--brass);font-weight:700;margin:6px 0 26px}
+  p{margin:0 0 18px;color:var(--stone)}
+  .g{display:inline-flex;align-items:center;justify-content:center;gap:12px;width:100%;min-height:50px;border-radius:8px;border:1px solid var(--line);background:#fff;font:700 15px "Manrope",sans-serif;color:var(--ink);cursor:pointer}
+  .g:hover{border-color:#bfb6a3}
+  .g svg{width:20px;height:20px}
+  .link{background:none;border:0;color:var(--forest);text-decoration:underline;font:inherit;cursor:pointer;margin-top:14px}
+  .err{color:var(--bad);font-weight:600}
+  .spin{width:28px;height:28px;border:3px solid var(--line);border-top-color:var(--forest);border-radius:50%;animation:s 1s linear infinite;margin:6px auto 14px}
+  @keyframes s{to{transform:rotate(360deg)}}
+  .back{display:block;margin-top:22px;font-size:13px;color:var(--stone)}
+</style>
+</head>
+<body>
+<main class="card" id="box" aria-live="polite">
+  <h1 class="brand">MARQANN</h1>
+  <div class="sub">Admin · Plaza</div>
+  <div class="spin"></div><p>Loading…</p>
+</main>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script>
+(function(){
+  /* Who may log in. The same list is enforced by the database rules, so this is only for a friendly message. */
+  var ADMINS = ["peterjaysonfollmann@gmail.com","billy.jfollmann@gmail.com","hvbplaza@gmail.com","support@marqann.com"];
+  var cfg = {
+    apiKey: "AIzaSyAozDvcZU3DGgD7wkdN3XjIYMbrjAfDBQA",
+    authDomain: "marqann-admin.firebaseapp.com",
+    projectId: "marqann-admin",
+    storageBucket: "marqann-admin.firebasestorage.app",
+    messagingSenderId: "805704497196",
+    appId: "1:805704497196:web:fbe262bf9d521f29903989"
+  };
+  var box = document.getElementById("box");
+  var head = '<h1 class="brand">MARQANN</h1><div class="sub">Admin · Plaza</div>';
+  var G = '<svg viewBox="0 0 48 48" aria-hidden="true"><path fill="#FFC107" d="M43.6 20.1H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.6-.4-3.9z"/><path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-7.9l-6.5 5C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.1H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.3-.1-2.6-.4-3.9z"/></svg>';
+  function show(html){ box.innerHTML = head + html; }
+
+  try{ firebase.initializeApp(cfg); }catch(e){ show('<p class="err">Could not start the login. Check your internet connection and reload.</p>'); return; }
+  var auth = firebase.auth(), fs = firebase.firestore();
+  fs.settings({ignoreUndefinedProperties: true});
+  window.__fs = fs;
+
+  function signIn(){
+    var p = new firebase.auth.GoogleAuthProvider(); p.setCustomParameters({prompt: "select_account"});
+    auth.signInWithPopup(p).catch(function(e){
+      if(e && (e.code === "auth/popup-blocked" || e.code === "auth/operation-not-supported-in-this-environment")) return auth.signInWithRedirect(p);
+      if(e && e.code === "auth/popup-closed-by-user") return;
+      show('<p class="err">Sign-in didn’t work (' + (e && e.code || "error") + ').</p><button class="g" id="go">' + G + 'Try again</button>'); document.getElementById("go").onclick = signIn;
+    });
+  }
+  function signOut(){ auth.signOut().then(function(){ location.replace(location.pathname); }); }
+  window.__signOut = signOut;
+
+  function b64(s){ var b = atob(s), u = new Uint8Array(b.length); for(var i=0;i<b.length;i++) u[i] = b.charCodeAt(i); return u; }
+  async function boot(user){
+    show('<div class="spin"></div><p>Opening the dashboard…</p>');
+    var k;
+    try{ k = await fs.doc("config/appkey").get(); }
+    catch(e){ show('<p class="err">This Google account (' + user.email + ') doesn’t have access.</p><button class="link" id="out">Use another account</button>'); document.getElementById("out").onclick = signOut; return; }
+    if(!k.exists){ show('<p>Signed in as <b>' + user.email + '</b>.</p><p>The dashboard is still being set up. Try again in a few minutes.</p><button class="link" id="out">Sign out</button>'); document.getElementById("out").onclick = signOut; return; }
+    try{
+      var key = await crypto.subtle.importKey("raw", b64(k.data().k), "AES-GCM", false, ["decrypt"]);
+      var enc = b64((await (await fetch("app.enc?v=" + (k.data().v || "1"), {cache: "no-store"})).text()).trim());
+      var html = new TextDecoder().decode(await crypto.subtle.decrypt({name: "AES-GCM", iv: enc.slice(0, 12)}, key, enc.slice(12)));
+    }catch(e){ show('<p class="err">The dashboard couldn’t be opened. Reload the page; if it keeps happening, tell Claude.</p>'); return; }
+    window.__ADMINS = ADMINS; window.__USER = user.email;
+    var db = { doc: function(p){ return fs.doc(p); }, collection: function(c){ return fs.collection(c); } };
+    var downloads = { save: async function(o){ var url = URL.createObjectURL(o.data), a = document.createElement("a"); a.href = url; a.download = o.filename; document.body.appendChild(a); a.click(); a.remove(); setTimeout(function(){ URL.revokeObjectURL(url); }, 4000); } };
+    window.claude = { use: async function(n){ if(n === "db") return db; if(n === "downloads") return downloads; throw new Error(n + " not available"); } };
+    document.open(); document.write(html); document.close();
+  }
+
+  auth.onAuthStateChanged(function(user){
+    if(!user){
+      show('<p>Owners’ panel for Plaza Marqann. Sign in with your Google account.</p><button class="g" id="go">' + G + 'Sign in with Google</button><a class="back" href="/">← Back to marqann.com</a>');
+      document.getElementById("go").onclick = signIn; return;
+    }
+    var email = (user.email || "").toLowerCase();
+    if(ADMINS.indexOf(email) < 0){
+      show('<p class="err">' + user.email + ' isn’t on the list of accounts that can open this panel.</p><button class="g" id="out">' + G + 'Use another Google account</button><a class="back" href="/">← Back to marqann.com</a>');
+      document.getElementById("out").onclick = function(){ auth.signOut().then(signIn); }; return;
+    }
+    boot(user);
+  });
+})();
+</script>
+</body>
+</html>
