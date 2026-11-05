@@ -808,7 +808,7 @@ function watchReveal(root){
 }
 if(motionOK){
   const heroImg=document.querySelector(".hero img"), hero=document.querySelector(".hero"); let ticking=false;
-  addEventListener("scroll",()=>{ if(ticking) return; ticking=true; requestAnimationFrame(()=>{ const y=scrollY; if(y<hero.offsetHeight) const cs=getComputedStyle(heroImg); heroImg.style.transform=`translate(${cs.getPropertyValue('--hx').trim()||'0%'}, calc(${cs.getPropertyValue('--hy').trim()||'0%'} + ${y*.16}px)) scale(${cs.getPropertyValue('--hs').trim()||1.02})`; ticking=false; }); },{passive:true});
+  addEventListener("scroll",()=>{ if(ticking) return; ticking=true; requestAnimationFrame(()=>{ const y=scrollY; if(y<hero.offsetHeight){ const cs=getComputedStyle(heroImg); heroImg.style.transform=`translate(${cs.getPropertyValue('--hx').trim()||'0%'}, calc(${cs.getPropertyValue('--hy').trim()||'0%'} + ${y*.16}px)) scale(${cs.getPropertyValue('--hs').trim()||1.02})`; } ticking=false; }); },{passive:true});
 }
 
 // mobile menu
