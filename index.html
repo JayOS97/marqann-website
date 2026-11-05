@@ -885,7 +885,7 @@ $("#copyBtn").addEventListener("click",async e=>{
 const MAP_Q = "Marqann - Plaza Comercial, Carretera Sosúa-Cabarete Km 4, Sosúa";
 if (/marqann\.com$|^localhost$|^127\.0\.0\.1$/.test(location.hostname)) {
   const m=$("#map"); m.classList.add("live"); m.removeAttribute("role");
-  m.innerHTML=`<iframe title="Google Maps · Plaza Marqann" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen src="https://www.google.com/maps?q=${encodeURIComponent(MAP_Q)}&output=embed"></iframe>`;
+  m.innerHTML=`<iframe title="Google Maps · Plaza Marqann" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen src="https://www.google.com/maps?q=${encodeURIComponent(MAP_Q)}&ll=19.7748875,-70.4910781&z=16&output=embed"></iframe>`;
 }
 $("#visit").min=new Date().toISOString().slice(0,10);
 $("#yr").textContent=new Date().getFullYear();
