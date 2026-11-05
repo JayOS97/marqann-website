@@ -191,5 +191,7 @@
 },
 "aerialAlt": "Vue aérienne de Plaza Marqann",
 "aerialCap": "Vue du ciel : le bâtiment principal avec ses panneaux solaires, la cour de stationnement et la route devant.",
-"gAerial": "Vue aérienne de la plaza"
+"gAerial": "Vue aérienne de la plaza",
+"menu": "Menu",
+"close": "Fermer"
 }

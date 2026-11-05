@@ -191,5 +191,7 @@
 },
 "aerialAlt": "Plaza Marqann z lotu ptaka",
 "aerialCap": "Z góry: budynek główny z panelami słonecznymi, parking i droga przed plazą.",
-"gAerial": "Plaza z lotu ptaka"
+"gAerial": "Plaza z lotu ptaka",
+"menu": "Menu",
+"close": "Zamknij"
 }
