@@ -57,7 +57,7 @@
 "moreP": "Procura um escritório ou loja menor? Alguns espaços ficam livres sem serem anunciados. Diga-nos o que precisa e entraremos em contato.",
 "moreBtn": "Diga-nos o que precisa",
 "u19a": "Unidade 19 · foto externa atual. Fotos do galpão vazio em breve.",
-"u25a": "Unidade 25 · lote com escritório de 28 m².",
+"u25a": "Unidade 20 · lote com escritório de 28 m².",
 "enEyebrow": "Fornecimento elétrico",
 "enTitle": "Como funciona a energia na plaza",
 "enLede": "A plaza gera grande parte da própria eletricidade e conta com várias reservas quando a rede cai.",
@@ -105,7 +105,7 @@
 "visitHint": "Apenas uma preferência. Confirmaremos o horário.",
 "fMsg": "Mensagem",
 "optU19": "Unidade 19 · Galpão 185 m²",
-"optU25": "Unidade 25 · Lote 180 m² com escritório",
+"optU25": "Unidade 20 · Lote 180 m² com escritório",
 "optOffice": "Escritório ou loja (mantenham-me informado)",
 "optOther": "Outro / ainda não decidi",
 "errReq": "Este campo é obrigatório.",
@@ -164,7 +164,7 @@
 ]
 ]
 },
-"25": {
+"20": {
 "name": "Lote comercial com escritório e banheiro",
 "zone": "Lote externo",
 "type": "Lote com escritório",

@@ -57,7 +57,7 @@
 "moreP": "Szukasz mniejszego biura lub lokalu? Niektóre przestrzenie zwalniają się bez ogłoszenia. Powiedz nam, czego potrzebujesz, a skontaktujemy się z Tobą.",
 "moreBtn": "Powiedz nam, czego potrzebujesz",
 "u19a": "Lokal 19 · aktualne zdjęcie z zewnątrz. Zdjęcia pustej hali wkrótce.",
-"u25a": "Lokal 25 · działka z biurem 28 m².",
+"u25a": "Lokal 20 · działka z biurem 28 m².",
 "enEyebrow": "Zasilanie",
 "enTitle": "Jak działa energia w plazie",
 "enLede": "Plaza wytwarza większość prądu sama i ma kilka rezerw na wypadek awarii sieci.",
@@ -105,7 +105,7 @@
 "visitHint": "Tylko preferencja. Godzinę potwierdzimy.",
 "fMsg": "Wiadomość",
 "optU19": "Lokal 19 · Hala 185 m²",
-"optU25": "Lokal 25 · Działka 180 m² z biurem",
+"optU25": "Lokal 20 · Działka 180 m² z biurem",
 "optOffice": "Biuro lub lokal (informujcie mnie)",
 "optOther": "Inne / jeszcze nie wiem",
 "errReq": "To pole jest wymagane.",
@@ -164,7 +164,7 @@
 ]
 ]
 },
-"25": {
+"20": {
 "name": "Działka komercyjna z biurem i łazienką",
 "zone": "Działka zewnętrzna",
 "type": "Działka z biurem",

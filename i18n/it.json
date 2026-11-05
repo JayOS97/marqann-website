@@ -57,7 +57,7 @@
 "moreP": "Cerchi un ufficio o un locale più piccolo? Alcuni spazi si liberano senza essere pubblicati. Dicci cosa ti serve e ti ricontatteremo.",
 "moreBtn": "Dicci cosa ti serve",
 "u19a": "Unità 19 · foto esterna attuale. Foto del capannone vuoto in arrivo.",
-"u25a": "Unità 25 · lotto con ufficio di 28 m².",
+"u25a": "Unità 20 · lotto con ufficio di 28 m².",
 "enEyebrow": "Fornitura elettrica",
 "enTitle": "Come funziona l'energia nella plaza",
 "enLede": "La plaza produce gran parte della propria elettricità e dispone di diverse riserve in caso di blackout della rete.",
@@ -105,7 +105,7 @@
 "visitHint": "Solo una preferenza. Confermeremo l'orario.",
 "fMsg": "Messaggio",
 "optU19": "Unità 19 · Capannone 185 m²",
-"optU25": "Unità 25 · Lotto 180 m² con ufficio",
+"optU25": "Unità 20 · Lotto 180 m² con ufficio",
 "optOffice": "Ufficio o locale (tenetemi informato)",
 "optOther": "Altro / non ancora deciso",
 "errReq": "Questo campo è obbligatorio.",
@@ -164,7 +164,7 @@
 ]
 ]
 },
-"25": {
+"20": {
 "name": "Lotto commerciale con ufficio e bagno",
 "zone": "Lotto esterno",
 "type": "Lotto con ufficio",

@@ -57,7 +57,7 @@
 "moreP": "Vous cherchez un bureau ou un local plus petit ? Certains espaces se libèrent sans être annoncés. Dites-nous ce qu'il vous faut et nous vous recontacterons.",
 "moreBtn": "Dites-nous ce qu'il vous faut",
 "u19a": "Unité 19 · photo extérieure actuelle. Photos de l'entrepôt vide à venir.",
-"u25a": "Unité 25 · terrain avec bureau de 28 m².",
+"u25a": "Unité 20 · terrain avec bureau de 28 m².",
 "enEyebrow": "Alimentation électrique",
 "enTitle": "Comment fonctionne l'énergie à la plaza",
 "enLede": "La plaza produit une grande partie de son électricité et dispose de plusieurs secours en cas de coupure du réseau.",
@@ -105,7 +105,7 @@
 "visitHint": "Simple préférence. Nous confirmerons l'heure.",
 "fMsg": "Message",
 "optU19": "Unité 19 · Entrepôt 185 m²",
-"optU25": "Unité 25 · Terrain 180 m² avec bureau",
+"optU25": "Unité 20 · Terrain 180 m² avec bureau",
 "optOffice": "Bureau ou local (tenez-moi informé)",
 "optOther": "Autre / pas encore décidé",
 "errReq": "Ce champ est obligatoire.",
@@ -164,7 +164,7 @@
 ]
 ]
 },
-"25": {
+"20": {
 "name": "Terrain commercial avec bureau et salle de bain",
 "zone": "Terrain extérieur",
 "type": "Terrain avec bureau",

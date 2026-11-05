@@ -414,7 +414,7 @@ dialog::backdrop{background:rgba(16,30,24,.75)}
       <div class="zones">
         <div><img src="img/office-upstairs-800.webp" alt="" loading="lazy"><b data-i18n="z1t">Edificio principal</b><span data-i18n="z1d">Dos plantas con oficinas, locales y showrooms alrededor del patio.</span></div>
         <div><img src="img/unit19-800.webp" alt="" loading="lazy"><b data-i18n="z2t">Plaza Dos</b><span data-i18n="z2d">Naves y talleres de gran formato junto a la carretera.</span></div>
-        <div><img src="img/unit25-800.webp" alt="" loading="lazy"><b data-i18n="z3t">Lote exterior</b><span data-i18n="z3d">Terreno con oficina propia y visibilidad desde la vía.</span></div>
+        <div><img src="img/unit20-800.webp" alt="" loading="lazy"><b data-i18n="z3t">Lote exterior</b><span data-i18n="z3d">Terreno con oficina propia y visibilidad desde la vía.</span></div>
       </div>
     </div>
     <div class="pics">
@@ -578,7 +578,7 @@ dialog::backdrop{background:rgba(16,30,24,.75)}
         <div class="f"><label for="space" data-i18n="fSpace">Espacio de interés</label>
           <select id="space" name="space">
             <option value="19" data-i18n="optU19">Unidad 19 · Nave 185 m²</option>
-            <option value="25" data-i18n="optU25">Unidad 25 · Lote 180 m² con oficina</option>
+            <option value="20" data-i18n="optU25">Unidad 20 · Lote 180 m² con oficina</option>
             <option value="office" data-i18n="optOffice">Oficina o local (avisarme)</option>
             <option value="other" data-i18n="optOther">Otro / no estoy seguro</option>
           </select>
@@ -661,8 +661,8 @@ const SPACES = [
     en:{ name:"Roadside commercial warehouse", zone:"Plaza Two", type:"Warehouse",
          desc:"A spacious 185 m² warehouse fronting the Sosúa–Cabarete road. Delivered as is, with no partitions, so you can fit it out for your business: workshop, showroom, distribution or storage.",
          specs:[["Area","185 m²"],["Type","Warehouse"],["Delivered","As is"],["Electricity","Own meter, billed separately"]] } },
-  { id:"25", status:"available", priceUSD:2000, area:180,
-    img:[["unit25","u25a"]],
+  { id:"20", status:"available", priceUSD:2000, area:180,
+    img:[["unit20","u25a"]],
     es:{ name:"Lote comercial con oficina y baño", zone:"Lote exterior", type:"Lote con oficina",
          desc:"Un lote de 180 m² en la vía principal con una oficina de 28 m² y baño privado. Ideal para exhibición de vehículos, un concepto de comida, ventas o un patio de servicios.",
          specs:[["Lote","180 m²"],["Oficina","28 m²"],["Baño","Privado"],["Electricidad","Medida y facturada aparte"]] },
@@ -685,7 +685,7 @@ z1t:"Edificio principal",z1d:"Dos plantas con oficinas, locales y showrooms alre
 benEyebrow:"Por qué Marqann",benTitle:"Lo esencial, resuelto.",benLede:"Todo lo que un negocio necesita para abrir sus puertas y concentrarse en sus clientes.",
 b1t:"Ubicación visible",b1d:"En el Km 4 de la carretera que une Sosúa y Cabarete, a la vista del tráfico diario.",b2t:"Estacionamiento",b2d:"Patio de estacionamiento dentro de la plaza para clientes y equipos.",b3t:"Energía propia",b3d:"Paneles solares de día, baterías y generador como respaldo, y la red eléctrica cuando hace falta.",b4t:"Espacios para cada etapa",b4d:"Desde una oficina en planta alta hasta una nave de 185 m² o un lote con oficina propia.",b5t:"Comunidad de negocios",b5d:"Diecinueve empresas y profesionales que atraen clientes a la plaza todos los días.",b6t:"Trato directo",b6d:"Los propietarios administran la plaza en persona. Respuestas claras, sin intermediarios.",
 spEyebrow:"Disponibles ahora",spTitle:"Espacios disponibles",spLede:"Precios mensuales en dólares. Puedes pagar en dólares o en pesos. La electricidad se mide y factura aparte.",unit:"Unidad",perMonth:"/ mes",available:"Disponible",details:"Ver detalles y fotos",ask:"Solicitar información",
-moreP:"¿Buscas una oficina o un local más pequeño? Algunos espacios se liberan sin anunciarse. Cuéntanos qué necesitas y te avisamos.",moreBtn:"Contarnos qué necesitas",u19a:"Unidad 19 · foto actual del exterior. Fotos del interior vacío próximamente.",u25a:"Unidad 25 · lote con oficina de 28 m².",
+moreP:"¿Buscas una oficina o un local más pequeño? Algunos espacios se liberan sin anunciarse. Cuéntanos qué necesitas y te avisamos.",moreBtn:"Contarnos qué necesitas",u19a:"Unidad 19 · foto actual del exterior. Fotos del interior vacío próximamente.",u25a:"Unidad 20 · lote con oficina de 28 m².",
 enEyebrow:"Infraestructura eléctrica",enTitle:"Cómo funciona la energía en la plaza",enLede:"La plaza produce gran parte de su propia electricidad y tiene varias capas de respaldo cuando falla la red.",
 e1s:"De día",e1t:"Paneles solares",e1d:"Generan electricidad para la plaza mientras hay sol.",e2s:"Almacenamiento",e2t:"Baterías",e2d:"Guardan energía solar para usarla más tarde o durante un corte.",e3s:"Respaldo",e3t:"Generador",e3d:"Entra como respaldo adicional cuando las baterías no alcanzan.",e4s:"Red",e4t:"EDENORTE",e4d:"La plaza también está conectada a la red eléctrica pública.",
 meterP:"Cada local tiene su propio medidor. Leemos los medidores cada mes y pagas solo los kWh que consume tu negocio, con el detalle de la lectura inicial y final en tu factura.",enNote:"El respaldo reduce el impacto de los apagones, pero no podemos garantizar un servicio sin interrupciones en todo momento. Si tu negocio tiene equipos de alto consumo, consúltanos antes de firmar.",
@@ -693,7 +693,7 @@ galEyebrow:"Galería",galTitle:"La plaza, tal como es",galLede:"Fotos reales de 
 locEyebrow:"Ubicación",locTitle:"Entre Sosúa y Cabarete, en la vía principal.",locBtn:"Abrir en Google Maps",mapAria:"Esquema: Plaza Marqann en el kilómetro 4 de la carretera entre Sosúa y Cabarete",
 ctEyebrow:"Contacto",ctTitle:"Hablemos de tu espacio.",ctLede:"Cuéntanos qué tipo de negocio tienes y qué necesitas. Te respondemos por el medio que prefieras.",phone:"Teléfono",
 fName:"Nombre completo",fBiz:"Negocio o tipo de actividad",fEmail:"Correo electrónico",fPhone:"Teléfono / WhatsApp",fSpace:"Espacio de interés",fSize:"Tamaño o requisitos",optional:"(opcional)",phSize:"Ej.: 60 m², baño, carga y descarga",fChannel:"¿Cómo prefieres que te contactemos?",chCall:"Llamada",fVisit:"Fecha preferida para visitar",visitHint:"Es solo una preferencia. Te confirmaremos la cita.",fMsg:"Mensaje",
-optU19:"Unidad 19 · Nave 185 m²",optU25:"Unidad 25 · Lote 180 m² con oficina",optOffice:"Oficina o local (avisarme)",optOther:"Otro / no estoy seguro",errReq:"Este campo es obligatorio.",errEmail:"Escribe un correo válido.",
+optU19:"Unidad 19 · Nave 185 m²",optU25:"Unidad 20 · Lote 180 m² con oficina",optOffice:"Oficina o local (avisarme)",optOther:"Otro / no estoy seguro",errReq:"Este campo es obligatorio.",errEmail:"Escribe un correo válido.",
 privacyShort:"Usamos tus datos solo para responder a tu solicitud. No los compartimos con terceros.",send:"Preparar solicitud",doneTitle:"Tu solicitud está lista",doneP:"Envíala por WhatsApp o por correo para que llegue directamente a nosotros. Si prefieres, cópiala y escríbenos a support@marqann.com.",sendWa:"Enviar por WhatsApp",sendMail:"Enviar por correo",emailLbl:"Correo",copy:"Copiar texto",copied:"Copiado",edit:"Editar",
 footAbout:"Espacios comerciales en el Km 4 de la carretera Sosúa–Cabarete.",footVisit:"Visítanos",footContact:"Contacto",footPlaza:"La plaza",privacy:"Privacidad",
 adminTitle:"Panel administrativo",adminP:"Panel privado para los propietarios de MARQANN: facturas, pagos, inquilinos, lecturas y gastos. Solo pueden entrar las cuentas autorizadas.",adminGo:"Entrar al panel",
@@ -707,7 +707,7 @@ z1t:"Main building",z1d:"Two floors of offices, retail units and showrooms aroun
 benEyebrow:"Why Marqann",benTitle:"The essentials, handled.",benLede:"Everything a business needs to open its doors and focus on its customers.",
 b1t:"Visible location",b1d:"At Km 4 of the road linking Sosúa and Cabarete, in view of daily traffic.",b2t:"Parking",b2d:"An on-site parking courtyard for customers and staff.",b3t:"Own energy",b3d:"Solar panels by day, batteries and a generator as backup, and the public grid when needed.",b4t:"Space for every stage",b4d:"From an upstairs office to a 185 m² warehouse or a lot with its own office.",b5t:"A business community",b5d:"Nineteen companies and professionals bringing customers to the plaza every day.",b6t:"Direct dealings",b6d:"The owners run the plaza in person. Clear answers, no middlemen.",
 spEyebrow:"Available now",spTitle:"Available spaces",spLede:"Monthly prices in US dollars. Pay in dollars or pesos. Electricity is metered and billed separately.",unit:"Unit",perMonth:"/ month",available:"Available",details:"See details and photos",ask:"Ask about this space",
-moreP:"Looking for a smaller office or retail unit? Some spaces open up without being advertised. Tell us what you need and we will let you know.",moreBtn:"Tell us what you need",u19a:"Unit 19 · current exterior photo. Photos of the empty interior coming soon.",u25a:"Unit 25 · lot with a 28 m² office.",
+moreP:"Looking for a smaller office or retail unit? Some spaces open up without being advertised. Tell us what you need and we will let you know.",moreBtn:"Tell us what you need",u19a:"Unit 19 · current exterior photo. Photos of the empty interior coming soon.",u25a:"Unit 20 · lot with a 28 m² office.",
 enEyebrow:"Electrical infrastructure",enTitle:"How energy works at the plaza",enLede:"The plaza produces much of its own electricity and has several layers of backup when the grid fails.",
 e1s:"By day",e1t:"Solar panels",e1d:"Generate electricity for the plaza while the sun is up.",e2s:"Storage",e2t:"Batteries",e2d:"Store solar energy for later or for a power cut.",e3s:"Backup",e3t:"Generator",e3d:"Steps in as extra backup when the batteries are not enough.",e4s:"Grid",e4t:"EDENORTE",e4d:"The plaza is also connected to the public grid.",
 meterP:"Every unit has its own meter. We read the meters every month and you pay only for the kWh your business uses, with the opening and closing readings shown on your invoice.",enNote:"Backup reduces the impact of outages, but we cannot guarantee uninterrupted power at all times. If your business runs high-consumption equipment, please ask us before signing.",
@@ -715,7 +715,7 @@ galEyebrow:"Gallery",galTitle:"The plaza as it is",galLede:"Real photos of the p
 locEyebrow:"Location",locTitle:"Between Sosúa and Cabarete, on the main road.",locBtn:"Open in Google Maps",mapAria:"Sketch: Plaza Marqann at kilometre 4 of the road between Sosúa and Cabarete",
 ctEyebrow:"Contact",ctTitle:"Let's talk about your space.",ctLede:"Tell us about your business and what you need. We will reply on the channel you prefer.",phone:"Phone",
 fName:"Full name",fBiz:"Business or type of activity",fEmail:"Email",fPhone:"Phone / WhatsApp",fSpace:"Space of interest",fSize:"Size or requirements",optional:"(optional)",phSize:"E.g. 60 m², bathroom, loading access",fChannel:"How would you like us to contact you?",chCall:"Phone call",fVisit:"Preferred visit date",visitHint:"This is only a preference. We will confirm the appointment.",fMsg:"Message",
-optU19:"Unit 19 · 185 m² warehouse",optU25:"Unit 25 · 180 m² lot with office",optOffice:"Office or retail unit (let me know)",optOther:"Other / not sure",errReq:"This field is required.",errEmail:"Enter a valid email address.",
+optU19:"Unit 19 · 185 m² warehouse",optU25:"Unit 20 · 180 m² lot with office",optOffice:"Office or retail unit (let me know)",optOther:"Other / not sure",errReq:"This field is required.",errEmail:"Enter a valid email address.",
 privacyShort:"We use your details only to reply to your request. We never share them with third parties.",send:"Prepare request",doneTitle:"Your request is ready",doneP:"Send it by WhatsApp or email so it reaches us directly. Or copy it and write to us at support@marqann.com.",sendWa:"Send by WhatsApp",sendMail:"Send by email",emailLbl:"Email",copy:"Copy text",copied:"Copied",edit:"Edit",
 footAbout:"Commercial spaces at Km 4 of the Sosúa–Cabarete road.",footVisit:"Visit us",footContact:"Contact",footPlaza:"The plaza",privacy:"Privacy",
 adminTitle:"Admin panel",adminP:"Private panel for the MARQANN owners: invoices, payments, tenants, meter readings and expenses. Only authorised accounts can enter.",adminGo:"Open the admin panel",

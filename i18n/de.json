@@ -57,7 +57,7 @@
 "moreP": "Suchen Sie ein kleineres Büro oder Ladenlokal? Manche Flächen werden frei, ohne ausgeschrieben zu werden. Sagen Sie uns, was Sie brauchen, und wir melden uns.",
 "moreBtn": "Sagen Sie uns, was Sie brauchen",
 "u19a": "Einheit 19 · aktuelles Außenfoto. Fotos der leeren Halle folgen in Kürze.",
-"u25a": "Einheit 25 · Grundstück mit 28-m²-Büro.",
+"u25a": "Einheit 20 · Grundstück mit 28-m²-Büro.",
 "enEyebrow": "Stromversorgung",
 "enTitle": "So funktioniert die Energie in der Plaza",
 "enLede": "Die Plaza erzeugt einen Großteil ihres Stroms selbst und hat mehrere Reserven, wenn das Netz ausfällt.",
@@ -105,7 +105,7 @@
 "visitHint": "Nur ein Wunsch. Den Termin bestätigen wir.",
 "fMsg": "Nachricht",
 "optU19": "Einheit 19 · Halle 185 m²",
-"optU25": "Einheit 25 · Grundstück 180 m² mit Büro",
+"optU25": "Einheit 20 · Grundstück 180 m² mit Büro",
 "optOffice": "Büro oder Ladenlokal (bitte informieren)",
 "optOther": "Anderes / noch unklar",
 "errReq": "Dieses Feld ist erforderlich.",
@@ -164,7 +164,7 @@
 ]
 ]
 },
-"25": {
+"20": {
 "name": "Gewerbegrundstück mit Büro und Bad",
 "zone": "Freigelände",
 "type": "Grundstück mit Büro",

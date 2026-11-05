@@ -57,7 +57,7 @@
 "moreP": "Zoekt u een kleiner kantoor of winkelruimte? Sommige ruimtes komen vrij zonder dat we ze adverteren. Vertel ons wat u nodig heeft en we nemen contact op.",
 "moreBtn": "Vertel ons wat u nodig heeft",
 "u19a": "Unit 19 · huidige buitenfoto. Foto's van de lege loods volgen binnenkort.",
-"u25a": "Unit 25 · kavel met kantoor van 28 m².",
+"u25a": "Unit 20 · kavel met kantoor van 28 m².",
 "enEyebrow": "Stroomvoorziening",
 "enTitle": "Zo werkt de energie op de plaza",
 "enLede": "De plaza wekt een groot deel van haar stroom zelf op en heeft meerdere back-ups als het net uitvalt.",
@@ -105,7 +105,7 @@
 "visitHint": "Alleen een voorkeur. We bevestigen het tijdstip.",
 "fMsg": "Bericht",
 "optU19": "Unit 19 · Loods 185 m²",
-"optU25": "Unit 25 · Kavel 180 m² met kantoor",
+"optU25": "Unit 20 · Kavel 180 m² met kantoor",
 "optOffice": "Kantoor of winkelruimte (houd me op de hoogte)",
 "optOther": "Anders / nog niet zeker",
 "errReq": "Dit veld is verplicht.",
@@ -164,7 +164,7 @@
 ]
 ]
 },
-"25": {
+"20": {
 "name": "Bedrijfskavel met kantoor en badkamer",
 "zone": "Buitenkavel",
 "type": "Kavel met kantoor",
