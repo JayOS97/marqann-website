@@ -140,11 +140,56 @@
 "sumVisit": "Gewenste bezichtiging",
 "sumMsg": "Bericht",
 "spaces": {
-"19": {"name": "Bedrijfsloods aan de weg", "zone": "Plaza Twee", "type": "Loods / opslag",
- "desc": "Een ruime loods van 185 m² direct aan de weg Sosúa–Cabarete. Wordt opgeleverd zoals hij is, zonder tussenwanden, zodat u hem kunt inrichten voor uw bedrijf: werkplaats, showroom, distributie of opslag.",
- "specs": [["Oppervlakte", "185 m²"], ["Type", "Loods / opslag"], ["Oplevering", "Zoals het is"], ["Elektriciteit", "Eigen meter, apart gefactureerd"]]},
-"25": {"name": "Bedrijfskavel met kantoor en badkamer", "zone": "Buitenkavel", "type": "Kavel met kantoor",
- "desc": "Een kavel van 180 m² aan de hoofdweg met een kantoor van 28 m² en eigen badkamer. Ideaal voor het tonen van voertuigen, een foodconcept, een verkoopkantoor of een serviceterrein.",
- "specs": [["Kavel", "180 m²"], ["Kantoor", "28 m²"], ["Badkamer", "Privé"], ["Elektriciteit", "Gemeten en apart gefactureerd"]]}
+"19": {
+"name": "Bedrijfsloods aan de weg",
+"zone": "Plaza Twee",
+"type": "Loods / opslag",
+"desc": "Een ruime loods van 185 m² direct aan de weg Sosúa–Cabarete. Wordt opgeleverd zoals hij is, zonder tussenwanden, zodat u hem kunt inrichten voor uw bedrijf: werkplaats, showroom, distributie of opslag.",
+"specs": [
+[
+"Oppervlakte",
+"185 m²"
+],
+[
+"Type",
+"Loods / opslag"
+],
+[
+"Oplevering",
+"Zoals het is"
+],
+[
+"Elektriciteit",
+"Eigen meter, apart gefactureerd"
+]
+]
+},
+"25": {
+"name": "Bedrijfskavel met kantoor en badkamer",
+"zone": "Buitenkavel",
+"type": "Kavel met kantoor",
+"desc": "Een kavel van 180 m² aan de hoofdweg met een kantoor van 28 m² en eigen badkamer. Ideaal voor het tonen van voertuigen, een foodconcept, een verkoopkantoor of een serviceterrein.",
+"specs": [
+[
+"Kavel",
+"180 m²"
+],
+[
+"Kantoor",
+"28 m²"
+],
+[
+"Badkamer",
+"Privé"
+],
+[
+"Elektriciteit",
+"Gemeten en apart gefactureerd"
+]
+]
 }
+},
+"aerialAlt": "Luchtfoto van Plaza Marqann",
+"aerialCap": "Van boven: het hoofdgebouw met zonnepanelen, het parkeerterrein en de weg ervoor.",
+"gAerial": "Luchtfoto van de plaza"
 }

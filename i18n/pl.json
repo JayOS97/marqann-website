@@ -140,11 +140,56 @@
 "sumVisit": "Preferowana wizyta",
 "sumMsg": "Wiadomość",
 "spaces": {
-"19": {"name": "Hala handlowa przy drodze", "zone": "Plaza Dwa", "type": "Hala / magazyn",
- "desc": "Przestronna hala 185 m² z bezpośrednim frontem na drogę Sosúa–Cabarete. Przekazywana w stanie obecnym, bez ścianek działowych, abyś mógł dostosować ją do swojej firmy: warsztat, showroom, dystrybucja lub magazyn.",
- "specs": [["Powierzchnia", "185 m²"], ["Typ", "Hala / magazyn"], ["Przekazanie", "W stanie obecnym"], ["Prąd", "Własny licznik, rozliczany osobno"]]},
-"25": {"name": "Działka komercyjna z biurem i łazienką", "zone": "Działka zewnętrzna", "type": "Działka z biurem",
- "desc": "Działka 180 m² przy głównej drodze z biurem 28 m² i prywatną łazienką. Idealna na ekspozycję pojazdów, koncept gastronomiczny, biuro sprzedaży lub plac serwisowy.",
- "specs": [["Działka", "180 m²"], ["Biuro", "28 m²"], ["Łazienka", "Prywatna"], ["Prąd", "Mierzony i rozliczany osobno"]]}
+"19": {
+"name": "Hala handlowa przy drodze",
+"zone": "Plaza Dwa",
+"type": "Hala / magazyn",
+"desc": "Przestronna hala 185 m² z bezpośrednim frontem na drogę Sosúa–Cabarete. Przekazywana w stanie obecnym, bez ścianek działowych, abyś mógł dostosować ją do swojej firmy: warsztat, showroom, dystrybucja lub magazyn.",
+"specs": [
+[
+"Powierzchnia",
+"185 m²"
+],
+[
+"Typ",
+"Hala / magazyn"
+],
+[
+"Przekazanie",
+"W stanie obecnym"
+],
+[
+"Prąd",
+"Własny licznik, rozliczany osobno"
+]
+]
+},
+"25": {
+"name": "Działka komercyjna z biurem i łazienką",
+"zone": "Działka zewnętrzna",
+"type": "Działka z biurem",
+"desc": "Działka 180 m² przy głównej drodze z biurem 28 m² i prywatną łazienką. Idealna na ekspozycję pojazdów, koncept gastronomiczny, biuro sprzedaży lub plac serwisowy.",
+"specs": [
+[
+"Działka",
+"180 m²"
+],
+[
+"Biuro",
+"28 m²"
+],
+[
+"Łazienka",
+"Prywatna"
+],
+[
+"Prąd",
+"Mierzony i rozliczany osobno"
+]
+]
 }
+},
+"aerialAlt": "Plaza Marqann z lotu ptaka",
+"aerialCap": "Z góry: budynek główny z panelami słonecznymi, parking i droga przed plazą.",
+"gAerial": "Plaza z lotu ptaka"
 }

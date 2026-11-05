@@ -140,11 +140,56 @@
 "sumVisit": "Visita preferita",
 "sumMsg": "Messaggio",
 "spaces": {
-"19": {"name": "Capannone commerciale sulla strada", "zone": "Plaza Due", "type": "Capannone / magazzino",
- "desc": "Un ampio capannone di 185 m² con fronte diretto sulla strada Sosúa–Cabarete. Consegnato così com'è, senza divisioni, per adattarlo alla tua attività: officina, showroom, distribuzione o magazzino.",
- "specs": [["Superficie", "185 m²"], ["Tipo", "Capannone / magazzino"], ["Consegna", "Così com'è"], ["Elettricità", "Contatore proprio, fatturata a parte"]]},
-"25": {"name": "Lotto commerciale con ufficio e bagno", "zone": "Lotto esterno", "type": "Lotto con ufficio",
- "desc": "Un lotto di 180 m² sulla via principale con un ufficio di 28 m² e bagno privato. Ideale per l'esposizione di veicoli, un concept gastronomico, un ufficio vendite o un piazzale di servizio.",
- "specs": [["Lotto", "180 m²"], ["Ufficio", "28 m²"], ["Bagno", "Privato"], ["Elettricità", "Misurata e fatturata a parte"]]}
+"19": {
+"name": "Capannone commerciale sulla strada",
+"zone": "Plaza Due",
+"type": "Capannone / magazzino",
+"desc": "Un ampio capannone di 185 m² con fronte diretto sulla strada Sosúa–Cabarete. Consegnato così com'è, senza divisioni, per adattarlo alla tua attività: officina, showroom, distribuzione o magazzino.",
+"specs": [
+[
+"Superficie",
+"185 m²"
+],
+[
+"Tipo",
+"Capannone / magazzino"
+],
+[
+"Consegna",
+"Così com'è"
+],
+[
+"Elettricità",
+"Contatore proprio, fatturata a parte"
+]
+]
+},
+"25": {
+"name": "Lotto commerciale con ufficio e bagno",
+"zone": "Lotto esterno",
+"type": "Lotto con ufficio",
+"desc": "Un lotto di 180 m² sulla via principale con un ufficio di 28 m² e bagno privato. Ideale per l'esposizione di veicoli, un concept gastronomico, un ufficio vendite o un piazzale di servizio.",
+"specs": [
+[
+"Lotto",
+"180 m²"
+],
+[
+"Ufficio",
+"28 m²"
+],
+[
+"Bagno",
+"Privato"
+],
+[
+"Elettricità",
+"Misurata e fatturata a parte"
+]
+]
 }
+},
+"aerialAlt": "Vista aerea di Plaza Marqann",
+"aerialCap": "Dall'alto: l'edificio principale con i pannelli solari, il piazzale di parcheggio e la strada davanti.",
+"gAerial": "Vista aerea della plaza"
 }

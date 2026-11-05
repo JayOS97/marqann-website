@@ -140,11 +140,56 @@
 "sumVisit": "Visita preferida",
 "sumMsg": "Mensagem",
 "spaces": {
-"19": {"name": "Galpão comercial de frente para a estrada", "zone": "Plaza Dois", "type": "Galpão / depósito",
- "desc": "Um galpão amplo de 185 m² com frente direta para a estrada Sosúa–Cabarete. Entregue como está, sem divisórias, para você adaptá-lo ao seu negócio: oficina, showroom, distribuição ou depósito.",
- "specs": [["Área", "185 m²"], ["Tipo", "Galpão / depósito"], ["Entrega", "Como está"], ["Eletricidade", "Medidor próprio, cobrada à parte"]]},
-"25": {"name": "Lote comercial com escritório e banheiro", "zone": "Lote externo", "type": "Lote com escritório",
- "desc": "Um lote de 180 m² na via principal com um escritório de 28 m² e banheiro privativo. Ideal para exposição de veículos, um conceito gastronômico, um escritório de vendas ou um pátio de serviços.",
- "specs": [["Lote", "180 m²"], ["Escritório", "28 m²"], ["Banheiro", "Privativo"], ["Eletricidade", "Medida e cobrada à parte"]]}
+"19": {
+"name": "Galpão comercial de frente para a estrada",
+"zone": "Plaza Dois",
+"type": "Galpão / depósito",
+"desc": "Um galpão amplo de 185 m² com frente direta para a estrada Sosúa–Cabarete. Entregue como está, sem divisórias, para você adaptá-lo ao seu negócio: oficina, showroom, distribuição ou depósito.",
+"specs": [
+[
+"Área",
+"185 m²"
+],
+[
+"Tipo",
+"Galpão / depósito"
+],
+[
+"Entrega",
+"Como está"
+],
+[
+"Eletricidade",
+"Medidor próprio, cobrada à parte"
+]
+]
+},
+"25": {
+"name": "Lote comercial com escritório e banheiro",
+"zone": "Lote externo",
+"type": "Lote com escritório",
+"desc": "Um lote de 180 m² na via principal com um escritório de 28 m² e banheiro privativo. Ideal para exposição de veículos, um conceito gastronômico, um escritório de vendas ou um pátio de serviços.",
+"specs": [
+[
+"Lote",
+"180 m²"
+],
+[
+"Escritório",
+"28 m²"
+],
+[
+"Banheiro",
+"Privativo"
+],
+[
+"Eletricidade",
+"Medida e cobrada à parte"
+]
+]
 }
+},
+"aerialAlt": "Vista aérea da Plaza Marqann",
+"aerialCap": "Vista de cima: o edifício principal com os painéis solares, o pátio de estacionamento e a estrada em frente.",
+"gAerial": "Vista aérea da plaza"
 }

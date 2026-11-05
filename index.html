@@ -153,10 +153,11 @@ footer .brand{align-self:flex-start;justify-self:start}
 
 /* sections */
 section{padding:clamp(80px,11vw,144px) 0}
-.intro{display:grid;grid-template-columns:5fr 6fr;gap:clamp(32px,6vw,96px);align-items:center}
+.intro{display:grid;grid-template-columns:5fr 6fr;gap:clamp(32px,6vw,96px);align-items:start}
 .intro .stack{display:grid;gap:22px}
 .intro figure{margin:0;position:relative}
 .intro figure img{aspect-ratio:4/3;object-fit:cover;width:100%}
+.intro .pics{display:grid;gap:28px}.intro .aerial img{aspect-ratio:4/3;object-position:center 45%}
 .intro figcaption,.cap{font-size:13px;color:var(--stone);margin-top:10px}
 .zones{display:grid;gap:0;border-top:1px solid var(--line);margin-top:8px}
 .zones div{display:grid;grid-template-columns:150px 1fr;gap:16px;padding:14px 0;border-bottom:1px solid var(--line)}
@@ -222,8 +223,8 @@ section{padding:clamp(80px,11vw,144px) 0}
 .gal img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
 .gal button:hover img{transform:scale(1.03)}
 .gal .a{grid-column:span 4;grid-row:span 2}.gal .b{grid-column:span 2;grid-row:span 2}
-.gal .c{grid-column:span 2}.gal .d{grid-column:span 2}.gal .e{grid-column:span 2}
-@media (max-width:760px){.gal{grid-template-columns:1fr 1fr;grid-auto-rows:150px}.gal .a{grid-column:span 2}.gal .b{grid-column:span 1;grid-row:span 2}.gal .c,.gal .d,.gal .e{grid-column:span 1}}
+.gal .c,.gal .d,.gal .e,.gal .f{grid-column:span 3}
+@media (max-width:760px){.gal{grid-template-columns:1fr 1fr;grid-auto-rows:150px}.gal .a,.gal .b{grid-column:span 2;grid-row:span 1}.gal .c,.gal .d,.gal .e,.gal .f{grid-column:span 1}}
 
 /* location */
 .loc{display:grid;grid-template-columns:5fr 6fr;gap:clamp(32px,6vw,80px);align-items:center}
@@ -409,10 +410,16 @@ dialog::backdrop{background:rgba(16,30,24,.75)}
         <div><b data-i18n="z3t">Lote exterior</b><span data-i18n="z3d">Terreno con oficina propia y visibilidad desde la vía.</span></div>
       </div>
     </div>
-    <figure>
-      <img src="img/front-street-1600.webp" srcset="img/front-street-800.webp 800w, img/front-street-1600.webp 1600w" sizes="(max-width:860px) 100vw, 55vw" alt="Fachada de Plaza Marqann desde la carretera" data-i18n-alt="frontAlt" loading="lazy">
-      <figcaption data-i18n="frontCap">Entrada principal desde la carretera Sosúa–Cabarete.</figcaption>
-    </figure>
+    <div class="pics">
+      <figure class="aerial">
+        <img src="img/aerial-1600.webp" srcset="img/aerial-800.webp 800w, img/aerial-1600.webp 1600w, img/aerial-2400.webp 2400w" sizes="(max-width:860px) 100vw, 55vw" alt="Vista aérea de Plaza Marqann" data-i18n-alt="aerialAlt" loading="lazy">
+        <figcaption data-i18n="aerialCap">Vista aérea: el edificio principal con sus paneles solares, el patio de estacionamiento y la carretera al frente.</figcaption>
+      </figure>
+      <figure>
+        <img src="img/front-street-1600.webp" srcset="img/front-street-800.webp 800w, img/front-street-1600.webp 1600w" sizes="(max-width:860px) 100vw, 55vw" alt="Fachada de Plaza Marqann desde la carretera" data-i18n-alt="frontAlt" loading="lazy">
+        <figcaption data-i18n="frontCap">Entrada principal desde la carretera Sosúa–Cabarete.</figcaption>
+      </figure>
+    </div>
   </div>
 </section>
 
@@ -660,8 +667,8 @@ const SPACES = [
 ];
 
 const GALLERY = [
-  ["hero-courtyard","a","gCourt"],["lobby-wide","b","gLobby"],["front-street","c","gFront"],
-  ["upstairs-hall","d","gHall"],["office-upstairs","e","gOffice"]
+  ["aerial","a","gAerial"],["hero-courtyard","b","gCourt"],["lobby-wide","c","gLobby"],["front-street","d","gFront"],
+  ["upstairs-hall","e","gHall"],["office-upstairs","f","gOffice"]
 ];
 
 const T = {
@@ -669,7 +676,7 @@ es:{brandSub:"Plaza Comercial · Sosúa",navSpaces:"Espacios disponibles",navBen
 heroEyebrow:"Km 4 · Carretera Sosúa–Cabarete",heroTitle:"El espacio para tu próximo gran paso.",heroSub:"Oficinas, locales, una nave y un lote comercial en la vía principal entre Sosúa y Cabarete, con energía solar propia y respaldo de baterías y generador.",heroAlt:"Patio central y edificio principal de Plaza Marqann",
 ctaSpaces:"Ver espacios disponibles",ctaVisit:"Agendar una visita",f1t:"Ubicación",f1d:"Frente a la carretera principal",f2t:"Comunidad",f2d:"19 negocios activos",f3t:"Energía",f3d:"Solar, baterías y generador",f4t:"Electricidad",f4d:"Medidor individual por local",
 introEyebrow:"La plaza",introTitle:"Un lugar serio para hacer crecer tu negocio.",introP1:"Plaza Marqann es una plaza comercial de propiedad familiar en El Batey, Sosúa. Reúne oficinas, showrooms, talleres y servicios en un mismo lugar, con acceso directo desde la carretera Sosúa–Cabarete.",introP2:"Aquí trabajan una clínica veterinaria, una oficina de abogados, una inmobiliaria, un estudio de diseño, un distribuidor de vinos, un centro de llamadas y muchos más. Los propietarios están en la plaza y atienden a cada inquilino directamente.",
-z1t:"Edificio principal",z1d:"Dos plantas con oficinas, locales y showrooms alrededor del patio.",z2t:"Plaza Dos",z2d:"Naves y talleres de gran formato junto a la carretera.",z3t:"Lote exterior",z3d:"Terreno con oficina propia y visibilidad desde la vía.",frontAlt:"Fachada de Plaza Marqann desde la carretera",frontCap:"Entrada principal desde la carretera Sosúa–Cabarete.",
+z1t:"Edificio principal",z1d:"Dos plantas con oficinas, locales y showrooms alrededor del patio.",z2t:"Plaza Dos",z2d:"Naves y talleres de gran formato junto a la carretera.",z3t:"Lote exterior",z3d:"Terreno con oficina propia y visibilidad desde la vía.",aerialAlt:"Vista aérea de Plaza Marqann",aerialCap:"Vista aérea: el edificio principal con sus paneles solares, el patio de estacionamiento y la carretera al frente.",frontAlt:"Fachada de Plaza Marqann desde la carretera",frontCap:"Entrada principal desde la carretera Sosúa–Cabarete.",
 benEyebrow:"Por qué Marqann",benTitle:"Lo esencial, resuelto.",benLede:"Todo lo que un negocio necesita para abrir sus puertas y concentrarse en sus clientes.",
 b1t:"Ubicación visible",b1d:"En el Km 4 de la carretera que une Sosúa y Cabarete, a la vista del tráfico diario.",b2t:"Estacionamiento",b2d:"Patio de estacionamiento dentro de la plaza para clientes y equipos.",b3t:"Energía propia",b3d:"Paneles solares de día, baterías y generador como respaldo, y la red eléctrica cuando hace falta.",b4t:"Espacios para cada etapa",b4d:"Desde una oficina en planta alta hasta una nave de 185 m² o un lote con oficina propia.",b5t:"Comunidad de negocios",b5d:"Diecinueve empresas y profesionales que atraen clientes a la plaza todos los días.",b6t:"Trato directo",b6d:"Los propietarios administran la plaza en persona. Respuestas claras, sin intermediarios.",
 spEyebrow:"Disponibles ahora",spTitle:"Espacios disponibles",spLede:"Precios mensuales en dólares. Puedes pagar en dólares o en pesos. La electricidad se mide y factura aparte.",unit:"Unidad",perMonth:"/ mes",available:"Disponible",details:"Ver detalles y fotos",ask:"Solicitar información",
@@ -677,7 +684,7 @@ moreP:"¿Buscas una oficina o un local más pequeño? Algunos espacios se libera
 enEyebrow:"Infraestructura eléctrica",enTitle:"Cómo funciona la energía en la plaza",enLede:"La plaza produce gran parte de su propia electricidad y tiene varias capas de respaldo cuando falla la red.",
 e1s:"De día",e1t:"Paneles solares",e1d:"Generan electricidad para la plaza mientras hay sol.",e2s:"Almacenamiento",e2t:"Baterías",e2d:"Guardan energía solar para usarla más tarde o durante un corte.",e3s:"Respaldo",e3t:"Generador",e3d:"Entra como respaldo adicional cuando las baterías no alcanzan.",e4s:"Red",e4t:"EDENORTE",e4d:"La plaza también está conectada a la red eléctrica pública.",
 meterP:"Cada local tiene su propio medidor. Leemos los medidores cada mes y pagas solo los kWh que consume tu negocio, con el detalle de la lectura inicial y final en tu factura.",enNote:"El respaldo reduce el impacto de los apagones, pero no podemos garantizar un servicio sin interrupciones en todo momento. Si tu negocio tiene equipos de alto consumo, consúltanos antes de firmar.",
-galEyebrow:"Galería",galTitle:"La plaza, tal como es",galLede:"Fotos reales de la propiedad. Toca una imagen para ampliarla.",gCourt:"Patio central y estacionamiento",gLobby:"Vestíbulo de la planta baja",gFront:"Fachada desde la carretera",gHall:"Espacio amplio en planta alta",gOffice:"Oficina en planta alta con balcón",
+galEyebrow:"Galería",galTitle:"La plaza, tal como es",galLede:"Fotos reales de la propiedad. Toca una imagen para ampliarla.",gAerial:"Vista aérea de la plaza",gCourt:"Patio central y estacionamiento",gLobby:"Vestíbulo de la planta baja",gFront:"Fachada desde la carretera",gHall:"Espacio amplio en planta alta",gOffice:"Oficina en planta alta con balcón",
 locEyebrow:"Ubicación",locTitle:"Entre Sosúa y Cabarete, en la vía principal.",locBtn:"Abrir en Google Maps",mapAria:"Esquema: Plaza Marqann en el kilómetro 4 de la carretera entre Sosúa y Cabarete",
 ctEyebrow:"Contacto",ctTitle:"Hablemos de tu espacio.",ctLede:"Cuéntanos qué tipo de negocio tienes y qué necesitas. Te respondemos por el medio que prefieras.",phone:"Teléfono",
 fName:"Nombre completo",fBiz:"Negocio o tipo de actividad",fEmail:"Correo electrónico",fPhone:"Teléfono / WhatsApp",fSpace:"Espacio de interés",fSize:"Tamaño o requisitos",optional:"(opcional)",phSize:"Ej.: 60 m², baño, carga y descarga",fChannel:"¿Cómo prefieres que te contactemos?",chCall:"Llamada",fVisit:"Fecha preferida para visitar",visitHint:"Es solo una preferencia. Te confirmaremos la cita.",fMsg:"Mensaje",
@@ -691,7 +698,7 @@ en:{brandSub:"Commercial Plaza · Sosúa",navSpaces:"Available spaces",navBenefi
 heroEyebrow:"Km 4 · Sosúa–Cabarete Road",heroTitle:"The space for your next big step.",heroSub:"Offices, retail units, a warehouse and a commercial lot on the main road between Sosúa and Cabarete, with its own solar power and battery and generator backup.",heroAlt:"Central courtyard and main building of Plaza Marqann",
 ctaSpaces:"View available spaces",ctaVisit:"Schedule a visit",f1t:"Location",f1d:"Fronting the main road",f2t:"Community",f2d:"19 active businesses",f3t:"Energy",f3d:"Solar, batteries and generator",f4t:"Electricity",f4d:"Individual meter per unit",
 introEyebrow:"The plaza",introTitle:"A serious place to grow your business.",introP1:"Plaza Marqann is a family-owned commercial plaza in El Batey, Sosúa. Offices, showrooms, workshops and services share one address, with direct access from the Sosúa–Cabarete road.",introP2:"Tenants include a veterinary clinic, a law office, a real estate agency, a design studio, a wine distributor, a call center and many more. The owners work on site and deal with every tenant directly.",
-z1t:"Main building",z1d:"Two floors of offices, retail units and showrooms around the courtyard.",z2t:"Plaza Two",z2d:"Large-format warehouses and workshops by the road.",z3t:"Outdoor lot",z3d:"Land with its own office and road visibility.",frontAlt:"Plaza Marqann seen from the road",frontCap:"Main entrance from the Sosúa–Cabarete road.",
+z1t:"Main building",z1d:"Two floors of offices, retail units and showrooms around the courtyard.",z2t:"Plaza Two",z2d:"Large-format warehouses and workshops by the road.",z3t:"Outdoor lot",z3d:"Land with its own office and road visibility.",aerialAlt:"Aerial view of Plaza Marqann",aerialCap:"From above: the main building with its solar panels, the parking courtyard and the road out front.",frontAlt:"Plaza Marqann seen from the road",frontCap:"Main entrance from the Sosúa–Cabarete road.",
 benEyebrow:"Why Marqann",benTitle:"The essentials, handled.",benLede:"Everything a business needs to open its doors and focus on its customers.",
 b1t:"Visible location",b1d:"At Km 4 of the road linking Sosúa and Cabarete, in view of daily traffic.",b2t:"Parking",b2d:"An on-site parking courtyard for customers and staff.",b3t:"Own energy",b3d:"Solar panels by day, batteries and a generator as backup, and the public grid when needed.",b4t:"Space for every stage",b4d:"From an upstairs office to a 185 m² warehouse or a lot with its own office.",b5t:"A business community",b5d:"Nineteen companies and professionals bringing customers to the plaza every day.",b6t:"Direct dealings",b6d:"The owners run the plaza in person. Clear answers, no middlemen.",
 spEyebrow:"Available now",spTitle:"Available spaces",spLede:"Monthly prices in US dollars. Pay in dollars or pesos. Electricity is metered and billed separately.",unit:"Unit",perMonth:"/ month",available:"Available",details:"See details and photos",ask:"Ask about this space",
@@ -791,7 +798,7 @@ const motionOK = matchMedia("(prefers-reduced-motion: no-preference)").matches &
 const revealIO = motionOK ? new IntersectionObserver(es=>{ es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add("in"); revealIO.unobserve(e.target); } }); },{rootMargin:"0px 0px -8% 0px",threshold:.08}) : null;
 function watchReveal(root){
   if(!revealIO) return;
-  const sel=".head,.intro .stack,.intro figure,.ben,.space,.flow,.meter,.gal button,.loc .stack,.map,.contact .stack,form,.more,.facts div";
+  const sel=".head,.intro .stack,.intro .pics figure,.ben,.space,.flow,.meter,.gal button,.loc .stack,.map,.contact .stack,form,.more,.facts div";
   root.querySelectorAll(sel).forEach(el=>{
     if(el.classList.contains("rv")||el.classList.contains("in")) return;
     const sib=[...el.parentElement.children].filter(x=>x.matches(sel)); if(sib.length>1) el.style.setProperty("--d", (sib.indexOf(el)*.08)+"s");

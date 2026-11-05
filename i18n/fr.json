@@ -140,11 +140,56 @@
 "sumVisit": "Visite souhaitée",
 "sumMsg": "Message",
 "spaces": {
-"19": {"name": "Entrepôt commercial en bord de route", "zone": "Plaza Deux", "type": "Entrepôt",
- "desc": "Un entrepôt spacieux de 185 m² donnant directement sur la route Sosúa–Cabarete. Livré tel quel, sans cloisons, pour l'aménager selon votre activité : atelier, showroom, distribution ou stockage.",
- "specs": [["Surface", "185 m²"], ["Type", "Entrepôt"], ["Livraison", "Tel quel"], ["Électricité", "Compteur propre, facturé à part"]]},
-"25": {"name": "Terrain commercial avec bureau et salle de bain", "zone": "Terrain extérieur", "type": "Terrain avec bureau",
- "desc": "Un terrain de 180 m² sur la voie principale avec un bureau de 28 m² et une salle de bain privée. Idéal pour l'exposition de véhicules, un concept de restauration, un bureau de vente ou une cour de service.",
- "specs": [["Terrain", "180 m²"], ["Bureau", "28 m²"], ["Salle de bain", "Privée"], ["Électricité", "Mesurée et facturée à part"]]}
+"19": {
+"name": "Entrepôt commercial en bord de route",
+"zone": "Plaza Deux",
+"type": "Entrepôt",
+"desc": "Un entrepôt spacieux de 185 m² donnant directement sur la route Sosúa–Cabarete. Livré tel quel, sans cloisons, pour l'aménager selon votre activité : atelier, showroom, distribution ou stockage.",
+"specs": [
+[
+"Surface",
+"185 m²"
+],
+[
+"Type",
+"Entrepôt"
+],
+[
+"Livraison",
+"Tel quel"
+],
+[
+"Électricité",
+"Compteur propre, facturé à part"
+]
+]
+},
+"25": {
+"name": "Terrain commercial avec bureau et salle de bain",
+"zone": "Terrain extérieur",
+"type": "Terrain avec bureau",
+"desc": "Un terrain de 180 m² sur la voie principale avec un bureau de 28 m² et une salle de bain privée. Idéal pour l'exposition de véhicules, un concept de restauration, un bureau de vente ou une cour de service.",
+"specs": [
+[
+"Terrain",
+"180 m²"
+],
+[
+"Bureau",
+"28 m²"
+],
+[
+"Salle de bain",
+"Privée"
+],
+[
+"Électricité",
+"Mesurée et facturée à part"
+]
+]
 }
+},
+"aerialAlt": "Vue aérienne de Plaza Marqann",
+"aerialCap": "Vue du ciel : le bâtiment principal avec ses panneaux solaires, la cour de stationnement et la route devant.",
+"gAerial": "Vue aérienne de la plaza"
 }
