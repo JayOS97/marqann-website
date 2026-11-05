@@ -39,7 +39,7 @@
   color-scheme:light;
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:96px}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--top-h) + 12px)}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
 body{margin:0;background:var(--paper);color:var(--charcoal);font-family:var(--body);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
 img{max-width:100%;display:block}
@@ -65,10 +65,13 @@ p{margin:0}
 .btn-line:hover{background:var(--forest);color:#fff}
 
 /* header */
-.top{position:sticky;top:0;z-index:40;background:rgba(251,249,244,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);transition:box-shadow .3s}.top.scrolled{box-shadow:0 10px 30px -18px rgba(20,40,32,.35)}
-.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:32px;height:84px}
+:root{--top-h:84px}
+@media (max-width:640px){:root{--top-h:68px}}
+.top{position:sticky;top:0;z-index:40;background:rgba(251,249,244,.9);border-bottom:1px solid var(--line);transition:box-shadow .3s}
+/* blur lives on a pseudo-element so fixed children (nav sheet, language sheet) stay viewport-relative */
+.top::before{content:"";position:absolute;inset:0;z-index:-1;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}.top.scrolled{box-shadow:0 10px 30px -18px rgba(20,40,32,.35)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:32px;height:var(--top-h)}
 .brand{display:flex;flex-direction:column;text-decoration:none;line-height:1}
-/* TEMPORARY wordmark — replace with the approved Marqann logo file */
 .brand b{font-family:var(--display);font-weight:500;font-size:24px;letter-spacing:.22em;color:var(--forest)}
 .brand img{display:block;height:50px;width:auto}.top .brand .mono{display:none}
 .foot-brand{gap:14px;align-items:flex-start}.foot-brand img:first-child{height:56px}.foot-brand img:last-child{height:40px}
@@ -79,25 +82,63 @@ footer .brand{align-self:flex-start;justify-self:start}
 .nav a:not(.btn)::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1.5px;background:var(--brass);transform:scaleX(0);transform-origin:left;transition:transform .25s ease}
 .nav a:not(.btn):hover::after,.nav a:not(.btn).active::after{transform:scaleX(1)}
 .nav a.btn{color:#fff;margin-left:4px}.nav a.btn:hover{color:#fff}
-@media (max-width:480px){.top .brand .wm{display:none}.top .brand .mono{display:block;height:44px}.top .brand small{letter-spacing:.18em;font-size:9px}.top .brand b{font-size:21px}}
-.lang{display:flex;gap:2px}
-.lang button{min-width:40px;min-height:40px;border:0;background:transparent;font:700 12.5px var(--body);letter-spacing:.1em;cursor:pointer;color:var(--stone);border-bottom:1.5px solid transparent;border-radius:0}
-.lang button:hover{color:var(--forest)}
-.lang button[aria-pressed="true"]{color:var(--forest);border-bottom-color:var(--brass)}
-.menu-btn{display:none;min-width:44px;min-height:44px;border:1px solid var(--line);background:transparent;border-radius:2px;cursor:pointer}
-@media (max-width:900px){
-  .nav{position:fixed;inset:84px 0 auto 0;flex-direction:column;align-items:stretch;gap:0;background:var(--paper);border-bottom:1px solid var(--line);padding:8px var(--gut) 20px;display:none}
-  .nav.open{display:flex}
-  .nav a{padding:14px 0;border-bottom:1px solid var(--line);font-size:16px}
-  .nav .btn{margin-top:16px}
-  .menu-btn{display:inline-flex;align-items:center;justify-content:center}
+.nav-foot{display:none}
+@media (max-width:640px){.top .brand .wm{height:40px}}
+@media (max-width:400px){.top .brand .wm{display:none}.top .brand .mono{display:block;height:40px}}
+.ctl{display:flex;gap:8px;align-items:center}
+/* language: one button, one list */
+.lang-btn{display:inline-flex;align-items:center;gap:7px;min-height:40px;padding:0 12px 0 10px;border:1px solid var(--line);border-radius:999px;background:transparent;color:var(--forest);font:700 12.5px var(--body);letter-spacing:.1em;cursor:pointer;transition:border-color .2s,background .2s}
+.lang-btn:hover,.lang-btn[aria-expanded="true"]{border-color:var(--brass);background:#fff}
+.lang-btn svg{width:17px;height:17px;stroke:var(--brass);fill:none;stroke-width:1.5}
+.lang-btn .chev{width:10px;height:10px;stroke:var(--stone);stroke-width:2;transition:transform .25s}
+.lang-btn[aria-expanded="true"] .chev{transform:rotate(180deg)}
+.lang-menu{position:fixed;inset:0;z-index:60;display:none}
+.lang-menu.open{display:block}
+.lang-menu .bg{position:absolute;inset:0;background:rgba(16,30,24,0)}
+.lang-sheet{position:absolute;top:calc(var(--top-h) + 8px);right:max(var(--gut),calc((100vw - var(--wrap))/2 + var(--gut)));width:360px;background:var(--paper);border:1px solid var(--line);box-shadow:0 24px 60px -24px rgba(20,40,32,.45);padding:14px;transform-origin:top right;animation:popin .22s cubic-bezier(.2,.8,.2,1) both}
+@keyframes popin{from{opacity:0;transform:translateY(-6px) scale(.98)}to{opacity:1;transform:none}}
+.lang-sheet .lt{display:flex;justify-content:space-between;align-items:center;padding:4px 6px 12px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--brass);font-weight:700}
+.lang-sheet .lt .x{display:none}
+.lang-sheet ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:4px}
+.lang-sheet button{display:flex;align-items:center;justify-content:space-between;gap:8px;width:100%;min-height:46px;padding:0 12px;border:1px solid transparent;border-radius:2px;background:transparent;font:500 15.5px var(--body);color:var(--charcoal);cursor:pointer;text-align:left;transition:background .15s,border-color .15s}
+.lang-sheet button small{font-size:11px;letter-spacing:.12em;color:var(--stone);font-weight:700}
+.lang-sheet button:hover{background:var(--ivory)}
+.lang-sheet button[aria-selected="true"]{border-color:var(--brass);color:var(--forest)}
+.lang-sheet button[aria-selected="true"] small{color:var(--brass)}
+.lang-sheet button[aria-selected="true"] small::before{content:"✓ "}
+@media (max-width:640px){
+  .lang-menu .bg{background:rgba(16,30,24,.55);animation:fade .25s both}
+  .lang-sheet{top:auto;right:0;left:0;bottom:0;width:auto;border:0;border-radius:14px 14px 0 0;padding:14px 16px calc(18px + env(safe-area-inset-bottom));transform-origin:bottom;animation:sheetup .32s cubic-bezier(.2,.8,.2,1) both}
+  .lang-sheet::before{content:"";display:block;width:40px;height:4px;border-radius:2px;background:var(--line);margin:0 auto 10px}
+  .lang-sheet .lt .x{display:inline-flex;min-width:40px;min-height:40px;align-items:center;justify-content:center;border:0;font-size:22px;color:var(--stone)}
+  .lang-sheet button{min-height:52px;font-size:17px}
 }
+@keyframes sheetup{from{transform:translateY(100%)}to{transform:none}}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+.menu-btn{display:none;min-width:44px;min-height:44px;border:1px solid var(--line);background:transparent;border-radius:999px;cursor:pointer;color:var(--forest);position:relative}
+.menu-btn span{position:absolute;left:12px;right:12px;height:1.8px;background:currentColor;border-radius:1px;transition:transform .3s cubic-bezier(.2,.8,.2,1),opacity .2s;top:calc(50% - 1px)}
+.menu-btn span:nth-child(1){transform:translateY(-5px)}.menu-btn span:nth-child(3){transform:translateY(5px)}
+.menu-btn[aria-expanded="true"] span:nth-child(1){transform:rotate(45deg)}.menu-btn[aria-expanded="true"] span:nth-child(2){opacity:0}.menu-btn[aria-expanded="true"] span:nth-child(3){transform:rotate(-45deg)}
+@media (max-width:900px){
+  .nav{position:fixed;left:0;right:0;top:var(--top-h);bottom:0;flex-direction:column;align-items:stretch;gap:0;background:var(--paper);padding:10px var(--gut) 28px;display:none;overflow:auto;z-index:39}
+  .nav.open{display:flex}
+  .nav a{padding:18px 0;border-bottom:1px solid var(--line);font-size:clamp(22px,6vw,28px);font-family:var(--display);font-weight:500;letter-spacing:-.01em;font-variation-settings:"opsz" 72}
+  .nav a:not(.btn)::after{display:none}
+  .nav.open a{animation:navin .5s cubic-bezier(.2,.8,.2,1) both}
+  .nav.open a:nth-child(2){animation-delay:.05s}.nav.open a:nth-child(3){animation-delay:.1s}.nav.open a:nth-child(4){animation-delay:.15s}.nav.open a:nth-child(5){animation-delay:.2s}
+  .nav .btn{margin-top:24px;font:600 16px/1 var(--body);min-height:54px;border-radius:2px}
+  .menu-btn{display:inline-flex;align-items:center;justify-content:center}
+  body.nav-open{overflow:hidden}
+  .nav-foot{display:grid;gap:6px;margin-top:auto;padding-top:28px;font-size:14px;color:var(--stone);animation:navin .6s .3s cubic-bezier(.2,.8,.2,1) both}
+  .nav-foot a{padding:0;border:0;font:600 14px var(--body);color:var(--forest);animation:none}
+}
+@keyframes navin{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
 
 /* hero */
 .hero{position:relative;color:#fff;min-height:min(92vh,820px);display:flex;align-items:flex-end;overflow:hidden;background:var(--forest-deep)}
-.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 40%;animation:settle 1.6s ease-out both}
+.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 40%;animation:settle 1.2s ease-out both;transform:scale(1.02)}
 .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,40,32,.10) 0%,rgba(20,40,32,.30) 40%,rgba(16,30,24,.90) 100%),linear-gradient(90deg,rgba(16,30,24,.55) 0%,rgba(16,30,24,0) 60%)}
-@keyframes settle{from{transform:scale(1.04)}to{transform:scale(1)}}
+@keyframes settle{from{opacity:0}to{opacity:1}}
 .hero .wrap{position:relative;z-index:1;width:100%;padding-top:140px;padding-bottom:clamp(56px,8vw,96px)}
 .hero .eyebrow{color:var(--brass-soft)}
 .hero h1{font-size:clamp(46px,6.6vw,96px);font-weight:500;line-height:1;letter-spacing:-.025em;max-width:13ch;margin:22px 0 26px;text-shadow:0 2px 30px rgba(0,0,0,.18)}
@@ -236,6 +277,54 @@ footer a{text-decoration:none}footer a:hover{color:#fff}
 .admin:hover{color:#fff}
 @media (max-width:860px){.foot{grid-template-columns:1fr 1fr}}
 
+/* motion — one hero entrance, quiet reveals, brass rules that draw in */
+.hero .wrap>*{animation:rise .9s cubic-bezier(.2,.8,.2,1) both}
+.hero .eyebrow{animation-delay:.15s}.hero h1{animation-delay:.3s}.hero p.sub{animation-delay:.45s}.hero .ctas{animation-delay:.6s}
+@keyframes rise{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+.rv{opacity:0;transform:translateY(18px);transition:opacity .7s cubic-bezier(.2,.8,.2,1),transform .7s cubic-bezier(.2,.8,.2,1);transition-delay:var(--d,0s)}
+.rv.in{opacity:1;transform:none}
+.ben{border-top-color:transparent;position:relative}
+.ben::before{content:"";position:absolute;top:-1px;left:0;right:0;height:1px;background:var(--brass);transform:scaleX(0);transform-origin:left;transition:transform .8s cubic-bezier(.2,.8,.2,1);transition-delay:calc(var(--d,0s) + .2s)}
+.ben.in::before{transform:scaleX(1)}
+.flow li{border-top-color:transparent}
+.flow li::after{content:"";position:absolute;top:-1px;left:0;right:0;height:1px;background:rgba(217,196,156,.45);transform:scaleX(0);transform-origin:left;transition:transform .7s cubic-bezier(.2,.8,.2,1);transition-delay:var(--d,0s)}
+.flow li::before{transform:scale(0);transition:transform .4s cubic-bezier(.2,.8,.2,1),box-shadow .6s;transition-delay:calc(var(--d,0s) + .5s)}
+.flow.in li::after{transform:scaleX(1)}
+.flow.in li::before{transform:scale(1);box-shadow:0 0 0 6px rgba(217,196,156,.18)}
+.flow:not(.rv) li{border-top-color:rgba(217,196,156,.4)}.flow:not(.rv) li::before{transform:none}.ben:not(.rv){border-top-color:var(--brass)}
+.space-media{overflow:hidden}.space-media img{transition:transform .8s cubic-bezier(.2,.8,.2,1)}.space:hover .space-media img{transform:scale(1.025)}
+.btn{transition:background .2s,color .2s,border-color .2s,transform .2s}.btn:hover{transform:translateY(-1px)}.btn:active{transform:none}
+.intro figure img,.map{transition:box-shadow .4s}
+.hero img{will-change:transform}
+
+/* mobile polish */
+@media (max-width:640px){
+  body{font-size:16.5px}
+  section{padding:64px 0}
+  .hero{min-height:min(86svh,760px)}
+  .hero .wrap{padding-top:112px;padding-bottom:40px}
+  .hero h1{font-size:clamp(40px,11.5vw,56px);margin:18px 0 20px}
+  .hero p.sub{font-size:17px}
+  .hero .ctas{margin-top:28px;gap:10px}.hero .ctas .btn{flex:1 1 100%;min-height:52px}
+  h2{font-size:clamp(32px,9vw,42px)}
+  .head{margin-bottom:36px}
+  .lede{font-size:17px}
+  .space h3{font-size:30px}.price{font-size:32px}
+  .space .actions{gap:10px}.space .actions .btn{flex:1 1 100%;min-height:52px}
+  .more{padding:22px 20px;margin-top:40px}.more .btn{width:100%}
+  .flow{margin-top:40px}.flow li{padding-right:0}
+  .meter{grid-template-columns:1fr;gap:14px;margin-top:40px}
+  .gal{grid-auto-rows:120px;gap:8px}
+  .map{padding:16px}
+  form{gap:16px}.radios label{flex:1 1 auto;justify-content:center}
+  .form-foot .btn{width:100%}
+  .foot{grid-template-columns:1fr;gap:28px}
+  .legal{flex-direction:column;gap:8px;margin-top:36px}
+  dialog{max-width:100vw;width:100vw;max-height:100dvh;height:100dvh;margin:0}
+  .dlg-body{padding:16px}.dlg-body img{max-height:58dvh}
+  .dlg-small{height:auto;max-height:90dvh;margin:auto 0 0;width:100vw}
+}
+
 /* dialogs */
 dialog{border:0;padding:0;max-width:min(980px,94vw);width:100%;background:var(--paper);color:var(--charcoal)}
 dialog::backdrop{background:rgba(16,30,24,.75)}
@@ -263,15 +352,24 @@ dialog::backdrop{background:rgba(16,30,24,.75)}
       <a href="#energia" data-i18n="navEnergy">Energía</a>
       <a href="#ubicacion" data-i18n="navLocation">Ubicación</a>
       <a class="btn btn-forest" href="#contacto" data-i18n="navContact">Contacto</a>
-    </nav>
-    <div style="display:flex;gap:10px;align-items:center">
-      <div class="lang" role="group" aria-label="Idioma / Language">
-        <button type="button" data-lang="es" aria-pressed="true">ES</button>
-        <button type="button" data-lang="en" aria-pressed="false">EN</button>
+      <div class="nav-foot" aria-hidden="false">
+        <a href="https://wa.me/18098539232" target="_blank" rel="noopener">WhatsApp · (809) 853-9232</a>
+        <a href="mailto:support@marqann.com">support@marqann.com</a>
+        <span>Km 4 · Carretera Sosúa–Cabarete</span>
       </div>
-      <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="nav" aria-label="Menú">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </nav>
+    <div class="ctl">
+      <button class="lang-btn" id="langBtn" type="button" aria-haspopup="listbox" aria-expanded="false" aria-controls="langMenu" aria-label="Idioma / Language">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.8 3 2.8 15 0 18M12 3c-2.8 3-2.8 15 0 18"/></svg><span id="langCur">ES</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
       </button>
+      <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="nav" aria-label="Menú"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <div class="lang-menu" id="langMenu">
+    <div class="bg" data-langclose></div>
+    <div class="lang-sheet" role="listbox" aria-label="Idioma / Language">
+      <div class="lt"><span style="white-space:nowrap">Idioma · Language</span><button type="button" class="x" data-langclose aria-label="Cerrar">×</button></div>
+      <ul id="langList"></ul>
     </div>
   </div>
 </header>
@@ -613,15 +711,32 @@ privLong:"MARQANN, S.R.L. uses the details you send us (name, business, email, p
 sumHead:"Space enquiry — Plaza Marqann",sumName:"Name",sumBiz:"Business",sumEmail:"Email",sumPhone:"Phone",sumSpace:"Space",sumSize:"Requirements",sumChannel:"Preferred contact",sumVisit:"Preferred visit",sumMsg:"Message"}
 };
 
+const LANGS = {
+  es:{name:"Español",locale:"es-DO"}, en:{name:"English",locale:"en-US"}, de:{name:"Deutsch",locale:"de-DE"},
+  fr:{name:"Français",locale:"fr-FR"}, it:{name:"Italiano",locale:"it-IT"}, nl:{name:"Nederlands",locale:"nl-NL"},
+  pt:{name:"Português",locale:"pt-BR"}, ru:{name:"Русский",locale:"ru-RU"}, uk:{name:"Українська",locale:"uk-UA"}, pl:{name:"Polski",locale:"pl-PL"}
+};
 let lang = "es";
-try{ const s = localStorage.getItem("marqann-lang"); if(s==="en"||s==="es") lang=s; }catch(e){}
+try{ const s = localStorage.getItem("marqann-lang"); if(LANGS[s]) lang=s; }catch(e){}
 const $ = s => document.querySelector(s);
-const t = k => (T[lang][k] ?? T.es[k] ?? k);
-const money = n => "US$" + n.toLocaleString(lang==="es"?"es-DO":"en-US");
+const t = k => ((T[lang]||{})[k] ?? T.es[k] ?? k);
+const money = n => "US$" + n.toLocaleString(LANGS[lang].locale);
+const spaceText = s => s[lang] || (T[lang]&&T[lang].spaces&&T[lang].spaces[s.id]) || s.en;
+async function loadLang(code){
+  if(T[code]) return true;
+  try{ const r = await fetch(`i18n/${code}.json`,{cache:"force-cache"}); if(!r.ok) throw 0; T[code] = await r.json(); return true; }
+  catch(e){ return false; }
+}
+async function setLang(code){
+  if(!LANGS[code]) return;
+  const ok = await loadLang(code); if(!ok) code = "en";
+  lang = code; try{localStorage.setItem("marqann-lang",lang)}catch(e){}
+  apply(); if(typeof lastSummary!=="undefined" && lastSummary) buildSummary();
+}
 
 function renderSpaces(){
   $("#spaces").innerHTML = SPACES.map((s,i)=>{
-    const L = s[lang]; const img = s.img[0][0];
+    const L = spaceText(s); const img = s.img[0][0];
     return `<article class="space" id="unidad-${s.id}">
       <figure class="space-media">
         <img src="img/${img}-1600.webp" srcset="img/${img}-800.webp 800w, img/${img}-1600.webp 1600w" sizes="(max-width:860px) 100vw, 58vw" alt="${L.name}" loading="lazy">
@@ -640,10 +755,17 @@ function renderSpaces(){
         </div>
       </div></article>`;
   }).join("");
+  if(typeof watchReveal==="function") watchReveal($("#spaces"));
 }
 function renderGallery(){
   $("#gal").innerHTML = GALLERY.map(([f,c,k],i)=>
     `<button type="button" class="${c}" data-gal="${i}" aria-label="${t(k)}"><img src="img/${f}-800.webp" alt="${t(k)}" loading="lazy"></button>`).join("");
+  if(typeof watchReveal==="function") watchReveal($("#gal"));
+}
+function renderLangList(){
+  $("#langList").innerHTML = Object.entries(LANGS).map(([c,l])=>
+    `<li><button type="button" role="option" data-setlang="${c}" aria-selected="${c===lang}" lang="${c}">${l.name}<small>${c.toUpperCase()}</small></button></li>`).join("");
+  $("#langCur").textContent = lang.toUpperCase();
 }
 function apply(){
   document.documentElement.lang = lang;
@@ -651,20 +773,44 @@ function apply(){
   document.querySelectorAll("[data-i18n-alt]").forEach(el=>{ el.alt = t(el.dataset.i18nAlt); });
   document.querySelectorAll("[data-i18n-ph]").forEach(el=>{ el.placeholder = t(el.dataset.i18nPh); });
   document.querySelectorAll("[data-i18n-aria]").forEach(el=>{ el.setAttribute("aria-label", t(el.dataset.i18nAria)); });
-  document.querySelectorAll("[data-lang]").forEach(b=>b.setAttribute("aria-pressed", b.dataset.lang===lang));
-  renderSpaces(); renderGallery();
+  renderLangList(); renderSpaces(); renderGallery();
 }
-document.querySelectorAll("[data-lang]").forEach(b=>b.addEventListener("click",()=>{
-  lang=b.dataset.lang; try{localStorage.setItem("marqann-lang",lang)}catch(e){} apply(); if(lastSummary) buildSummary();
-}));
+// language menu
+const langMenu=$("#langMenu"), langBtn=$("#langBtn");
+function openLang(o){ langMenu.classList.toggle("open",o); langBtn.setAttribute("aria-expanded",o); if(o){ const cur=langMenu.querySelector('[aria-selected="true"]'); (cur||langMenu.querySelector("button")).focus(); } else langBtn.focus(); }
+langBtn.addEventListener("click",()=>openLang(!langMenu.classList.contains("open")));
+langMenu.addEventListener("click",async e=>{
+  if(e.target.closest("[data-langclose]")){ openLang(false); return; }
+  const b=e.target.closest("[data-setlang]"); if(!b) return;
+  b.setAttribute("aria-busy","true"); await setLang(b.dataset.setlang); openLang(false);
+});
+document.addEventListener("keydown",e=>{ if(e.key==="Escape"&&langMenu.classList.contains("open")) openLang(false); });
+
+// motion: reveal once, brass rules draw in, hero parallax (all skipped under reduced motion)
+const motionOK = matchMedia("(prefers-reduced-motion: no-preference)").matches && "IntersectionObserver" in window;
+const revealIO = motionOK ? new IntersectionObserver(es=>{ es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add("in"); revealIO.unobserve(e.target); } }); },{rootMargin:"0px 0px -8% 0px",threshold:.08}) : null;
+function watchReveal(root){
+  if(!revealIO) return;
+  const sel=".head,.intro .stack,.intro figure,.ben,.space,.flow,.meter,.gal button,.loc .stack,.map,.contact .stack,form,.more,.facts div";
+  root.querySelectorAll(sel).forEach(el=>{
+    if(el.classList.contains("rv")||el.classList.contains("in")) return;
+    const sib=[...el.parentElement.children].filter(x=>x.matches(sel)); if(sib.length>1) el.style.setProperty("--d", (sib.indexOf(el)*.08)+"s");
+    el.classList.add("rv"); revealIO.observe(el);
+  });
+  root.querySelectorAll(".flow li").forEach((li,i)=>li.style.setProperty("--d",(i*.35)+"s"));
+}
+if(motionOK){
+  const heroImg=document.querySelector(".hero img"), hero=document.querySelector(".hero"); let ticking=false;
+  addEventListener("scroll",()=>{ if(ticking) return; ticking=true; requestAnimationFrame(()=>{ const y=scrollY; if(y<hero.offsetHeight) heroImg.style.transform=`translateY(${y*.16}px) scale(1.02)`; ticking=false; }); },{passive:true});
+}
 
 // mobile menu
 const nav=$("#nav"), mb=$("#menuBtn");
 const topBar=document.querySelector(".top"); addEventListener("scroll",()=>topBar.classList.toggle("scrolled",scrollY>8),{passive:true});
-(()=>{ const links=[...document.querySelectorAll('.nav a:not(.btn)')], secs=links.map(a=>document.querySelector(a.getAttribute("href"))).filter(Boolean);
+(()=>{ const links=[...document.querySelectorAll('.nav a:not(.btn)')].filter(a=>a.getAttribute("href").startsWith("#")), secs=links.map(a=>document.querySelector(a.getAttribute("href"))).filter(Boolean);
   if("IntersectionObserver" in window){ const io=new IntersectionObserver(es=>{ es.forEach(e=>{ if(e.isIntersecting){ links.forEach(l=>l.classList.toggle("active", l.getAttribute("href")==="#"+e.target.id)); } }); },{rootMargin:"-40% 0px -55% 0px"}); secs.forEach(x=>io.observe(x)); } })();
-mb.addEventListener("click",()=>{ const o=nav.classList.toggle("open"); mb.setAttribute("aria-expanded",o); });
-nav.addEventListener("click",e=>{ if(e.target.closest("a")){ nav.classList.remove("open"); mb.setAttribute("aria-expanded","false"); }});
+mb.addEventListener("click",()=>{ const o=nav.classList.toggle("open"); mb.setAttribute("aria-expanded",o); document.body.classList.toggle("nav-open",o); });
+nav.addEventListener("click",e=>{ if(e.target.closest("a")){ nav.classList.remove("open"); mb.setAttribute("aria-expanded","false"); document.body.classList.remove("nav-open"); }});
 
 // viewer
 const viewer=$("#viewer");
@@ -680,7 +826,7 @@ function openViewer(title, items, idx, actionHTML){
 }
 document.addEventListener("click",e=>{
   const v=e.target.closest("[data-view]");
-  if(v){ const s=SPACES[+v.dataset.view]; const L=s[lang];
+  if(v){ const s=SPACES[+v.dataset.view]; const L=spaceText(s);
     openViewer(`${t("unit")} ${s.id} · ${L.name}`, s.img.map(([f,k])=>[f,t(k)]), 0,
       `<p style="margin-bottom:16px;color:var(--stone)">${L.desc}</p><a class="btn btn-forest" href="#contacto" data-pick="${s.id}" data-closeview>${t("ask")}</a>`); }
   const g=e.target.closest("[data-gal]");
@@ -736,7 +882,7 @@ if (/marqann\.com$|^localhost$|^127\.0\.0\.1$/.test(location.hostname)) {
 }
 $("#visit").min=new Date().toISOString().slice(0,10);
 $("#yr").textContent=new Date().getFullYear();
-apply();
+(async()=>{ if(!T[lang]){ const ok=await loadLang(lang); if(!ok) lang="es"; } apply(); watchReveal(document); })();
 })();
 </script>
 </body>
