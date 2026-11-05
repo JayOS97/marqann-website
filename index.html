@@ -3,7 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Plaza Marqann</title>
+<title>Plaza Marqann · Plaza Comercial en Sosúa</title>
+<link rel="icon" type="image/svg+xml" href="/brand/marqann-monogram.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/brand/favicon-32.png">
+<link rel="apple-touch-icon" href="/brand/apple-touch-icon.png">
+<meta name="theme-color" content="#1F3A2E">
+<meta property="og:image" content="https://marqann.com/brand/icon-512.png">
 <meta name="description" content="Oficinas, locales y almacenes en alquiler en el Km 4 de la carretera Sosúa–Cabarete, Puerto Plata. Energía solar con baterías y generador de respaldo.">
 <meta property="og:title" content="Plaza Marqann · Sosúa">
 <meta property="og:description" content="Espacios comerciales en el Km 4 de la carretera Sosúa–Cabarete.">
@@ -65,12 +70,15 @@ p{margin:0}
 .brand{display:flex;flex-direction:column;text-decoration:none;line-height:1}
 /* TEMPORARY wordmark — replace with the approved Marqann logo file */
 .brand b{font-family:var(--display);font-weight:500;font-size:24px;letter-spacing:.22em;color:var(--forest)}
+.brand img{display:block;height:50px;width:auto}
+footer .brand img{height:50px}
+footer .brand{align-self:flex-start;justify-self:start}
 .brand small{font-size:10px;letter-spacing:.32em;text-transform:uppercase;color:var(--brass);margin-top:5px}
 .nav{display:flex;align-items:center;gap:28px}
 .nav a{font-size:14px;font-weight:600;text-decoration:none;color:var(--charcoal)}
 .nav a:hover{color:var(--brass)}
 .nav a.btn{color:#fff}.nav a.btn:hover{color:#fff}
-@media (max-width:480px){.top .brand small{letter-spacing:.18em;font-size:9px}.top .brand b{font-size:21px}}
+@media (max-width:480px){.top .brand img{height:42px}.top .brand small{letter-spacing:.18em;font-size:9px}.top .brand b{font-size:21px}}
 .lang{display:flex;border:1px solid var(--line);border-radius:2px;overflow:hidden}
 .lang button{min-width:44px;min-height:36px;border:0;background:transparent;font:700 12px var(--body);letter-spacing:.1em;cursor:pointer;color:var(--stone)}
 .lang button[aria-pressed="true"]{background:var(--forest);color:#fff}
@@ -243,8 +251,8 @@ dialog::backdrop{background:rgba(16,30,24,.75)}
 
 <header class="top">
   <div class="wrap">
-    <a class="brand" href="#inicio" aria-label="Plaza Marqann">
-      <b>MARQANN</b><small data-i18n="brandSub">Plaza Comercial · Sosúa</small>
+    <a class="brand" href="#inicio" aria-label="Marqann · Plaza Comercial">
+      <img src="/brand/marqann-lockup.svg" alt="Marqann · Plaza Comercial" width="230" height="46">
     </a>
     <nav class="nav" id="nav" aria-label="Principal">
       <a href="#espacios" data-i18n="navSpaces">Espacios disponibles</a>
@@ -278,7 +286,7 @@ dialog::backdrop{background:rgba(16,30,24,.75)}
     </div>
     <dl class="facts">
       <div><dt data-i18n="f1t">Ubicación</dt><dd data-i18n="f1d">Frente a la carretera principal</dd></div>
-      <div><dt data-i18n="f2t">Comunidad</dt><dd data-i18n="f2d">Más de 20 negocios activos</dd></div>
+      <div><dt data-i18n="f2t">Comunidad</dt><dd data-i18n="f2d">19 negocios activos</dd></div>
       <div><dt data-i18n="f3t">Energía</dt><dd data-i18n="f3d">Solar, baterías y generador</dd></div>
       <div><dt data-i18n="f4t">Electricidad</dt><dd data-i18n="f4d">Medidor individual por local</dd></div>
     </dl>
@@ -495,7 +503,7 @@ dialog::backdrop{background:rgba(16,30,24,.75)}
   <div class="wrap">
     <div class="foot">
       <div style="display:grid;gap:16px;align-content:start">
-        <span class="brand"><b>MARQANN</b><small data-i18n="brandSub">Plaza Comercial · Sosúa</small></span>
+        <span class="brand"><img src="/brand/marqann-lockup-reversed.svg" alt="Marqann · Plaza Comercial" width="250" height="50"></span>
         <p style="max-width:36ch" data-i18n="footAbout">Espacios comerciales en el Km 4 de la carretera Sosúa–Cabarete.</p>
       </div>
       <div><h4 data-i18n="footVisit">Visítanos</h4><p>Km 4, Carretera Sosúa–Cabarete<br>El Batey, Sosúa, Puerto Plata</p></div>
@@ -556,7 +564,7 @@ const GALLERY = [
 const T = {
 es:{brandSub:"Plaza Comercial · Sosúa",navSpaces:"Espacios disponibles",navBenefits:"La plaza",navEnergy:"Energía",navLocation:"Ubicación",navContact:"Contacto",
 heroEyebrow:"Km 4 · Carretera Sosúa–Cabarete",heroTitle:"El espacio para tu próximo gran paso.",heroSub:"Oficinas, locales, una nave y un lote comercial en la vía principal entre Sosúa y Cabarete, con energía solar propia y respaldo de baterías y generador.",heroAlt:"Patio central y edificio principal de Plaza Marqann",
-ctaSpaces:"Ver espacios disponibles",ctaVisit:"Agendar una visita",f1t:"Ubicación",f1d:"Frente a la carretera principal",f2t:"Comunidad",f2d:"Más de 20 negocios activos",f3t:"Energía",f3d:"Solar, baterías y generador",f4t:"Electricidad",f4d:"Medidor individual por local",
+ctaSpaces:"Ver espacios disponibles",ctaVisit:"Agendar una visita",f1t:"Ubicación",f1d:"Frente a la carretera principal",f2t:"Comunidad",f2d:"19 negocios activos",f3t:"Energía",f3d:"Solar, baterías y generador",f4t:"Electricidad",f4d:"Medidor individual por local",
 introEyebrow:"La plaza",introTitle:"Un lugar serio para hacer crecer tu negocio.",introP1:"Plaza Marqann es una plaza comercial de propiedad familiar en El Batey, Sosúa. Reúne oficinas, showrooms, talleres y servicios en un mismo lugar, con acceso directo desde la carretera Sosúa–Cabarete.",introP2:"Aquí trabajan una clínica veterinaria, una oficina de abogados, una inmobiliaria, un estudio de diseño, un distribuidor de vinos, un centro de llamadas y muchos más. Los propietarios están en la plaza y atienden a cada inquilino directamente.",
 z1t:"Edificio principal",z1d:"Dos plantas con oficinas, locales y showrooms alrededor del patio.",z2t:"Plaza Dos",z2d:"Naves y talleres de gran formato junto a la carretera.",z3t:"Lote exterior",z3d:"Terreno con oficina propia y visibilidad desde la vía.",frontAlt:"Fachada de Plaza Marqann desde la carretera",frontCap:"Entrada principal desde la carretera Sosúa–Cabarete.",
 benEyebrow:"Por qué Marqann",benTitle:"Lo esencial, resuelto.",benLede:"Todo lo que un negocio necesita para abrir sus puertas y concentrarse en sus clientes.",
@@ -578,7 +586,7 @@ privLong:"MARQANN, S.R.L. usa los datos que nos envías (nombre, negocio, correo
 sumHead:"Solicitud de espacio — Plaza Marqann",sumName:"Nombre",sumBiz:"Negocio",sumEmail:"Correo",sumPhone:"Teléfono",sumSpace:"Espacio",sumSize:"Requisitos",sumChannel:"Contacto preferido",sumVisit:"Visita preferida",sumMsg:"Mensaje"},
 en:{brandSub:"Commercial Plaza · Sosúa",navSpaces:"Available spaces",navBenefits:"The plaza",navEnergy:"Energy",navLocation:"Location",navContact:"Contact",
 heroEyebrow:"Km 4 · Sosúa–Cabarete Road",heroTitle:"The space for your next big step.",heroSub:"Offices, retail units, a warehouse and a commercial lot on the main road between Sosúa and Cabarete, with its own solar power and battery and generator backup.",heroAlt:"Central courtyard and main building of Plaza Marqann",
-ctaSpaces:"View available spaces",ctaVisit:"Schedule a visit",f1t:"Location",f1d:"Fronting the main road",f2t:"Community",f2d:"More than 20 active businesses",f3t:"Energy",f3d:"Solar, batteries and generator",f4t:"Electricity",f4d:"Individual meter per unit",
+ctaSpaces:"View available spaces",ctaVisit:"Schedule a visit",f1t:"Location",f1d:"Fronting the main road",f2t:"Community",f2d:"19 active businesses",f3t:"Energy",f3d:"Solar, batteries and generator",f4t:"Electricity",f4d:"Individual meter per unit",
 introEyebrow:"The plaza",introTitle:"A serious place to grow your business.",introP1:"Plaza Marqann is a family-owned commercial plaza in El Batey, Sosúa. Offices, showrooms, workshops and services share one address, with direct access from the Sosúa–Cabarete road.",introP2:"Tenants include a veterinary clinic, a law office, a real estate agency, a design studio, a wine distributor, a call center and many more. The owners work on site and deal with every tenant directly.",
 z1t:"Main building",z1d:"Two floors of offices, retail units and showrooms around the courtyard.",z2t:"Plaza Two",z2d:"Large-format warehouses and workshops by the road.",z3t:"Outdoor lot",z3d:"Land with its own office and road visibility.",frontAlt:"Plaza Marqann seen from the road",frontCap:"Main entrance from the Sosúa–Cabarete road.",
 benEyebrow:"Why Marqann",benTitle:"The essentials, handled.",benLede:"Everything a business needs to open its doors and focus on its customers.",
