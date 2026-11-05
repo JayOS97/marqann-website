@@ -70,15 +70,15 @@ p{margin:0}
 .brand{display:flex;flex-direction:column;text-decoration:none;line-height:1}
 /* TEMPORARY wordmark — replace with the approved Marqann logo file */
 .brand b{font-family:var(--display);font-weight:500;font-size:24px;letter-spacing:.22em;color:var(--forest)}
-.brand img{display:block;height:50px;width:auto}
-footer .brand img{height:50px}
+.brand img{display:block;height:46px;width:auto}.top .brand .mono{display:none}
+.foot-brand{gap:14px;align-items:flex-start}.foot-brand img:first-child{height:56px}.foot-brand img:last-child{height:40px}
 footer .brand{align-self:flex-start;justify-self:start}
 .brand small{font-size:10px;letter-spacing:.32em;text-transform:uppercase;color:var(--brass);margin-top:5px}
 .nav{display:flex;align-items:center;gap:28px}
 .nav a{font-size:14px;font-weight:600;text-decoration:none;color:var(--charcoal)}
 .nav a:hover{color:var(--brass)}
 .nav a.btn{color:#fff}.nav a.btn:hover{color:#fff}
-@media (max-width:480px){.top .brand img{height:42px}.top .brand small{letter-spacing:.18em;font-size:9px}.top .brand b{font-size:21px}}
+@media (max-width:480px){.top .brand .wm{display:none}.top .brand .mono{display:block;height:44px}.top .brand small{letter-spacing:.18em;font-size:9px}.top .brand b{font-size:21px}}
 .lang{display:flex;border:1px solid var(--line);border-radius:2px;overflow:hidden}
 .lang button{min-width:44px;min-height:36px;border:0;background:transparent;font:700 12px var(--body);letter-spacing:.1em;cursor:pointer;color:var(--stone)}
 .lang button[aria-pressed="true"]{background:var(--forest);color:#fff}
@@ -252,7 +252,7 @@ dialog::backdrop{background:rgba(16,30,24,.75)}
 <header class="top">
   <div class="wrap">
     <a class="brand" href="#inicio" aria-label="Marqann · Plaza Comercial">
-      <img src="/brand/marqann-lockup.svg" alt="Marqann · Plaza Comercial" width="230" height="46">
+      <img class="wm" src="/brand/marqann-wordmark.svg" alt="Marqann · Plaza Comercial" width="250" height="46"><img class="mono" src="/brand/marqann-monogram.svg" alt="Marqann" width="44" height="44">
     </a>
     <nav class="nav" id="nav" aria-label="Principal">
       <a href="#espacios" data-i18n="navSpaces">Espacios disponibles</a>
@@ -503,7 +503,7 @@ dialog::backdrop{background:rgba(16,30,24,.75)}
   <div class="wrap">
     <div class="foot">
       <div style="display:grid;gap:16px;align-content:start">
-        <span class="brand"><img src="/brand/marqann-lockup-reversed.svg" alt="Marqann · Plaza Comercial" width="250" height="50"></span>
+        <span class="brand foot-brand"><img src="/brand/marqann-monogram-reversed.svg" alt="" width="56" height="56"><img src="/brand/marqann-wordmark-reversed.svg" alt="Marqann · Plaza Comercial" width="220" height="41"></span>
         <p style="max-width:36ch" data-i18n="footAbout">Espacios comerciales en el Km 4 de la carretera Sosúa–Cabarete.</p>
       </div>
       <div><h4 data-i18n="footVisit">Visítanos</h4><p>Km 4, Carretera Sosúa–Cabarete<br>El Batey, Sosúa, Puerto Plata</p></div>
