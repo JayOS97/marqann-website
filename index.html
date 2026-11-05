@@ -157,13 +157,19 @@ section{padding:clamp(80px,11vw,144px) 0}
 .intro .stack{display:grid;gap:22px}
 .intro figure{margin:0;position:relative}
 .intro figure img{aspect-ratio:4/3;object-fit:cover;width:100%}
-.intro .pics{display:grid;gap:28px}.intro .aerial img{aspect-ratio:4/3;object-position:center 45%}
+.intro .pics{position:relative;padding:0 0 72px 0}
+.intro .pics .main img{aspect-ratio:4/3.3;object-position:center 60%}
+.intro .pics .inset{position:absolute;left:-28px;bottom:0;width:46%;max-width:300px;background:var(--paper);padding:10px 10px 12px;box-shadow:0 30px 60px -30px rgba(20,40,32,.5);border:1px solid var(--line)}
+.intro .pics .inset img{aspect-ratio:4/3;object-fit:cover;width:100%}
+.intro .pics .inset figcaption{font-size:12.5px;color:var(--stone);margin-top:8px}
+.intro .pics::before{content:"";position:absolute;right:-18px;top:-18px;width:52%;height:62%;border:1px solid var(--brass-soft);z-index:-1}
+@media (max-width:860px){.intro .pics{padding-bottom:56px}.intro .pics .inset{left:0;width:52%}.intro .pics::before{display:none}}
 .intro figcaption,.cap{font-size:13px;color:var(--stone);margin-top:10px}
 .zones{display:grid;gap:0;border-top:1px solid var(--line);margin-top:8px}
-.zones div{display:grid;grid-template-columns:150px 1fr;gap:16px;padding:14px 0;border-bottom:1px solid var(--line)}
+.zones div{display:grid;grid-template-columns:64px 140px 1fr;gap:16px;padding:12px 0;border-bottom:1px solid var(--line);align-items:center}.zones img{width:64px;height:48px;object-fit:cover;border-radius:2px}
 .zones b{font-family:var(--display);font-weight:500;font-size:18px;color:var(--forest)}
 .zones span{color:var(--stone);font-size:15px}
-@media (max-width:860px){.intro{grid-template-columns:1fr}.zones div{grid-template-columns:1fr;gap:2px}}
+@media (max-width:860px){.intro{grid-template-columns:1fr}.zones div{grid-template-columns:64px 1fr;gap:4px 14px}.zones img{grid-row:span 2}}
 
 /* benefits */
 .benefits{background:var(--ivory)}
@@ -406,19 +412,18 @@ dialog::backdrop{background:rgba(16,30,24,.75)}
       <p class="lede" data-i18n="introP1">Plaza Marqann es una plaza comercial de propiedad familiar en El Batey, Sosúa. Reúne oficinas, showrooms, talleres y servicios en un mismo lugar, con acceso directo desde la carretera Sosúa–Cabarete.</p>
       <p data-i18n="introP2">Aquí trabajan una clínica veterinaria, una oficina de abogados, una inmobiliaria, un estudio de diseño, un distribuidor de vinos, un centro de llamadas y muchos más. Los propietarios están en la plaza y atienden a cada inquilino directamente.</p>
       <div class="zones">
-        <div><b data-i18n="z1t">Edificio principal</b><span data-i18n="z1d">Dos plantas con oficinas, locales y showrooms alrededor del patio.</span></div>
-        <div><b data-i18n="z2t">Plaza Dos</b><span data-i18n="z2d">Naves y talleres de gran formato junto a la carretera.</span></div>
-        <div><b data-i18n="z3t">Lote exterior</b><span data-i18n="z3d">Terreno con oficina propia y visibilidad desde la vía.</span></div>
+        <div><img src="img/office-upstairs-800.webp" alt="" loading="lazy"><b data-i18n="z1t">Edificio principal</b><span data-i18n="z1d">Dos plantas con oficinas, locales y showrooms alrededor del patio.</span></div>
+        <div><img src="img/unit19-800.webp" alt="" loading="lazy"><b data-i18n="z2t">Plaza Dos</b><span data-i18n="z2d">Naves y talleres de gran formato junto a la carretera.</span></div>
+        <div><img src="img/unit25-800.webp" alt="" loading="lazy"><b data-i18n="z3t">Lote exterior</b><span data-i18n="z3d">Terreno con oficina propia y visibilidad desde la vía.</span></div>
       </div>
     </div>
     <div class="pics">
-      <figure class="aerial">
+      <figure class="main">
         <img src="img/hero-courtyard-1600.webp" srcset="img/hero-courtyard-800.webp 800w, img/hero-courtyard-1600.webp 1600w" sizes="(max-width:860px) 100vw, 55vw" alt="Patio central y edificio principal de Plaza Marqann" data-i18n-alt="heroAlt" loading="lazy">
-        <figcaption data-i18n="gCourt">Vista aérea: el edificio principal con sus paneles solares, el patio de estacionamiento y la carretera al frente.</figcaption>
       </figure>
-      <figure>
-        <img src="img/front-street-1600.webp" srcset="img/front-street-800.webp 800w, img/front-street-1600.webp 1600w" sizes="(max-width:860px) 100vw, 55vw" alt="Fachada de Plaza Marqann desde la carretera" data-i18n-alt="frontAlt" loading="lazy">
-        <figcaption data-i18n="frontCap">Entrada principal desde la carretera Sosúa–Cabarete.</figcaption>
+      <figure class="inset">
+        <img src="img/lobby-wide-800.webp" alt="Lobby de entrada en planta baja" data-i18n-alt="gLobby" loading="lazy">
+        <figcaption data-i18n="gLobby">Lobby de entrada en planta baja</figcaption>
       </figure>
     </div>
   </div>
@@ -798,7 +803,7 @@ const motionOK = matchMedia("(prefers-reduced-motion: no-preference)").matches &
 const revealIO = motionOK ? new IntersectionObserver(es=>{ es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add("in"); revealIO.unobserve(e.target); } }); },{rootMargin:"0px 0px -8% 0px",threshold:.08}) : null;
 function watchReveal(root){
   if(!revealIO) return;
-  const sel=".head,.intro .stack,.intro .pics figure,.ben,.space,.flow,.meter,.gal button,.loc .stack,.map,.contact .stack,form,.more,.facts div";
+  const sel=".head,.intro .stack,.intro .pics,.ben,.space,.flow,.meter,.gal button,.loc .stack,.map,.contact .stack,form,.more,.facts div";
   root.querySelectorAll(sel).forEach(el=>{
     if(el.classList.contains("rv")||el.classList.contains("in")) return;
     const sib=[...el.parentElement.children].filter(x=>x.matches(sel)); if(sib.length>1) el.style.setProperty("--d", (sib.indexOf(el)*.08)+"s");
