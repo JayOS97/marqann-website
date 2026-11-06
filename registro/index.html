@@ -11,7 +11,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Plaza Marqann">
 <meta property="og:title" content="Plaza Marqann · Registro / Registration">
-<meta property="og:description" content="Registro seguro para inquilinos y personal de Plaza Marqann · Secure registration for Plaza Marqann tenants and staff.">
+<meta property="og:description" content="Registro seguro para inquilinos de Plaza Marqann · Secure registration for Plaza Marqann tenants.">
 <meta property="og:url" content="https://marqann.com/registro/">
 <meta property="og:image" content="https://marqann.com/brand/og-registro.png">
 <meta property="og:image:secure_url" content="https://marqann.com/brand/og-registro.png">
@@ -79,15 +79,16 @@
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
 <script>
 (function(){
+  var PAGE_TYPE = document.documentElement.dataset.type || "tenant";
   var cfg = {apiKey:"AIzaSyAozDvcZU3DGgD7wkdN3XjIYMbrjAfDBQA", authDomain:"marqann-admin.firebaseapp.com", projectId:"marqann-admin", storageBucket:"marqann-admin.firebasestorage.app", messagingSenderId:"805704497196", appId:"1:805704497196:web:fbe262bf9d521f29903989"};
   var NATS = {de:"Germany / Alemania",us:"United States / Estados Unidos",ca:"Canada / Canadá",gb:"United Kingdom / Reino Unido",do:"Dominican Republic / República Dominicana",fr:"France / Francia",it:"Italy / Italia",nl:"Netherlands / Países Bajos",ru:"Russia / Rusia",ua:"Ukraine / Ucrania",pl:"Poland / Polonia",ch:"Switzerland / Suiza",at:"Austria",es:"Spain / España",be:"Belgium / Bélgica",se:"Sweden / Suecia",no:"Norway / Noruega",dk:"Denmark / Dinamarca",ie:"Ireland / Irlanda",cz:"Czech Republic / Chequia",pt:"Portugal",il:"Israel",au:"Australia",ar:"Argentina",mx:"Mexico / México",br:"Brazil / Brasil",ve:"Venezuela",co:"Colombia",ht:"Haiti / Haití",cu:"Cuba"};
   var CIVILS = {single:["Single","Soltero/a"],married:["Married","Casado/a"],divorced:["Divorced","Divorciado/a"],widowed:["Widowed","Viudo/a"],union:["Free union","Unión libre"]};
   var PROFS = {business:["Business owner","Empresario/a"],merchant:["Merchant / shop owner","Comerciante"],lawyer:["Lawyer","Abogado/a"],vet:["Veterinarian","Veterinario/a"],doctor:["Doctor","Médico/a"],dentist:["Dentist","Odontólogo/a"],stylist:["Hair stylist","Estilista"],realtor:["Real estate agent","Agente inmobiliario/a"],engineer:["Engineer","Ingeniero/a"],architect:["Architect","Arquitecto/a"],designer:["Designer","Diseñador/a"],consultant:["Consultant","Consultor/a"],accountant:["Accountant","Contador/a"],mechanic:["Mechanic","Mecánico/a"],chef:["Chef / cook","Cocinero/a"],teacher:["Teacher","Profesor/a"],employee:["Employee","Empleado/a"],freelance:["Self-employed","Trabajador/a independiente"],retired:["Retired","Jubilado/a"],investor:["Investor","Inversionista"],other:["Other","Otra"]};
   var T = {
-    es:{sub:"Registro", foot:"¿Dudas? Escríbenos por", loading:"Cargando…",
+    es:{sub: PAGE_TYPE==="staff" ? "Equipo · Registro" : "Registro", foot:"¿Dudas? Escríbenos por", loading:"Cargando…",
       invalid:"Este enlace ya no es válido.", invalidD:"Puede que ya se haya usado o que haya caducado. Pídenos uno nuevo.",
       tenantT:"Bienvenido/a a Plaza Marqann", tenantD:"Para preparar tu contrato de alquiler necesitamos algunos datos. Solo se usan para la documentación del local{unit} y nunca se comparten con terceros. Te toma 3 minutos.",
-      staffT:"Bienvenido/a al equipo de Marqann", staffD:"Para registrarte como parte del personal de Plaza Marqann necesitamos tus datos básicos. Solo se usan para la nómina y tu expediente.",
+      staffT:"Bienvenido/a al equipo de Marqann", staffD:"Solo necesitamos tus datos básicos para tu expediente y la nómina. Te toma un minuto.",
       hi:"Hola {name},",
       person:"Tus datos", fullName:"Nombre completo (como aparece en tu documento)", idType:"Documento", cedula:"Cédula", passport:"Pasaporte", idNumber:"Número de documento", nationality:"Nacionalidad", choose:"Elige…", other:"Otra", natOther:"Escribe tu nacionalidad", birth:"Fecha de nacimiento", civil:"Estado civil", prof:"Profesión u ocupación", profOther:"Escribe tu profesión",
       contact:"Contacto", email:"Correo electrónico", phone:"WhatsApp / teléfono", address:"Dirección de residencia",
@@ -98,10 +99,10 @@
       consent:"Confirmo que los datos son correctos y autorizo a MARQANN, S.R.L. a usarlos para preparar mi documentación.",
       send:"Enviar mis datos", sending:"Enviando…", req:"Completa los campos marcados.", emailBad:"Revisa el correo electrónico.", consentReq:"Marca la casilla de confirmación.", failed:"No se pudo enviar. Revisa tu conexión e inténtalo de nuevo.", used:"Este enlace ya se usó. Si necesitas cambiar algo, escríbenos.",
       doneT:"¡Gracias, {name}!", doneD:"Recibimos tus datos. Nos encargamos del resto y te avisamos cuando los documentos estén listos."},
-    en:{sub:"Registration", foot:"Questions? Reach us on", loading:"Loading…",
+    en:{sub: PAGE_TYPE==="staff" ? "Staff registration" : "Registration", foot:"Questions? Reach us on", loading:"Loading…",
       invalid:"This link is no longer valid.", invalidD:"It may have been used already or expired. Ask us for a new one.",
       tenantT:"Welcome to Plaza Marqann", tenantD:"To prepare your lease we need a few details. They are used only for the paperwork of{unit} your unit and are never shared with anyone else. It takes about 3 minutes.",
-      staffT:"Welcome to the Marqann team", staffD:"To register you as Plaza Marqann staff we need your basic details. They are used only for payroll and your file.",
+      staffT:"Welcome to the Marqann team", staffD:"We only need your basic details for your file and payroll. It takes a minute.",
       hi:"Hello {name},",
       person:"About you", fullName:"Full name (as in your ID document)", idType:"Document", cedula:"Cédula", passport:"Passport", idNumber:"Document number", nationality:"Nationality", choose:"Choose…", other:"Other", natOther:"Type your nationality", birth:"Date of birth", civil:"Civil status", prof:"Profession or occupation", profOther:"Type your profession",
       contact:"Contact", email:"Email", phone:"WhatsApp / phone", address:"Home address",
@@ -125,7 +126,7 @@
     return '<div class="f"><label for="'+p.pre+'name">'+t("fullName")+'</label><input id="'+p.pre+'name" autocomplete="name" required value="'+esc(p.name)+'"></div>'+
       '<div class="row"><div class="f"><label for="'+p.pre+'idType">'+t("idType")+'</label><select id="'+p.pre+'idType"><option value="cedula">'+t("cedula")+'</option><option value="passport">'+t("passport")+'</option></select></div>'+
       '<div class="f"><label for="'+p.pre+'idNumber">'+t("idNumber")+'</label><input id="'+p.pre+'idNumber" required autocomplete="off"></div></div>'+
-      '<div class="row"><div class="f"><label for="'+p.pre+'nat">'+t("nationality")+'</label><select id="'+p.pre+'nat"><option value="">'+t("choose")+'</option>'+opts(NATS)+'<option value="other">'+t("other")+'</option></select><input id="'+p.pre+'natOther" placeholder="'+t("natOther")+'" hidden></div>'+
+      '<div class="row">'+(inv.type==="tenant" ? '<div class="f"><label for="'+p.pre+'nat">'+t("nationality")+'</label><select id="'+p.pre+'nat"><option value="">'+t("choose")+'</option>'+opts(NATS)+'<option value="other">'+t("other")+'</option></select><input id="'+p.pre+'natOther" placeholder="'+t("natOther")+'" hidden></div>' : '')+
       '<div class="f"><label for="'+p.pre+'birth">'+t("birth")+' <span class="opt">'+t("opt")+'</span></label><input id="'+p.pre+'birth" type="date" max="'+new Date().toISOString().slice(0,10)+'"></div></div>'+
       (inv.type==="tenant" ? '<div class="row"><div class="f"><label for="'+p.pre+'civil">'+t("civil")+' <span class="opt">'+t("opt")+'</span></label><select id="'+p.pre+'civil"><option value="">'+t("choose")+'</option>'+opts(CIVILS,"",true)+'</select></div>'+
       '<div class="f"><label for="'+p.pre+'prof">'+t("prof")+' <span class="opt">'+t("opt")+'</span></label><select id="'+p.pre+'prof"><option value="">'+t("choose")+'</option>'+opts(PROFS,"",true)+'</select><input id="'+p.pre+'profOther" placeholder="'+t("profOther")+'" hidden></div></div>' : "");
@@ -184,7 +185,7 @@
   try{ firebase.initializeApp(cfg); fs = firebase.firestore(); }catch(x){ box.innerHTML = '<p class="err">'+t("failed")+'</p>'; return; }
   if(!token) return invalid();
   fs.collection("invites").doc(token).get().then(function(s){
-    if(!s.exists || s.data().status!=="sent") return invalid();
+    if(!s.exists || s.data().status!=="sent" || s.data().type!==PAGE_TYPE) return invalid();
     inv = s.data(); if(inv.lang && !q.get("l")) setLang(inv.lang==="en"?"en":"es"); else form();
   }).catch(function(){ invalid(); });
 })();
