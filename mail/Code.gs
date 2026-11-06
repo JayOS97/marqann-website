@@ -27,6 +27,10 @@ function doPost(e) {
       if (kind === "test") { send_(who, "Prueba · Plaza Marqann", "Este es un correo de prueba enviado desde el panel de Plaza Marqann.", "This is a test email sent from the Plaza Marqann admin panel."); }
       if (kind === "invite_sent") inviteSent_(body, who);
       if (kind === "custom") custom_(body, who);
+    } else if (kind === "inbox" || kind === "thread" || kind === "reply" || kind === "archive" || kind === "unarchive" || kind === "read" || kind === "unread" || kind === "attachment" || kind === "trash") {
+      var who2 = ownerFromToken_(body.idToken);
+      if (!who2) throw new Error("not allowed");
+      out.data = inboxOp_(kind, body, who2);
     } else if (kind === "signup_received") {
       signupReceived_(body);
     } else throw new Error("unknown kind");
@@ -93,7 +97,49 @@ function custom_(b, who) {
   send_(b.to, b.subject, b.text || "", null, opts);
 }
 
+/* ---------- shared inbox (support@marqann.com) ---------- */
+function inboxOp_(kind, b, who) {
+  if (kind === "inbox") {
+    var q = (b.q || "").trim() || "in:inbox";
+    var threads = GmailApp.search(q, 0, Math.min(+b.max || 40, 80));
+    return threads.map(function (t) {
+      var msgs = t.getMessages(), last = msgs[msgs.length - 1], first = msgs[0];
+      return { id: t.getId(), subject: t.getFirstMessageSubject() || "(no subject)", from: last.getFrom(), firstFrom: first.getFrom(), to: last.getTo(),
+        date: last.getDate().toISOString(), snippet: (last.getPlainBody() || "").replace(/\s+/g, " ").slice(0, 140), unread: t.isUnread(), count: msgs.length,
+        inbox: t.isInInbox(), starred: t.hasStarredMessages(), attachments: msgs.some(function (m) { return m.getAttachments({ includeInlineImages: false }).length > 0; }) };
+    });
+  }
+  var t = GmailApp.getThreadById(b.id); if (!t) throw new Error("thread not found");
+  if (kind === "thread") {
+    return { id: t.getId(), subject: t.getFirstMessageSubject(), messages: t.getMessages().map(function (m) {
+      return { id: m.getId(), from: m.getFrom(), to: m.getTo(), cc: m.getCc(), date: m.getDate().toISOString(), body: m.getPlainBody(), unread: m.isUnread(),
+        attachments: m.getAttachments({ includeInlineImages: false }).map(function (a, i) { return { i: i, name: a.getName(), size: a.getSize(), type: a.getContentType() }; }) }; }) };
+  }
+  if (kind === "reply") {
+    if (!b.text) throw new Error("empty reply");
+    var opts = { name: FROM_NAME, replyTo: REPLY_TO, htmlBody: html_(b.text) };
+    if (b.all) t.replyAll(b.text, opts); else t.reply(b.text, opts);
+    return { ok: true };
+  }
+  if (kind === "archive") { t.moveToArchive(); return { ok: true }; }
+  if (kind === "unarchive") { t.moveToInbox(); return { ok: true }; }
+  if (kind === "trash") { t.moveToTrash(); return { ok: true }; }
+  if (kind === "read") { t.markRead(); return { ok: true }; }
+  if (kind === "unread") { t.markUnread(); return { ok: true }; }
+  if (kind === "attachment") {
+    var m = GmailApp.getMessageById(b.msgId), a = m.getAttachments({ includeInlineImages: false })[+b.i];
+    if (!a) throw new Error("no attachment");
+    return { name: a.getName(), type: a.getContentType(), base64: Utilities.base64Encode(a.getBytes()) };
+  }
+  throw new Error("unknown op");
+}
+
 /* ---------- plumbing ---------- */
+function html_(text) {
+  return "<div style='font:15px/1.55 Arial,Helvetica,sans-serif;color:#24262A;max-width:560px'>" +
+    text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/(https?:\/\/\S+)/g, "<a href='$1' style='color:#1F3A2E'>$1</a>").replace(/\n/g, "<br>") +
+    "<p style='margin:24px 0 0;font-size:12px;color:#6B6A64'>Plaza Marqann \u00b7 support@marqann.com \u00b7 WhatsApp +1 (809) 301-7134</p></div>";
+}
 function send_(to, subject, textEs, textEn, opts) {
   opts = opts || {};
   var text = textEs + (textEn ? "\n\n—\n\n" + textEn : "");
