@@ -151,3 +151,6 @@ function send_(to, subject, textEs, textEn, opts) {
 }
 
 function doGet() { return ContentService.createTextOutput(JSON.stringify({ ok: true, service: "Plaza Marqann mail" })).setMimeType(ContentService.MimeType.JSON); }
+
+// Run once from the editor (Run ▸ authorizeInbox) to grant the Gmail permission after pasting a new version.
+function authorizeInbox() { return GmailApp.getInboxUnreadCount(); }
