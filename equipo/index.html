@@ -181,7 +181,7 @@
     box.innerHTML = '<div class="ok"><div class="tick">✓</div><h1>'+esc(t("doneT").replace("{name}", d.name.split(" ")[0]))+'</h1><p>'+t("doneD")+'</p></div>';
     window.scrollTo(0,0);
   }
-  var MAIL_URL = ""; // Google Apps Script web app (support@marqann.com) — set after deployment
+  var MAIL_URL = "https://script.google.com/macros/s/AKfycbzbbnWfpH9qOHDot9_hpcBi-kAJKp1hwvaaefUge0yk_tmKbrjgwFUGm5q71HTk8FTr/exec"; // Google Apps Script web app (support@marqann.com) — set after deployment
   function track(stage, extra){ try{ var d = {stage:stage, at:new Date().toISOString(), lang:lang, ua:(navigator.userAgent||"").slice(0,140)}; if(extra && extra.error) d.error = String(extra.error).slice(0,140); fs.collection("attempts").doc(token).set(d, {merge:true}).catch(function(){}); }catch(x){} }
   function invalid(){ box.innerHTML = '<h1>'+t("invalid")+'</h1><p>'+t("invalidD")+'</p>'; }
 
