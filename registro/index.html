@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Registro · Plaza Marqann</title>
+<link rel="icon" type="image/svg+xml" href="/brand/marqann-monogram.svg">
+<link rel="apple-touch-icon" href="/brand/apple-touch-icon.png">
+<meta name="theme-color" content="#1F3A2E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500&family=Manrope:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--forest:#1F3A2E;--paper:#FBF9F4;--card:#fff;--ink:#24262A;--stone:#6B6A64;--line:#E4DCCD;--brass:#A8834A;--bad:#A3361F;--ok:#2E6B45;--ok-bg:#E6F0E9}
+  *{box-sizing:border-box}
+  html,body{margin:0;min-height:100%}
+  body{background:var(--forest);color:var(--ink);font:15px/1.55 "Manrope","Segoe UI",system-ui,sans-serif;padding:18px 14px 40px}
+  .wrap{max-width:640px;margin:0 auto}
+  .head{text-align:center;padding:22px 0 18px}
+  .head img{display:block;margin:0 auto}
+  .head .mono{border-radius:12px;margin-bottom:14px}
+  .sub{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#C9B890;font-weight:700;margin-top:14px}
+  .card{background:var(--paper);border-radius:14px;padding:30px 26px;box-shadow:0 20px 60px rgba(0,0,0,.25)}
+  @media (max-width:480px){.card{padding:24px 18px}}
+  h1{font:500 26px/1.2 "Fraunces",Georgia,serif;margin:0 0 6px;color:var(--forest)}
+  h2{font:500 18px/1.25 "Fraunces",Georgia,serif;margin:26px 0 10px;color:var(--forest);padding-top:18px;border-top:1px solid var(--line)}
+  h2:first-of-type{border-top:0;padding-top:0;margin-top:18px}
+  p{margin:0 0 14px;color:var(--stone)}
+  .lang{display:flex;justify-content:flex-end;gap:4px;margin-bottom:8px}
+  .lang button{background:none;border:1px solid transparent;border-radius:999px;padding:4px 12px;font:700 12px "Manrope",sans-serif;color:#C9B890;cursor:pointer;letter-spacing:.06em}
+  .lang button[aria-pressed=true]{background:var(--paper);color:var(--forest)}
+  .f{display:grid;gap:5px;margin-bottom:14px}
+  label{font-size:13px;font-weight:700}
+  label .opt{font-weight:400;color:var(--stone)}
+  input,select,textarea{font:inherit;border:1px solid #CFC6B5;border-radius:8px;padding:11px 12px;background:#fff;color:var(--ink);width:100%;min-height:46px}
+  input:focus,select:focus,textarea:focus{outline:2px solid var(--brass);outline-offset:1px;border-color:var(--brass)}
+  textarea{min-height:80px;resize:vertical}
+  .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  @media (max-width:480px){.row{grid-template-columns:1fr}}
+  .hint{font-size:12.5px;color:var(--stone)}
+  .chk{display:flex;gap:10px;align-items:flex-start;font-size:14px;font-weight:400;line-height:1.45;margin:18px 0}
+  .chk input{width:20px;height:20px;min-height:0;margin-top:2px;flex:none}
+  .btn{display:inline-flex;align-items:center;justify-content:center;width:100%;min-height:52px;border-radius:9px;border:0;background:var(--forest);color:#fff;font:700 16px "Manrope",sans-serif;cursor:pointer}
+  .btn:disabled{opacity:.6;cursor:default}
+  .btn.s{background:#fff;color:var(--forest);border:1px solid var(--line);min-height:44px;width:auto;padding:0 14px;font-size:14px}
+  .err{color:var(--bad);font-weight:600;margin:10px 0 0}
+  .ok{text-align:center;padding:14px 0}
+  .ok .tick{width:64px;height:64px;border-radius:50%;background:var(--ok-bg);color:var(--ok);display:grid;place-items:center;font-size:30px;margin:0 auto 16px}
+  .spin{width:28px;height:28px;border:3px solid var(--line);border-top-color:var(--forest);border-radius:50%;animation:s 1s linear infinite;margin:20px auto}
+  @keyframes s{to{transform:rotate(360deg)}}
+  .foot{text-align:center;color:#C9B890;font-size:12.5px;margin-top:22px}
+  .foot a{color:inherit}
+  .co{border:1px solid var(--line);border-radius:10px;padding:14px;margin-bottom:14px;background:#fff8}
+  .co .f:last-child{margin-bottom:0}
+  [hidden]{display:none!important}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="lang" id="lang"><button type="button" data-l="es">ES</button><button type="button" data-l="en">EN</button></div>
+  <div class="head"><img class="mono" src="/brand/marqann-monogram.svg" alt="" width="72" height="72"><img src="/brand/marqann-wordmark-reversed.svg" alt="Marqann · Plaza Comercial" width="240"><div class="sub" data-t="sub"></div></div>
+  <main class="card" id="box" aria-live="polite"><div class="spin"></div></main>
+  <p class="foot"><span data-t="foot"></span> <a href="https://wa.me/18093017134">WhatsApp (809) 301-7134</a> · <a href="mailto:support@marqann.com">support@marqann.com</a></p>
+</div>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script>
+(function(){
+  var cfg = {apiKey:"AIzaSyAozDvcZU3DGgD7wkdN3XjIYMbrjAfDBQA", authDomain:"marqann-admin.firebaseapp.com", projectId:"marqann-admin", storageBucket:"marqann-admin.firebasestorage.app", messagingSenderId:"805704497196", appId:"1:805704497196:web:fbe262bf9d521f29903989"};
+  var NATS = {de:"Germany / Alemania",us:"United States / Estados Unidos",ca:"Canada / Canadá",gb:"United Kingdom / Reino Unido",do:"Dominican Republic / República Dominicana",fr:"France / Francia",it:"Italy / Italia",nl:"Netherlands / Países Bajos",ru:"Russia / Rusia",ua:"Ukraine / Ucrania",pl:"Poland / Polonia",ch:"Switzerland / Suiza",at:"Austria",es:"Spain / España",be:"Belgium / Bélgica",se:"Sweden / Suecia",no:"Norway / Noruega",dk:"Denmark / Dinamarca",ie:"Ireland / Irlanda",cz:"Czech Republic / Chequia",pt:"Portugal",il:"Israel",au:"Australia",ar:"Argentina",mx:"Mexico / México",br:"Brazil / Brasil",ve:"Venezuela",co:"Colombia",ht:"Haiti / Haití",cu:"Cuba"};
+  var CIVILS = {single:["Single","Soltero/a"],married:["Married","Casado/a"],divorced:["Divorced","Divorciado/a"],widowed:["Widowed","Viudo/a"],union:["Free union","Unión libre"]};
+  var PROFS = {business:["Business owner","Empresario/a"],merchant:["Merchant / shop owner","Comerciante"],lawyer:["Lawyer","Abogado/a"],vet:["Veterinarian","Veterinario/a"],doctor:["Doctor","Médico/a"],dentist:["Dentist","Odontólogo/a"],stylist:["Hair stylist","Estilista"],realtor:["Real estate agent","Agente inmobiliario/a"],engineer:["Engineer","Ingeniero/a"],architect:["Architect","Arquitecto/a"],designer:["Designer","Diseñador/a"],consultant:["Consultant","Consultor/a"],accountant:["Accountant","Contador/a"],mechanic:["Mechanic","Mecánico/a"],chef:["Chef / cook","Cocinero/a"],teacher:["Teacher","Profesor/a"],employee:["Employee","Empleado/a"],freelance:["Self-employed","Trabajador/a independiente"],retired:["Retired","Jubilado/a"],investor:["Investor","Inversionista"],other:["Other","Otra"]};
+  var T = {
+    es:{sub:"Registro", foot:"¿Dudas? Escríbenos por", loading:"Cargando…",
+      invalid:"Este enlace ya no es válido.", invalidD:"Puede que ya se haya usado o que haya caducado. Pídenos uno nuevo.",
+      tenantT:"Bienvenido/a a Plaza Marqann", tenantD:"Para preparar tu contrato de alquiler necesitamos algunos datos. Solo se usan para la documentación del local{unit} y nunca se comparten con terceros. Te toma 3 minutos.",
+      staffT:"Bienvenido/a al equipo de Marqann", staffD:"Para registrarte como parte del personal de Plaza Marqann necesitamos tus datos básicos. Solo se usan para la nómina y tu expediente.",
+      hi:"Hola {name},",
+      person:"Tus datos", fullName:"Nombre completo (como aparece en tu documento)", idType:"Documento", cedula:"Cédula", passport:"Pasaporte", idNumber:"Número de documento", nationality:"Nacionalidad", choose:"Elige…", other:"Otra", natOther:"Escribe tu nacionalidad", birth:"Fecha de nacimiento", civil:"Estado civil", prof:"Profesión u ocupación", profOther:"Escribe tu profesión",
+      contact:"Contacto", email:"Correo electrónico", phone:"WhatsApp / teléfono", address:"Dirección de residencia",
+      biz:"Tu negocio", bizName:"Nombre del negocio", bizAct:"¿A qué se dedica?", bizActP:"p. ej. salón de belleza, oficina de bienes raíces", rnc:"RNC", rncH:"Solo si el contrato va a nombre de una empresa.",
+      coT:"Segundo titular", coD:"Si el contrato irá a nombre de dos personas, añade los datos del segundo titular.", coAdd:"+ Añadir segundo titular", coRm:"Quitar",
+      emerg:"Contacto de emergencia", emergName:"Nombre", emergPhone:"Teléfono",
+      notes:"Algo más que debamos saber", opt:"(opcional)",
+      consent:"Confirmo que los datos son correctos y autorizo a MARQANN, S.R.L. a usarlos para preparar mi documentación.",
+      send:"Enviar mis datos", sending:"Enviando…", req:"Completa los campos marcados.", emailBad:"Revisa el correo electrónico.", consentReq:"Marca la casilla de confirmación.", failed:"No se pudo enviar. Revisa tu conexión e inténtalo de nuevo.", used:"Este enlace ya se usó. Si necesitas cambiar algo, escríbenos.",
+      doneT:"¡Gracias, {name}!", doneD:"Recibimos tus datos. Nos encargamos del resto y te avisamos cuando los documentos estén listos."},
+    en:{sub:"Registration", foot:"Questions? Reach us on", loading:"Loading…",
+      invalid:"This link is no longer valid.", invalidD:"It may have been used already or expired. Ask us for a new one.",
+      tenantT:"Welcome to Plaza Marqann", tenantD:"To prepare your lease we need a few details. They are used only for the paperwork of{unit} your unit and are never shared with anyone else. It takes about 3 minutes.",
+      staffT:"Welcome to the Marqann team", staffD:"To register you as Plaza Marqann staff we need your basic details. They are used only for payroll and your file.",
+      hi:"Hello {name},",
+      person:"About you", fullName:"Full name (as in your ID document)", idType:"Document", cedula:"Cédula", passport:"Passport", idNumber:"Document number", nationality:"Nationality", choose:"Choose…", other:"Other", natOther:"Type your nationality", birth:"Date of birth", civil:"Civil status", prof:"Profession or occupation", profOther:"Type your profession",
+      contact:"Contact", email:"Email", phone:"WhatsApp / phone", address:"Home address",
+      biz:"Your business", bizName:"Business name", bizAct:"What does it do?", bizActP:"e.g. beauty salon, real estate office", rnc:"RNC (tax ID)", rncH:"Only if the lease will be in a company's name.",
+      coT:"Second tenant", coD:"If the lease will be in two names, add the second person's details.", coAdd:"+ Add second tenant", coRm:"Remove",
+      emerg:"Emergency contact", emergName:"Name", emergPhone:"Phone",
+      notes:"Anything else we should know", opt:"(optional)",
+      consent:"I confirm these details are correct and authorise MARQANN, S.R.L. to use them to prepare my paperwork.",
+      send:"Send my details", sending:"Sending…", req:"Please fill in the highlighted fields.", emailBad:"Please check the email address.", consentReq:"Please tick the confirmation box.", failed:"Could not send. Check your connection and try again.", used:"This link has already been used. If you need to change something, message us.",
+      doneT:"Thank you, {name}!", doneD:"We have your details. We will take care of the rest and let you know when the documents are ready."}
+  };
+  var q = new URLSearchParams(location.search), token = (q.get("t")||"").replace(/[^A-Za-z0-9_-]/g,""), lang = (q.get("l")==="en"?"en":"es"), inv = null, box = document.getElementById("box");
+  var t = function(k){ return (T[lang][k]||T.es[k]||k); };
+  function esc(s){ return String(s==null?"":s).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c];}); }
+  function setLang(l){ lang = l; document.documentElement.lang = l; document.querySelectorAll("#lang button").forEach(function(b){ b.setAttribute("aria-pressed", b.dataset.l===l); }); document.querySelectorAll("[data-t]").forEach(function(e){ e.textContent = t(e.dataset.t); }); document.title = (l==="en"?"Registration":"Registro")+" · Plaza Marqann"; if(inv) form(); }
+  document.getElementById("lang").addEventListener("click", function(e){ var b = e.target.closest("button"); if(b) setLang(b.dataset.l); });
+
+  function opts(M, sel, pair){ return Object.keys(M).map(function(k){ var v = pair ? M[k][lang==="en"?0:1] : M[k]; return '<option value="'+k+'"'+(k===sel?" selected":"")+'>'+esc(v)+'</option>'; }).join(""); }
+  function personFields(p, isCo){
+    p = p||{};
+    return '<div class="f"><label for="'+p.pre+'name">'+t("fullName")+'</label><input id="'+p.pre+'name" autocomplete="name" required value="'+esc(p.name)+'"></div>'+
+      '<div class="row"><div class="f"><label for="'+p.pre+'idType">'+t("idType")+'</label><select id="'+p.pre+'idType"><option value="cedula">'+t("cedula")+'</option><option value="passport">'+t("passport")+'</option></select></div>'+
+      '<div class="f"><label for="'+p.pre+'idNumber">'+t("idNumber")+'</label><input id="'+p.pre+'idNumber" required autocomplete="off"></div></div>'+
+      '<div class="row"><div class="f"><label for="'+p.pre+'nat">'+t("nationality")+'</label><select id="'+p.pre+'nat"><option value="">'+t("choose")+'</option>'+opts(NATS)+'<option value="other">'+t("other")+'</option></select><input id="'+p.pre+'natOther" placeholder="'+t("natOther")+'" hidden></div>'+
+      '<div class="f"><label for="'+p.pre+'birth">'+t("birth")+' <span class="opt">'+t("opt")+'</span></label><input id="'+p.pre+'birth" type="date" max="'+new Date().toISOString().slice(0,10)+'"></div></div>'+
+      (inv.type==="tenant" ? '<div class="row"><div class="f"><label for="'+p.pre+'civil">'+t("civil")+' <span class="opt">'+t("opt")+'</span></label><select id="'+p.pre+'civil"><option value="">'+t("choose")+'</option>'+opts(CIVILS,"",true)+'</select></div>'+
+      '<div class="f"><label for="'+p.pre+'prof">'+t("prof")+' <span class="opt">'+t("opt")+'</span></label><select id="'+p.pre+'prof"><option value="">'+t("choose")+'</option>'+opts(PROFS,"",true)+'</select><input id="'+p.pre+'profOther" placeholder="'+t("profOther")+'" hidden></div></div>' : "");
+  }
+  var state = {};
+  function remember(){ document.querySelectorAll("#f input,#f select,#f textarea").forEach(function(e){ state[e.id] = e.type==="checkbox" ? e.checked : e.value; }); }
+  function restore(){ Object.keys(state).forEach(function(id){ var e = document.getElementById(id); if(!e) return; if(e.type==="checkbox") e.checked = state[id]; else e.value = state[id]; }); document.querySelectorAll("select").forEach(function(s){ s.dispatchEvent(new Event("change")); }); }
+  function form(){
+    if(document.getElementById("f")) remember();
+    var isT = inv.type==="tenant", unitTxt = inv.unit ? (lang==="en" ? "" : " "+inv.unit) : "";
+    var intro = isT ? t("tenantD").replace("{unit}", inv.unit ? (lang==="en"?" unit "+inv.unit+",":" "+inv.unit) : "") : t("staffD");
+    if(lang==="en" && isT) intro = inv.unit ? "To prepare your lease for unit "+inv.unit+" we need a few details. They are used only for the paperwork and are never shared with anyone else. It takes about 3 minutes." : "To prepare your lease we need a few details. They are used only for the paperwork and are never shared with anyone else. It takes about 3 minutes.";
+    box.innerHTML = '<h1>'+t(isT?"tenantT":"staffT")+'</h1>'+(inv.name?'<p><b>'+esc(t("hi").replace("{name}", inv.name.split(" ")[0]))+'</b></p>':"")+'<p>'+esc(intro)+'</p>'+
+      '<form id="f" novalidate><h2>'+t("person")+'</h2>'+personFields({pre:"", name:inv.name||""})+
+      '<h2>'+t("contact")+'</h2><div class="row"><div class="f"><label for="email">'+t("email")+'</label><input id="email" type="email" autocomplete="email" inputmode="email" required></div><div class="f"><label for="phone">'+t("phone")+'</label><input id="phone" type="tel" autocomplete="tel" inputmode="tel" required placeholder="809-000-0000"></div></div>'+
+      '<div class="f"><label for="address">'+t("address")+'</label><input id="address" autocomplete="street-address" required></div>'+
+      (isT ? '<h2>'+t("biz")+'</h2><div class="f"><label for="bizName">'+t("bizName")+'</label><input id="bizName" autocomplete="organization" required></div><div class="f"><label for="bizAct">'+t("bizAct")+'</label><input id="bizAct" placeholder="'+esc(t("bizActP"))+'" required></div><div class="f"><label for="rnc">'+t("rnc")+' <span class="opt">'+t("opt")+'</span></label><input id="rnc"><span class="hint">'+t("rncH")+'</span></div>'+
+        '<h2>'+t("coT")+'</h2><p>'+t("coD")+'</p><div id="coWrap" class="co" hidden>'+personFields({pre:"co_"})+'<button type="button" class="btn s" id="coRm">'+t("coRm")+'</button></div><button type="button" class="btn s" id="coAdd">'+t("coAdd")+'</button>'
+        : '<h2>'+t("emerg")+'</h2><div class="row"><div class="f"><label for="emergName">'+t("emergName")+'</label><input id="emergName"></div><div class="f"><label for="emergPhone">'+t("emergPhone")+'</label><input id="emergPhone" type="tel" inputmode="tel"></div></div>')+
+      '<div class="f" style="margin-top:14px"><label for="notes">'+t("notes")+' <span class="opt">'+t("opt")+'</span></label><textarea id="notes"></textarea></div>'+
+      '<label class="chk"><input type="checkbox" id="consent"> <span>'+t("consent")+'</span></label>'+
+      '<button class="btn" type="submit" id="send">'+t("send")+'</button><p class="err" id="err" role="alert"></p></form>';
+    document.querySelectorAll("select[id$=nat],select[id$=prof]").forEach(function(s){ var o = document.getElementById(s.id+"Other"); var u = function(){ o.hidden = s.value!=="other"; }; s.addEventListener("change", u); u(); });
+    var coWrap = document.getElementById("coWrap"), coAdd = document.getElementById("coAdd");
+    if(coAdd){ coAdd.onclick = function(){ coWrap.hidden = false; coAdd.hidden = true; document.getElementById("co_name").focus(); }; document.getElementById("coRm").onclick = function(){ coWrap.hidden = true; coAdd.hidden = false; coWrap.querySelectorAll("input").forEach(function(i){ i.value=""; }); }; }
+    restore(); if(coWrap && state.co_name) { coWrap.hidden = false; coAdd.hidden = true; }
+    document.getElementById("f").onsubmit = submit;
+  }
+  function val(id){ var e = document.getElementById(id); return e ? e.value.trim() : ""; }
+  function person(pre){
+    var nat = val(pre+"nat"), prof = val(pre+"prof");
+    return {name:val(pre+"name"), idType:val(pre+"idType"), idNumber:val(pre+"idNumber"), nationality: nat==="other" ? val(pre+"natOther") : nat, birth:val(pre+"birth"), civil:val(pre+"civil"), profession: prof==="other" ? val(pre+"profOther") : prof};
+  }
+  async function submit(e){
+    e.preventDefault(); var err = document.getElementById("err"); err.textContent = "";
+    var need = ["name","idNumber","email","phone","address"].concat(inv.type==="tenant" ? ["bizName","bizAct"] : []);
+    var coOn = document.getElementById("coWrap") && !document.getElementById("coWrap").hidden; if(coOn) need = need.concat(["co_name","co_idNumber"]);
+    var missing = need.filter(function(id){ return !val(id); });
+    document.querySelectorAll("#f input").forEach(function(i){ i.style.borderColor = ""; });
+    if(missing.length){ missing.forEach(function(id){ document.getElementById(id).style.borderColor = "var(--bad)"; }); document.getElementById(missing[0]).focus(); return err.textContent = t("req"); }
+    if(!/^\S+@\S+\.\S+$/.test(val("email"))){ document.getElementById("email").style.borderColor = "var(--bad)"; return err.textContent = t("emailBad"); }
+    if(!document.getElementById("consent").checked) return err.textContent = t("consentReq");
+    var d = person(""); d.email = val("email"); d.phone = val("phone"); d.address = val("address"); d.notes = val("notes"); d.lang = lang; d.type = inv.type; d.unit = inv.unit||null; d.submittedAt = new Date().toISOString(); d.consent = true;
+    if(inv.type==="tenant"){ d.bizName = val("bizName"); d.bizActivity = val("bizAct"); d.rnc = val("rnc"); if(coOn) d.co = person("co_"); }
+    else { d.emergencyName = val("emergName"); d.emergencyPhone = val("emergPhone"); }
+    var b = document.getElementById("send"); b.disabled = true; b.textContent = t("sending");
+    try{ await fs.collection("signups").doc(token).set(d); }
+    catch(x){ b.disabled = false; b.textContent = t("send"); return err.textContent = (x && x.code==="permission-denied") ? t("used") : t("failed"); }
+    box.innerHTML = '<div class="ok"><div class="tick">✓</div><h1>'+esc(t("doneT").replace("{name}", d.name.split(" ")[0]))+'</h1><p>'+t("doneD")+'</p></div>';
+    window.scrollTo(0,0);
+  }
+  function invalid(){ box.innerHTML = '<h1>'+t("invalid")+'</h1><p>'+t("invalidD")+'</p>'; }
+
+  setLang(lang);
+  var fs;
+  try{ firebase.initializeApp(cfg); fs = firebase.firestore(); }catch(x){ box.innerHTML = '<p class="err">'+t("failed")+'</p>'; return; }
+  if(!token) return invalid();
+  fs.collection("invites").doc(token).get().then(function(s){
+    if(!s.exists || s.data().status!=="sent") return invalid();
+    inv = s.data(); if(inv.lang && !q.get("l")) setLang(inv.lang==="en"?"en":"es"); else form();
+  }).catch(function(){ invalid(); });
+})();
+</script>
+</body>
+</html>
