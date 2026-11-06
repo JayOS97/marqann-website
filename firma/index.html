@@ -110,9 +110,9 @@
   function setLang(l){ lang = l; document.documentElement.lang = l; document.querySelectorAll("#lang button").forEach(function(b){ b.setAttribute("aria-pressed", b.dataset.l===l); }); document.querySelectorAll("[data-t]").forEach(function(e){ e.textContent = t(e.dataset.t); }); document.title = (l==="en"?"Lease signature":"Firma del contrato")+" · Plaza Marqann"; if(doc) render(); }
   document.getElementById("lang").addEventListener("click", function(e){ var b = e.target.closest("button"); if(b) setLang(b.dataset.l); });
 
-  function contractHTML(text, signers, en){
+  function contractHTML(text, signers, en){ var staff = doc && doc.kind==="staff";
     return text.split("\n\n").map(function(p,i){
-      if(p==="{{SIGN}}") return '<div class="sig"><div><b>'+(en?"FOR THE LANDLORD":"POR EL ARRENDADOR")+'</b><span class="ln"></span>MARQANN, S.R.L.<br>Peter Jayson Follmann Brose</div><div><b>'+(en?"FOR THE TENANT":"POR EL ARRENDATARIO")+'</b>'+signers.map(function(s){ return '<span class="ln"></span><span class="v">'+esc(s.name.toUpperCase())+'</span>'; }).join("")+'</div></div>';
+      if(p==="{{SIGN}}") return '<div class="sig"><div><b>'+(staff ? "POR EL EMPLEADOR" : en?"FOR THE LANDLORD":"POR EL ARRENDADOR")+'</b><span class="ln"></span>MARQANN, S.R.L.<br>Peter Jayson Follmann Brose</div><div><b>'+(staff ? "EL TRABAJADOR" : en?"FOR THE TENANT":"POR EL ARRENDATARIO")+'</b>'+signers.map(function(s){ return '<span class="ln"></span><span class="v">'+esc(s.name.toUpperCase())+'</span>'; }).join("")+'</div></div>';
       var h = esc(p).replace(/\u0001/g,'<span class="v">').replace(/\u0002/g,'</span>');
       if(i===0) return '<div class="title">'+h.replace(/\n/g,"<br>")+'</div>';
       if(p.indexOf("### ")===0) return '<h4>'+h.slice(4)+'</h4>';
@@ -122,7 +122,8 @@
   }
   function render(){
     var en = lang==="en", text = en && doc.textEn ? doc.textEn : doc.text, signers = doc.signers||[];
-    box.innerHTML = '<div class="card"><h1>'+t("title")+'</h1><p>'+esc(t("intro").replace("{unit}", doc.unit||""))+'</p>'+(en?'<p class="meta">'+t("courtesy")+'</p>':"")+
+    var staff = doc.kind==="staff";
+    box.innerHTML = '<div class="card"><h1>'+(staff ? (en?"Your employment contract":"Tu contrato de trabajo") : t("title"))+'</h1><p>'+esc(staff ? (en?"Plaza Marqann · Read the whole contract; at the end you can sign it from your phone. You will receive a signed PDF copy.":"Plaza Marqann · Lee el contrato completo; al final puedes firmarlo desde tu teléfono. Recibirás una copia firmada en PDF.") : t("intro").replace("{unit}", doc.unit||""))+'</p>'+(en && !staff?'<p class="meta">'+t("courtesy")+'</p>':"")+
       '<div class="doc" id="doc">'+contractHTML(text, signers, en)+'</div><div class="readbar"><span data-t="read">'+t("read")+'</span><i><b id="readFill" style="width:'+(readDone?100:0)+'%"></b></i><span id="readPct">'+(readDone?"100":"0")+'%</span></div><p class="meta" id="readHint" '+(readDone?"hidden":"")+'>'+t("readHint")+'</p></div>'+
       '<div class="card"><h2>'+t("signT")+'</h2><p>'+t("signD")+'</p>'+signers.map(function(s,i){ return '<div class="signer" data-i="'+i+'"><h3>'+esc(s.name)+(s.idNumber?' <span class="meta">· '+esc(s.idNumber)+'</span>':"")+'</h3><div class="pad" id="pad'+i+'"><canvas></canvas><span class="x"></span><span class="ph">'+t("draw")+'</span></div><div class="tools"><button type="button" class="btn s" data-clear="'+i+'">'+t("clear")+'</button></div><div class="f"><label for="typed'+i+'">'+t("typed")+'</label><input id="typed'+i+'" placeholder="'+t("typedP")+'" autocomplete="name"></div></div>'; }).join("")+
       '<label class="chk"><input type="checkbox" id="consent"> <span>'+t("consent")+'</span></label><button class="btn" id="send" type="button" '+(readDone?"":"disabled")+'>'+t("send")+'</button><p class="err" id="err" role="alert"></p>'+
@@ -169,7 +170,7 @@
   var fs;
   try{ firebase.initializeApp(cfg); fs = firebase.firestore(); }catch(x){ box.innerHTML = '<div class="card"><p class="err">'+t("failed")+'</p></div>'; return; }
   if(!token) return invalid();
-  fs.collection("signing").doc(token).get().then(function(s){ if(!s.exists || s.data().status!=="sent") return invalid(); doc = s.data(); if(doc.lang && !q.get("l")) setLang(doc.lang==="en"?"en":"es"); else render(); }).catch(function(){ invalid(); });
+  fs.collection("signing").doc(token).get().then(function(s){ if(!s.exists || s.data().status!=="sent") return invalid(); doc = s.data(); if(!doc.textEn) document.getElementById("lang").hidden = true; if(doc.lang && !q.get("l")) setLang(doc.lang==="en"?"en":"es"); else render(); }).catch(function(){ invalid(); });
 })();
 </script>
 </body>
