@@ -4,15 +4,15 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<title>Registro · Plaza Marqann</title>
+<title>Equipo · Plaza Marqann</title>
 <link rel="icon" type="image/svg+xml" href="/brand/marqann-monogram.svg">
 <link rel="apple-touch-icon" href="/brand/apple-touch-icon.png">
 <meta name="theme-color" content="#1F3A2E">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Plaza Marqann">
-<meta property="og:title" content="Plaza Marqann · Registro / Registration">
-<meta property="og:description" content="Registro seguro para inquilinos de Plaza Marqann · Secure registration for Plaza Marqann tenants.">
-<meta property="og:url" content="https://marqann.com/registro/">
+<meta property="og:title" content="Plaza Marqann · Registro del equipo / Staff registration">
+<meta property="og:description" content="Registro seguro para el personal de Plaza Marqann · Secure registration for Plaza Marqann staff.">
+<meta property="og:url" content="https://marqann.com/equipo/">
 <meta property="og:image" content="https://marqann.com/brand/og-registro.png">
 <meta property="og:image:secure_url" content="https://marqann.com/brand/og-registro.png">
 <meta property="og:image:type" content="image/png">
@@ -97,7 +97,7 @@
       emerg:"Contacto de emergencia", emergName:"Nombre", emergPhone:"Teléfono",
       notes:"Algo más que debamos saber", opt:"(opcional)",
       consent:"Confirmo que los datos son correctos y autorizo a MARQANN, S.R.L. a usarlos para preparar mi documentación.",
-      send:"Enviar mis datos", sending:"Enviando…", req:"Completa los campos marcados.", emailBad:"Revisa el correo electrónico.", consentReq:"Marca la casilla de confirmación.", failed:"No se pudo enviar. Revisa tu conexión e inténtalo de nuevo.", used:"Este enlace ya se usó. Si necesitas cambiar algo, escríbenos.",
+      send:"Enviar mis datos", sending:"Enviando…", req:"Completa los campos marcados.", emailBad:"Revisa el correo electrónico.", consentReq:"Marca la casilla de confirmación.", failedHelp:"Si vuelve a fallar, escríbenos por WhatsApp al +1 (809) 301-7134.", failed:"No se pudo enviar. Revisa tu conexión e inténtalo de nuevo.", used:"Este enlace ya se usó. Si necesitas cambiar algo, escríbenos.",
       doneT:"¡Gracias, {name}!", doneD:"Recibimos tus datos. Nos encargamos del resto y te avisamos cuando los documentos estén listos."},
     en:{sub: PAGE_TYPE==="staff" ? "Staff registration" : "Registration", foot:"Questions? Reach us on", loading:"Loading…",
       invalid:"This link is no longer valid.", invalidD:"It may have been used already or expired. Ask us for a new one.",
@@ -111,13 +111,13 @@
       emerg:"Emergency contact", emergName:"Name", emergPhone:"Phone",
       notes:"Anything else we should know", opt:"(optional)",
       consent:"I confirm these details are correct and authorise MARQANN, S.R.L. to use them to prepare my paperwork.",
-      send:"Send my details", sending:"Sending…", req:"Please fill in the highlighted fields.", emailBad:"Please check the email address.", consentReq:"Please tick the confirmation box.", failed:"Could not send. Check your connection and try again.", used:"This link has already been used. If you need to change something, message us.",
+      send:"Send my details", sending:"Sending…", req:"Please fill in the highlighted fields.", emailBad:"Please check the email address.", consentReq:"Please tick the confirmation box.", failedHelp:"If it fails again, message us on WhatsApp at +1 (809) 301-7134.", failed:"Could not send. Check your connection and try again.", used:"This link has already been used. If you need to change something, message us.",
       doneT:"Thank you, {name}!", doneD:"We have your details. We will take care of the rest and let you know when the documents are ready."}
   };
   var q = new URLSearchParams(location.search), token = (q.get("t")||"").replace(/[^A-Za-z0-9_-]/g,""), lang = (q.get("l")==="en"?"en":"es"), inv = null, box = document.getElementById("box");
   var t = function(k){ return (T[lang][k]||T.es[k]||k); };
   function esc(s){ return String(s==null?"":s).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c];}); }
-  function setLang(l){ lang = l; document.documentElement.lang = l; document.querySelectorAll("#lang button").forEach(function(b){ b.setAttribute("aria-pressed", b.dataset.l===l); }); document.querySelectorAll("[data-t]").forEach(function(e){ e.textContent = t(e.dataset.t); }); document.title = (l==="en"?"Registration":"Registro")+" · Plaza Marqann"; if(inv) form(); }
+  function setLang(l){ lang = l; document.documentElement.lang = l; document.querySelectorAll("#lang button").forEach(function(b){ b.setAttribute("aria-pressed", b.dataset.l===l); }); document.querySelectorAll("[data-t]").forEach(function(e){ e.textContent = t(e.dataset.t); }); document.title = (l==="en"?"Staff registration":"Equipo · Registro")+" · Plaza Marqann"; if(inv) form(); }
   document.getElementById("lang").addEventListener("click", function(e){ var b = e.target.closest("button"); if(b) setLang(b.dataset.l); });
 
   function opts(M, sel, pair){ return Object.keys(M).map(function(k){ var v = pair ? M[k][lang==="en"?0:1] : M[k]; return '<option value="'+k+'"'+(k===sel?" selected":"")+'>'+esc(v)+'</option>'; }).join(""); }
@@ -141,7 +141,7 @@
     if(lang==="en" && isT) intro = inv.unit ? "To prepare your lease for unit "+inv.unit+" we need a few details. They are used only for the paperwork and are never shared with anyone else. It takes about 3 minutes." : "To prepare your lease we need a few details. They are used only for the paperwork and are never shared with anyone else. It takes about 3 minutes.";
     box.innerHTML = '<h1>'+t(isT?"tenantT":"staffT")+'</h1>'+(inv.name?'<p><b>'+esc(t("hi").replace("{name}", inv.name.split(" ")[0]))+'</b></p>':"")+'<p>'+esc(intro)+'</p>'+
       '<form id="f" novalidate><h2>'+t("person")+'</h2>'+personFields({pre:"", name:inv.name||""})+
-      '<h2>'+t("contact")+'</h2><div class="row"><div class="f"><label for="email">'+t("email")+'</label><input id="email" type="email" autocomplete="email" inputmode="email" required></div><div class="f"><label for="phone">'+t("phone")+'</label><input id="phone" type="tel" autocomplete="tel" inputmode="tel" required placeholder="809-000-0000"></div></div>'+
+      '<h2>'+t("contact")+'</h2><div class="row"><div class="f"><label for="email">'+t("email")+(inv.type==="tenant"?'':' <span class="opt">'+t("opt")+'</span>')+'</label><input id="email" type="email" autocomplete="email" inputmode="email"'+(inv.type==="tenant"?' required':'')+'></div><div class="f"><label for="phone">'+t("phone")+'</label><input id="phone" type="tel" autocomplete="tel" inputmode="tel" required placeholder="809-000-0000"></div></div>'+
       '<div class="f"><label for="address">'+t("address")+'</label><input id="address" autocomplete="street-address" required></div>'+
       (isT ? '<h2>'+t("biz")+'</h2><div class="f"><label for="bizName">'+t("bizName")+'</label><input id="bizName" autocomplete="organization" required></div><div class="f"><label for="bizAct">'+t("bizAct")+'</label><input id="bizAct" placeholder="'+esc(t("bizActP"))+'" required></div><div class="f"><label for="rnc">'+t("rnc")+' <span class="opt">'+t("opt")+'</span></label><input id="rnc"><span class="hint">'+t("rncH")+'</span></div>'+
         '<h2>'+t("coT")+'</h2><p>'+t("coD")+'</p><div id="coWrap" class="co" hidden>'+personFields({pre:"co_"})+'<button type="button" class="btn s" id="coRm">'+t("coRm")+'</button></div><button type="button" class="btn s" id="coAdd">'+t("coAdd")+'</button>'
@@ -162,22 +162,25 @@
   }
   async function submit(e){
     e.preventDefault(); var err = document.getElementById("err"); err.textContent = "";
-    var need = ["name","idNumber","email","phone","address"].concat(inv.type==="tenant" ? ["bizName","bizAct"] : []);
+    var need = ["name","idNumber","phone","address"].concat(inv.type==="tenant" ? ["email","bizName","bizAct"] : []);
     var coOn = document.getElementById("coWrap") && !document.getElementById("coWrap").hidden; if(coOn) need = need.concat(["co_name","co_idNumber"]);
     var missing = need.filter(function(id){ return !val(id); });
     document.querySelectorAll("#f input").forEach(function(i){ i.style.borderColor = ""; });
-    if(missing.length){ missing.forEach(function(id){ document.getElementById(id).style.borderColor = "var(--bad)"; }); document.getElementById(missing[0]).focus(); return err.textContent = t("req"); }
-    if(!/^\S+@\S+\.\S+$/.test(val("email"))){ document.getElementById("email").style.borderColor = "var(--bad)"; return err.textContent = t("emailBad"); }
-    if(!document.getElementById("consent").checked) return err.textContent = t("consentReq");
+    function fail(msg, stage){ err.textContent = msg; err.scrollIntoView({block:"center", behavior:"smooth"}); track(stage||"form_error", {error: msg}); }
+    if(missing.length){ missing.forEach(function(id){ document.getElementById(id).style.borderColor = "var(--bad)"; }); document.getElementById(missing[0]).focus(); return fail(t("req") + " (" + missing.map(function(id){ var l = document.querySelector('label[for="'+id+'"]'); return l ? l.firstChild.textContent.trim() : id; }).join(", ") + ")"); }
+    if(val("email") && !/^\S+@\S+\.\S+$/.test(val("email"))){ document.getElementById("email").style.borderColor = "var(--bad)"; document.getElementById("email").focus(); return fail(t("emailBad")); }
+    if(!document.getElementById("consent").checked){ document.getElementById("consent").focus(); return fail(t("consentReq")); }
     var d = person(""); d.email = val("email"); d.phone = val("phone"); d.address = val("address"); d.notes = val("notes"); d.lang = lang; d.type = inv.type; d.unit = inv.unit||null; d.submittedAt = new Date().toISOString(); d.consent = true;
     if(inv.type==="tenant"){ d.bizName = val("bizName"); d.bizActivity = val("bizAct"); d.rnc = val("rnc"); if(coOn) d.co = person("co_"); }
     else { d.emergencyName = val("emergName"); d.emergencyPhone = val("emergPhone"); }
     var b = document.getElementById("send"); b.disabled = true; b.textContent = t("sending");
     try{ await fs.collection("signups").doc(token).set(d); }
-    catch(x){ b.disabled = false; b.textContent = t("send"); return err.textContent = (x && x.code==="permission-denied") ? t("used") : t("failed"); }
+    catch(x){ b.disabled = false; b.textContent = t("send"); return fail(((x && x.code==="permission-denied") ? t("used") : t("failed")) + " " + t("failedHelp"), "send_failed"); }
+    track("sent", {});
     box.innerHTML = '<div class="ok"><div class="tick">✓</div><h1>'+esc(t("doneT").replace("{name}", d.name.split(" ")[0]))+'</h1><p>'+t("doneD")+'</p></div>';
     window.scrollTo(0,0);
   }
+  function track(stage, extra){ try{ var d = {stage:stage, at:new Date().toISOString(), lang:lang, ua:(navigator.userAgent||"").slice(0,140)}; if(extra && extra.error) d.error = String(extra.error).slice(0,140); fs.collection("attempts").doc(token).set(d, {merge:true}).catch(function(){}); }catch(x){} }
   function invalid(){ box.innerHTML = '<h1>'+t("invalid")+'</h1><p>'+t("invalidD")+'</p>'; }
 
   setLang(lang);
@@ -186,7 +189,7 @@
   if(!token) return invalid();
   fs.collection("invites").doc(token).get().then(function(s){
     if(!s.exists || s.data().status!=="sent" || s.data().type!==PAGE_TYPE) return invalid();
-    inv = s.data(); if(inv.lang && !q.get("l")) setLang(inv.lang==="en"?"en":"es"); else form();
+    inv = s.data(); if(inv.lang && !q.get("l")) setLang(inv.lang==="en"?"en":"es"); else form(); track("opened", {});
   }).catch(function(){ invalid(); });
 })();
 </script>
