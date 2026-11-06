@@ -81,8 +81,8 @@ function signupReceived_(b) {
   // 1. confirmation to the person (only if they gave a valid email)
   if (b.email && /^\S+@\S+\.\S+$/.test(b.email)) {
     send_(b.email, es ? "Plaza Marqann · recibimos tus datos" : "Plaza Marqann · we received your details",
-      es ? "Hola " + first + ",\n\nRecibimos tu registro correctamente. Nosotros nos encargamos del resto y te avisamos si falta algo.\n\nGracias,\nPlaza Marqann\nCarretera Sosúa–Cabarete km 4, Sosúa\nWhatsApp +1 (809) 301-7134"
-         : "Hi " + first + ",\n\nWe received your registration. We'll take it from here and let you know if anything is missing.\n\nThank you,\nPlaza Marqann\nCarretera Sosúa–Cabarete km 4, Sosúa\nWhatsApp +1 (809) 301-7134");
+      es ? "Hola " + first + ",\n\nRecibimos tu registro correctamente. Nosotros nos encargamos del resto y te avisamos si falta algo.\n\nGracias,\nPlaza Marqann\nCarretera Sosúa–Cabarete km 4, Sosúa\nWhatsApp +1 (809) 993-3888"
+         : "Hi " + first + ",\n\nWe received your registration. We'll take it from here and let you know if anything is missing.\n\nThank you,\nPlaza Marqann\nCarretera Sosúa–Cabarete km 4, Sosúa\nWhatsApp +1 (809) 993-3888");
   }
   // 2. the team
   send_(NOTIFY, "Nuevo registro de " + what + ": " + name + (inv.unit ? " · local " + inv.unit : ""),
@@ -138,7 +138,7 @@ function inboxOp_(kind, b, who) {
 function html_(text) {
   return "<div style='font:15px/1.55 Arial,Helvetica,sans-serif;color:#24262A;max-width:560px'>" +
     text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/(https?:\/\/\S+)/g, "<a href='$1' style='color:#1F3A2E'>$1</a>").replace(/\n/g, "<br>") +
-    "<p style='margin:24px 0 0;font-size:12px;color:#6B6A64'>Plaza Marqann \u00b7 support@marqann.com \u00b7 WhatsApp +1 (809) 301-7134</p></div>";
+    "<p style='margin:24px 0 0;font-size:12px;color:#6B6A64'>Plaza Marqann \u00b7 support@marqann.com \u00b7 WhatsApp +1 (809) 993-3888</p></div>";
 }
 function send_(to, subject, textEs, textEn, opts) {
   opts = opts || {};
