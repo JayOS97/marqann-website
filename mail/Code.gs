@@ -1,16 +1,16 @@
 /**
  * Plaza Marqann · email sender
- * Runs as support@marqann.com (Google Apps Script web app).
+ * Runs as info@marqann.com (Google Apps Script web app).
  * The admin dashboard and the public registration pages POST JSON here.
  *
- * Deploy: Extensions → Apps Script (signed in as support@marqann.com) → paste →
+ * Deploy: Extensions → Apps Script (signed in as info@marqann.com) → paste →
  * Deploy → New deployment → Web app → Execute as: Me · Who has access: Anyone → copy the URL.
  */
 
-var OWNERS = ["peterjaysonfollmann@gmail.com", "billy.jfollmann@gmail.com", "hvbplaza@gmail.com", "support@marqann.com"];
+var OWNERS = ["peterjaysonfollmann@gmail.com", "billy.jfollmann@gmail.com", "hvbplaza@gmail.com", "info@marqann.com", "support@marqann.com"];
 var FROM_NAME = "Plaza Marqann";
-var REPLY_TO = "support@marqann.com";
-var NOTIFY = ["support@marqann.com"];            // who gets the "new registration" alerts (add more addresses if you like)
+var REPLY_TO = "info@marqann.com";
+var NOTIFY = ["info@marqann.com"];            // who gets the "new registration" alerts (add more addresses if you like)
 var PROJECT = "marqann-admin";                    // Firebase project
 var FS = "https://firestore.googleapis.com/v1/projects/" + PROJECT + "/databases/(default)/documents/";
 var KEY = "AIzaSyAozDvcZU3DGgD7wkdN3XjIYMbrjAfDBQA"; // public web key (same one the website uses)
@@ -97,7 +97,7 @@ function custom_(b, who) {
   send_(b.to, b.subject, b.text || "", null, opts);
 }
 
-/* ---------- shared inbox (support@marqann.com) ---------- */
+/* ---------- shared inbox (info@marqann.com) ---------- */
 function inboxOp_(kind, b, who) {
   if (kind === "inbox") {
     var q = (b.q || "").trim() || "in:inbox";
@@ -138,7 +138,7 @@ function inboxOp_(kind, b, who) {
 function html_(text) {
   return "<div style='font:15px/1.55 Arial,Helvetica,sans-serif;color:#24262A;max-width:560px'>" +
     text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/(https?:\/\/\S+)/g, "<a href='$1' style='color:#1F3A2E'>$1</a>").replace(/\n/g, "<br>") +
-    "<p style='margin:24px 0 0;font-size:12px;color:#6B6A64'>Plaza Marqann \u00b7 support@marqann.com \u00b7 WhatsApp +1 (809) 993-3888</p></div>";
+    "<p style='margin:24px 0 0;font-size:12px;color:#6B6A64'>Plaza Marqann \u00b7 info@marqann.com \u00b7 WhatsApp +1 (809) 993-3888</p></div>";
 }
 function send_(to, subject, textEs, textEn, opts) {
   opts = opts || {};
